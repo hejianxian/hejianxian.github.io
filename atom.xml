@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-07T10:15:41.000Z</updated>
+  <updated>2016-02-07T10:52:17.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[jane-test]]></title>
+    <link href="http://yoursite.com/2016/02/07/jane-test/"/>
+    <id>http://yoursite.com/2016/02/07/jane-test/</id>
+    <published>2016-02-07T10:46:28.000Z</published>
+    <updated>2016-02-07T10:52:17.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="代码">代码</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">test</span> = '<span class="keyword">test</span>';</span><br><span class="line">console.<span class="literal">log</span>(<span class="keyword">test</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//params</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = 0, len = 10; i &lt; len; i+=) &#123;</span><br><span class="line">	console.<span class="literal">log</span>(i + 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Blockquotes">Blockquotes</h3><blockquote>
+<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,<br>consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.<br>Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
+<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse<br>id sem consectetuer libero luctus adipiscing.</p>
+</blockquote>
+<h3 id="link">link</h3><p><a href="https://github.com/Alex-fun/hexo-theme-jane" target="_blank" rel="external">项目地址</a></p>
+<h3 id="image">image</h3><p><img src="https://avatars.githubusercontent.com/u/6087438" alt="image"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="代码">代码</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</s]]>
+    </summary>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[hexo-theme-jane]]></title>
