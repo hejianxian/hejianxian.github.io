@@ -316,6 +316,7 @@ a.article-title:hover {
 .article-entry {
   color: #555;
   padding: 0;
+  padding-bottom: 20px;
 }
 .article-entry:before,
 .article-entry:after {
