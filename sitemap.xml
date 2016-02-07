@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/02/07/hexo-theme-jane/</loc>
+    <lastmod>2016-02-07T10:15:41.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/02/07/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/</loc>
     <lastmod>2016-02-07T09:52:10.000Z</lastmod>
   </url>

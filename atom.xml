@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-07T09:52:10.000Z</updated>
+  <updated>2016-02-07T10:15:41.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[hexo-theme-jane]]></title>
+    <link href="http://yoursite.com/2016/02/07/hexo-theme-jane/"/>
+    <id>http://yoursite.com/2016/02/07/hexo-theme-jane/</id>
+    <published>2016-02-07T09:59:50.000Z</published>
+    <updated>2016-02-07T10:15:41.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="关于">关于</h3><p>这是一个极其简单的hexo主题，甚至说，她是不及格的。这完全是按照我自己的需求和想法来设计的一个主题，没有太多的功能，例如，没有搜索功能，没有海贼王和火影忍者，没有分享，也没有脸书和推特。因为，我只希望这仅仅是一个给自己记录文字的地方，所以，没有太多花俏的功能！</p>
+<p>如果您也喜欢这样，欢迎您使用的我的主题！</p>
+<h3 id="安装">安装</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/</span><span class="constant">Alex</span>-<span class="function"><span class="keyword">fun</span><span class="title">/</span></span>hexo-theme-jane.git themes/jane</span><br></pre></td></tr></table></figure>
+<p>然后配置根目录的_config.yml文件（并非theme里的那个）</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">theme</span>: <span class="string">jane</span></span><br></pre></td></tr></table></figure>
+<h3 id="tags">tags</h3><p>因为tags是单独一个页面展示，所以需要手动添加，输入以下命令就可以了</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page <span class="keyword">tags</span></span><br></pre></td></tr></table></figure>
+<h3 id="更新">更新</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/jane</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="关于">关于</h3><p>这是一个极其简单的hexo主题，甚至说，她是不及格的。这完全是按照我自己的需求和想法来设计的一个主题，没有太多的功能，例如，没有搜索功能，没有海贼王和火影忍者，没有分享，也没有脸书和推特。因为，我只希望这仅仅是一个给自己记录文字的地方，]]>
+    </summary>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[新的开始]]></title>
