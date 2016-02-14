@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-14T16:09:14.000Z</updated>
+  <updated>2016-02-14T16:10:15.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2016/02/09/%E8%A7%A3%E5%86%B3%E6%89%8B%E6%9C%BA%E7%AB%AFborder1px%E5%8F%98%E7%B2%97%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2016/02/09/解决手机端border1px变粗的问题/</id>
     <published>2016-02-09T09:02:38.000Z</published>
-    <updated>2016-02-14T16:09:14.000Z</updated>
+    <updated>2016-02-14T16:10:15.000Z</updated>
     <content type="html"><![CDATA[<h3 id="因由">因由</h3><p>简单地举例说吧，例如iphone 5s，2倍高清屏，实际的屏幕像素是1136×640px，物理像素只有其1/2，然而css上使用的border:1px却是物理尺寸，所以，在手机上看到的线就会变成了2个px（如果有对比的话，会非常明显）。同理在3倍高清屏上，也是一样，会变成3px。解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3倍就33.333%。</p>
 <h3 id="使用scale">使用scale</h3><p>举个例子，现在要做一个上边框 <em>border-top</em> ，这里是用了伪类元素:before来模拟这条上边框，样式如下：</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ～border-top</span></span><br><span class="line"><span class="tag">div</span><span class="class">.ui-border-top</span><span class="pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: auto;</span><br><span class="line">  <span class="attribute">right</span>: auto;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="hexcolor">#c8c7cc</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">-webkit-transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">  <span class="attribute">transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -41,6 +41,8 @@
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ～border-top</span></span><br><span class="line"><span class="tag">div</span><span class="class">.ui-border-top</span><span class="pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: auto;</span><br><span class="line">  <span class="attribute">right</span>: auto;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="hexcolor">#c8c7cc</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">-webkit-transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">  <span class="attribute">transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]>
     
     </summary>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
       <category term="webapp" scheme="http://yoursite.com/tags/webapp/"/>
     
