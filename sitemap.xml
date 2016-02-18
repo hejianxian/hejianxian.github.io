@@ -2,6 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/02/18/%E8%AF%AD%E5%BD%95/</loc>
+    <lastmod>2016-02-18T01:54:15.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/02/18/%E8%AE%A4%E8%AF%86Array/</loc>
+    <lastmod>2016-02-18T01:39:58.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/02/18/%E8%AE%A4%E8%AF%86Object/</loc>
+    <lastmod>2016-02-18T01:39:50.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/02/17/%E7%BB%86%E8%AF%B4%E9%82%A3%E4%BA%9B%E7%AE%80%E7%9F%AD%E7%9A%84js%E8%AF%AD%E6%B3%95/</loc>
+    <lastmod>2016-02-17T06:22:44.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/02/09/%E8%A7%A3%E5%86%B3%E6%89%8B%E6%9C%BA%E7%AB%AFborder1px%E5%8F%98%E7%B2%97%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2016-02-14T16:13:52.000Z</lastmod>
   </url>

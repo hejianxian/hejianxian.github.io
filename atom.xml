@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-14T16:13:52.000Z</updated>
+  <updated>2016-02-18T01:54:15.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[语录]]></title>
+    <link href="http://yoursite.com/2016/02/18/%E8%AF%AD%E5%BD%95/"/>
+    <id>http://yoursite.com/2016/02/18/语录/</id>
+    <published>2016-02-18T01:42:46.000Z</published>
+    <updated>2016-02-18T01:54:15.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>把复杂拆分成简单，将简单组合成强大，再用强大去解决复杂。  – Unix设计思想之一</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>把复杂拆分成简单，将简单组合成强大，再用强大去解决复杂。  – Unix设计思想之一</p>
+</blockquote>
+]]>
+    </summary>
+    
+      <category term="语录" scheme="http://yoursite.com/tags/%E8%AF%AD%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[认识Array]]></title>
+    <link href="http://yoursite.com/2016/02/18/%E8%AE%A4%E8%AF%86Array/"/>
+    <id>http://yoursite.com/2016/02/18/认识Array/</id>
+    <published>2016-02-18T01:39:58.000Z</published>
+    <updated>2016-02-18T01:39:58.000Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[认识Object]]></title>
+    <link href="http://yoursite.com/2016/02/18/%E8%AE%A4%E8%AF%86Object/"/>
+    <id>http://yoursite.com/2016/02/18/认识Object/</id>
+    <published>2016-02-18T01:39:50.000Z</published>
+    <updated>2016-02-18T01:39:50.000Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[细说那些简短的js语法]]></title>
+    <link href="http://yoursite.com/2016/02/17/%E7%BB%86%E8%AF%B4%E9%82%A3%E4%BA%9B%E7%AE%80%E7%9F%AD%E7%9A%84js%E8%AF%AD%E6%B3%95/"/>
+    <id>http://yoursite.com/2016/02/17/细说那些简短的js语法/</id>
+    <published>2016-02-17T06:20:52.000Z</published>
+    <updated>2016-02-17T06:22:44.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="数组">数组</h3><h3 id="&amp;&amp;_||">&amp;&amp; ||</h3><h3 id="IIFE">IIFE</h3><h3 id="UMD">UMD</h3>]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="数组">数组</h3><h3 id="&amp;&amp;_||">&amp;&amp; ||</h3><h3 id="IIFE">IIFE</h3><h3 id="UMD">UMD</h3>]]>
+    </summary>
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[解决手机端border1px变粗的问题]]></title>
