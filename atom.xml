@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-19T04:15:23.000Z</updated>
+  <updated>2016-02-19T04:18:16.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,16 +19,17 @@
     <link href="http://yoursite.com/2016/02/18/%E7%90%86%E8%A7%A3Object-assign/"/>
     <id>http://yoursite.com/2016/02/18/理解Object-assign/</id>
     <published>2016-02-18T14:13:13.000Z</published>
-    <updated>2016-02-19T04:15:23.000Z</updated>
-    <content type="html"><![CDATA[<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.<span class="function"><span class="title">assign</span><span class="params">(target, ...sources)</span></span></span><br></pre></td></tr></table></figure>
-<p>Object.assign()方法用于从一个或多个源对象（sources）中拷贝所有可枚举的自有属性到目标对象（target），并返回目标对象。拷贝过程中将调用源对象的getter方法，并在target对象上使用setter方法实现目标对象的拷贝。</p>
+    <updated>2016-02-19T04:18:16.000Z</updated>
+    <content type="html"><![CDATA[<p>Object.assign()方法用于从一个或多个源对象（sources）中拷贝所有可枚举的自有属性到目标对象（target），并返回目标对象。拷贝过程中将调用源对象的getter方法，并在target对象上使用setter方法实现目标对象的拷贝。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.<span class="function"><span class="title">assign</span><span class="params">(target, ...sources)</span></span></span><br></pre></td></tr></table></figure>
 <p>不过，采用这种方法克隆，只能克隆原始对象自身的值，不能克隆它继承的值。如果想要保持继承链，可以采用下面的代码。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">origin</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> originProto = <span class="built_in">Object</span>.getPrototypeOf(origin);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(<span class="built_in">Object</span>.create(originProto), origin);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>原文：Both String and Symbol properties are copied.</p>
 </blockquote>
-<p>String和Symbol类型都可被拷贝。</p>
+<p>String和Symbol类型都可被直接分配。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">origin</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> originProto = <span class="built_in">Object</span>.getPrototypeOf(origin);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(<span class="built_in">Object</span>.create(originProto), origin);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>注意：如果属性是只读的，那将会抛出异常，目标对象将会停止改变（而之前的改变会保留）。但是对于null或者undefind会直接忽略。</p>
+<a id="more"></a>
 <h3 id="简单克隆对象">简单克隆对象</h3><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="comment">&#123;a: 1&#125;</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="keyword">copy</span> = Object.assign(<span class="comment">&#123;&#125;</span>, obj);</span><br><span class="line"></span><br><span class="line">console.log(<span class="keyword">copy</span>); <span class="comment">//Object &#123;a: 1&#125;</span></span><br></pre></td></tr></table></figure>
 <h3 id="合并对象">合并对象</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> a</span> = &#123;x: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> b</span> = &#123;y: <span class="number">2</span>&#125;;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> c</span> = &#123;x: <span class="number">4</span>, z: <span class="number">3</span>&#125;;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> obj</span> = Object.assign(a, b, c);</span><br><span class="line"></span><br><span class="line">console.log(obj); <span class="comment">//Object &#123;x: 4, y: 2, z: 3&#125;</span></span><br></pre></td></tr></table></figure>
 <h3 id="拷贝Symbol属性">拷贝Symbol属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;x: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> b = &#123;[<span class="built_in">Symbol</span>(<span class="string">'y'</span>)]: <span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.assign(a, b);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">//Object &#123;x: 1, Symbol(y): 2&#125;</span></span><br></pre></td></tr></table></figure>
@@ -47,7 +48,16 @@
 <p><a href="https://cnodejs.org/topic/56c49662db16d3343df34b13#56c5a0b18442f7e03c731719" target="_blank" rel="external">ES2015系列(二) 理解Object.assign</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span cl]]>
+    <![CDATA[<p>Object.assign()方法用于从一个或多个源对象（sources）中拷贝所有可枚举的自有属性到目标对象（target），并返回目标对象。拷贝过程中将调用源对象的getter方法，并在target对象上使用setter方法实现目标对象的拷贝。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.<span class="function"><span class="title">assign</span><span class="params">(target, ...sources)</span></span></span><br></pre></td></tr></table></figure>
+<p>不过，采用这种方法克隆，只能克隆原始对象自身的值，不能克隆它继承的值。如果想要保持继承链，可以采用下面的代码。</p>
+<blockquote>
+<p>原文：Both String and Symbol properties are copied.</p>
+</blockquote>
+<p>String和Symbol类型都可被直接分配。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">origin</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> originProto = <span class="built_in">Object</span>.getPrototypeOf(origin);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(<span class="built_in">Object</span>.create(originProto), origin);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：如果属性是只读的，那将会抛出异常，目标对象将会停止改变（而之前的改变会保留）。但是对于null或者undefind会直接忽略。</p>]]>
+    
     </summary>
     
       <category term="javascript-Object" scheme="http://yoursite.com/tags/javascript-Object/"/>
@@ -72,21 +82,6 @@
     </summary>
     
       <category term="语录" scheme="http://yoursite.com/tags/%E8%AF%AD%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[理解Object.prototype]]></title>
-    <link href="http://yoursite.com/2016/02/18/%E7%90%86%E8%A7%A3Object.assign/"/>
-    <id>http://yoursite.com/2016/02/18/理解Object.assign/</id>
-    <published>2016-02-18T01:39:50.000Z</published>
-    <updated>2016-02-18T14:12:56.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="Object-prototype">Object.prototype</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Cat = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Cat.prototype.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Hi, I am '</span> + <span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Dog = <span class="function"><span class="keyword">function</span> (<span class="params">name, color</span>) </span>&#123;</span><br><span class="line">	Cat.call(<span class="keyword">this</span>);</span><br><span class="line">	<span class="keyword">this</span>.color = color;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Dog.prototype = <span class="built_in">Object</span>.create(Cat.prototype);</span><br><span class="line">Dog.prototype.constructor = Dog;</span><br><span class="line"></span><br><span class="line">Dog.prototype.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Hi, I am '</span> + <span class="keyword">this</span>.name + <span class="string">', color is '</span> + <span class="keyword">this</span>.color);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">'hejx'</span>),</span><br><span class="line">	dog = <span class="keyword">new</span> Dog(<span class="string">'yan'</span>, <span class="string">'black'</span>);</span><br><span class="line"></span><br><span class="line">cat.getName();</span><br><span class="line"><span class="comment">//Hi, I am hejx</span></span><br><span class="line"></span><br><span class="line">dog.getName();</span><br><span class="line"><span class="comment">//Hi, I am yan, color is black</span></span><br></pre></td></tr></table></figure>]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="Object-prototype">Object.prototype</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1<]]>
-    </summary>
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
