@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hejx&#39;s blog</title>
+  <title>理解Object.assign | Hejx&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hejx's blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="1Object.assign(target, ...sources)
+Object.assign()方法用于从一个或多个源对象（sources）中拷贝所有可枚举的自有属性到目标对象（target），并返回目标对象。拷贝过程中将调用源对象的getter方法，并在target对象上使用setter方法实现目标对象的拷贝。
+不过，采用这种方法克隆，只能克隆原始对象自身的值，不能克隆它继承的值。如果想要保">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解Object.assign">
+<meta property="og:url" content="http://yoursite.com/2016/02/18/理解Object-assign/index.html">
 <meta property="og:site_name" content="Hejx's blog">
-<meta property="og:description">
+<meta property="og:description" content="1Object.assign(target, ...sources)
+Object.assign()方法用于从一个或多个源对象（sources）中拷贝所有可枚举的自有属性到目标对象（target），并返回目标对象。拷贝过程中将调用源对象的getter方法，并在target对象上使用setter方法实现目标对象的拷贝。
+不过，采用这种方法克隆，只能克隆原始对象自身的值，不能克隆它继承的值。如果想要保">
+<meta property="og:updated_time" content="2016-02-19T04:15:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hejx's blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="理解Object.assign">
+<meta name="twitter:description" content="1Object.assign(target, ...sources)
+Object.assign()方法用于从一个或多个源对象（sources）中拷贝所有可枚举的自有属性到目标对象（target），并返回目标对象。拷贝过程中将调用源对象的getter方法，并在target对象上使用setter方法实现目标对象的拷贝。
+不过，采用这种方法克隆，只能克隆原始对象自身的值，不能克隆它继承的值。如果想要保">
   
     <link rel="alternative" href="/atom.xml" title="Hejx&#39;s blog" type="application/atom+xml">
   
@@ -29,17 +36,15 @@
   <div id="container">
     <div id="wrap">
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-理解Object-assign" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-理解Object-assign" class="article article-type-post" itemscope itemprop="blogPost">
   
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/18/理解Object-assign/">理解Object.assign</a>
+    <h1 class="article-title" itemprop="name">
+      理解Object.assign
     </h1>
   
 
@@ -86,168 +91,39 @@
     </div>
   </div>
   
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/02/18/语录/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">语录</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
-  
-    <article id="post-语录" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/18/语录/">语录</a>
-    </h1>
-  
+<section id="comments">
+  <div id="disqus_thread">
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'hejx'; // required: replace example with your forum shortname
 
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/02/18/语录/" class="article-date">
-  <time datetime="2016-02-18T01:42:46.000Z" itemprop="datePublished">2016-02-18</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>把复杂拆分成简单，将简单组合成强大，再用强大去解决复杂。  ——Unix设计思想之一</p>
-</blockquote>
-
-      
-
-      
-        
-    </div>
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
   </div>
-  
-</article>
-
-
-  
-    <article id="post-理解Object.assign" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/18/理解Object.assign/">理解Object.prototype</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/02/18/理解Object.assign/" class="article-date">
-  <time datetime="2016-02-18T01:39:50.000Z" itemprop="datePublished">2016-02-18</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Object-prototype">Object.prototype</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Cat = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Cat.prototype.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Hi, I am '</span> + <span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Dog = <span class="function"><span class="keyword">function</span> (<span class="params">name, color</span>) </span>&#123;</span><br><span class="line">	Cat.call(<span class="keyword">this</span>);</span><br><span class="line">	<span class="keyword">this</span>.color = color;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Dog.prototype = <span class="built_in">Object</span>.create(Cat.prototype);</span><br><span class="line">Dog.prototype.constructor = Dog;</span><br><span class="line"></span><br><span class="line">Dog.prototype.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Hi, I am '</span> + <span class="keyword">this</span>.name + <span class="string">', color is '</span> + <span class="keyword">this</span>.color);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">'hejx'</span>),</span><br><span class="line">	dog = <span class="keyword">new</span> Dog(<span class="string">'yan'</span>, <span class="string">'black'</span>);</span><br><span class="line"></span><br><span class="line">cat.getName();</span><br><span class="line"><span class="comment">//Hi, I am hejx</span></span><br><span class="line"></span><br><span class="line">dog.getName();</span><br><span class="line"><span class="comment">//Hi, I am yan, color is black</span></span><br></pre></td></tr></table></figure>
-      
-
-      
-        
-    </div>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-解决手机端border1px变粗的问题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/09/解决手机端border1px变粗的问题/">解决手机端border1px变粗的问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/02/09/解决手机端border1px变粗的问题/" class="article-date">
-  <time datetime="2016-02-09T09:02:38.000Z" itemprop="datePublished">2016-02-09</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="因由">因由</h3><p>简单地举例说吧，例如iphone 5s，2倍高清屏，实际的屏幕像素是1136×640px，物理像素只有其1/2，然而css上使用的border:1px却是物理尺寸，所以，在手机上看到的线就会变成了2个px（如果有对比的话，会非常明显）。同理在3倍高清屏上，也是一样，会变成3px。解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3倍就33.333%。</p>
-<h3 id="1、使用scale">1、使用scale</h3><p>举个例子，现在要做一个上边框 <em>border-top</em> ，这里是用了伪类元素:before来模拟这条上边框，样式如下：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ～border-top</span></span><br><span class="line"><span class="tag">div</span><span class="class">.ui-border-top</span><span class="pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: auto;</span><br><span class="line">  <span class="attribute">right</span>: auto;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="hexcolor">#c8c7cc</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">-webkit-transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">  <span class="attribute">transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2016/02/09/解决手机端border1px变粗的问题/#more">More...</a>
-          </p>
-        
-      
-
-      
-        
-    </div>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-jane-test" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/07/jane-test/">jane-test</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/02/07/jane-test/" class="article-date">
-  <time datetime="2016-02-07T10:46:28.000Z" itemprop="datePublished">2016-02-07</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="代码">代码</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">test</span> = '<span class="keyword">test</span>';</span><br><span class="line">console.<span class="literal">log</span>(<span class="keyword">test</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//message</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = 0, len = 10; i &lt; len; i+=) &#123;</span><br><span class="line">	console.<span class="literal">log</span>(i + 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Blockquotes">Blockquotes</h3><blockquote>
-<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,<br>consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.<br>Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
-<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse<br>id sem consectetuer libero luctus adipiscing.</p>
-</blockquote>
-<h3 id="link">link</h3><p><a href="https://github.com/Alex-fun/hexo-theme-jane" target="_blank" rel="external">项目地址</a></p>
-<h3 id="image">image</h3><p><img src="https://hexo.io/hexo-theme-landscape/2013/12/25/gallery-post/wallpaper-2572384.jpg" alt="image"></p>
-
-      
-
-      
-        
-    </div>
-  </div>
-  
-</article>
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
+</section>
 </section>
         <aside id="sidebar">
   <nav class="menus">
@@ -291,11 +167,13 @@
 <script>
   var disqus_shortname = 'hejx';
   
+  var disqus_url = 'http://yoursite.com/2016/02/18/理解Object-assign/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
