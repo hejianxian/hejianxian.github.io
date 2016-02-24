@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/02/20/%E7%90%86%E8%A7%A3Object-create/</loc>
+    <lastmod>2016-02-24T14:24:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/02/24/MutationObserver/</loc>
+    <lastmod>2016-02-24T05:28:51.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/02/18/%E7%90%86%E8%A7%A3Object-assign/</loc>
     <lastmod>2016-02-19T04:18:16.000Z</lastmod>
   </url>
