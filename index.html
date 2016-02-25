@@ -31,6 +31,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-关于javascript里的变量提升和函数提升" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/25/关于javascript里的变量提升和函数提升/">关于javascript里的声明提前（hoisting）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/02/25/关于javascript里的变量提升和函数提升/" class="article-date">
+  <time datetime="2016-02-25T13:52:47.000Z" itemprop="datePublished">2016-02-25</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>“声明提前”是在javascript引擎的“预编译”时进行的，也就是在代码开始运行之前。</p>
+</blockquote>
+<p>在函数里声明的所有变量（但不涉及赋值），都会被“提前”至函数体的顶部。在函数体内，局部变量的优先级高于同名的全局变量，如果在函数体内声明一个局部变量或者函数参数中带有的变量和全局变量同名，那么全局变量将会被局部变量覆盖。而给一个没有被声明的变量赋值，在非严谨模式下，等同于在全局范围创建了一个同名属性。</p>
+<p>在脚本里，所有的函数包括嵌套的函数，都会在当前的上下文中其他代码之前声明。函数定义语句中的函数会被显式地“提前”（包括函数名和函数体），在脚本和函数内部都是可见的，因此可以被提前调用。而使用var的话（函数定义表达式），只有变量会被提前，变量的定义还在原来的位置。</p>
+        
+          <p class="article-more-link">
+            <a href="/2016/02/25/关于javascript里的变量提升和函数提升/#more">More...</a>
+          </p>
+        
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-MutationObserver" class="article article-type-post" itemscope itemprop="blogPost">
   
   <div class="article-inner">
@@ -179,47 +222,6 @@
 <p>把复杂拆分成简单，将简单组合成强大，再用强大去解决复杂。  ——Unix设计思想之一</p>
 </blockquote>
 
-      
-
-      
-        
-    </div>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-解决手机端border1px变粗的问题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/09/解决手机端border1px变粗的问题/">解决手机端border1px变粗的问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/02/09/解决手机端border1px变粗的问题/" class="article-date">
-  <time datetime="2016-02-09T09:02:38.000Z" itemprop="datePublished">2016-02-09</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="因由">因由</h3><p>简单地举例说吧，例如iphone 5s，2倍高清屏，实际的屏幕像素是1136×640px，物理像素只有其1/2，然而css上使用的border:1px却是物理尺寸，所以，在手机上看到的线就会变成了2个px（如果有对比的话，会非常明显）。同理在3倍高清屏上，也是一样，会变成3px。解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3倍就33.333%。</p>
-<h3 id="1、使用scale">1、使用scale</h3><p>举个例子，现在要做一个上边框 <em>border-top</em> ，这里是用了伪类元素:before来模拟这条上边框，样式如下：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ～border-top</span></span><br><span class="line"><span class="tag">div</span><span class="class">.ui-border-top</span><span class="pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: auto;</span><br><span class="line">  <span class="attribute">right</span>: auto;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="hexcolor">#c8c7cc</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">-webkit-transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">  <span class="attribute">transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2016/02/09/解决手机端border1px变粗的问题/#more">More...</a>
-          </p>
-        
       
 
       

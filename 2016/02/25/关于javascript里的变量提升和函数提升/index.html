@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>关于javascript里的声明提前（hoisting） | Hejx&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="“声明提前”是在javascript引擎的“预编译”时进行的，也就是在代码开始运行之前。
+
+在函数里声明的所有变量（但不涉及赋值），都会被“提前”至函数体的顶部。在函数体内，局部变量的优先级高于同名的全局变量，如果在函数体内声明一个局部变量或者函数参数中带有的变量和全局变量同名，那么全局变量将会被局部变量覆盖。而给一个没有被声明的变量赋值，在非严谨模式下，等同于在全局范围创建了一个同名属性。
+在脚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于javascript里的声明提前（hoisting）">
+<meta property="og:url" content="http://yoursite.com/2016/02/25/关于javascript里的变量提升和函数提升/index.html">
+<meta property="og:site_name" content="Hejx's blog">
+<meta property="og:description" content="“声明提前”是在javascript引擎的“预编译”时进行的，也就是在代码开始运行之前。
+
+在函数里声明的所有变量（但不涉及赋值），都会被“提前”至函数体的顶部。在函数体内，局部变量的优先级高于同名的全局变量，如果在函数体内声明一个局部变量或者函数参数中带有的变量和全局变量同名，那么全局变量将会被局部变量覆盖。而给一个没有被声明的变量赋值，在非严谨模式下，等同于在全局范围创建了一个同名属性。
+在脚">
+<meta property="og:updated_time" content="2016-02-25T15:38:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于javascript里的声明提前（hoisting）">
+<meta name="twitter:description" content="“声明提前”是在javascript引擎的“预编译”时进行的，也就是在代码开始运行之前。
+
+在函数里声明的所有变量（但不涉及赋值），都会被“提前”至函数体的顶部。在函数体内，局部变量的优先级高于同名的全局变量，如果在函数体内声明一个局部变量或者函数参数中带有的变量和全局变量同名，那么全局变量将会被局部变量覆盖。而给一个没有被声明的变量赋值，在非严谨模式下，等同于在全局范围创建了一个同名属性。
+在脚">
+  
+    <link rel="alternative" href="/atom.xml" title="Hejx&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <section id="main"><article id="post-关于javascript里的变量提升和函数提升" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于javascript里的声明提前（hoisting）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/02/25/关于javascript里的变量提升和函数提升/" class="article-date">
+  <time datetime="2016-02-25T13:52:47.000Z" itemprop="datePublished">2016-02-25</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>“声明提前”是在javascript引擎的“预编译”时进行的，也就是在代码开始运行之前。</p>
+</blockquote>
+<p>在函数里声明的所有变量（但不涉及赋值），都会被“提前”至函数体的顶部。在函数体内，局部变量的优先级高于同名的全局变量，如果在函数体内声明一个局部变量或者函数参数中带有的变量和全局变量同名，那么全局变量将会被局部变量覆盖。而给一个没有被声明的变量赋值，在非严谨模式下，等同于在全局范围创建了一个同名属性。</p>
+<p>在脚本里，所有的函数包括嵌套的函数，都会在当前的上下文中其他代码之前声明。函数定义语句中的函数会被显式地“提前”（包括函数名和函数体），在脚本和函数内部都是可见的，因此可以被提前调用。而使用var的话（函数定义表达式），只有变量会被提前，变量的定义还在原来的位置。</p>
+<a id="more"></a>
+<h3 id="反面教材1">反面教材1</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">function</span><span class="list">(<span class="keyword">a</span>)</span><span class="collection">&#123;</span><br><span class="line">  console.log<span class="list">(<span class="keyword">a</span>)</span><span class="comment">; // 输出 function a()&#123;&#125;</span></span><br><span class="line">  var a = <span class="number">10</span><span class="comment">;</span></span><br><span class="line">  function a<span class="list">()</span><span class="collection">&#123;&#125;</span><span class="comment">;</span></span><br><span class="line">&#125;</span>)</span><span class="list">(<span class="number">100</span>)</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">function</span><span class="list">(<span class="keyword">a</span>)</span><span class="collection">&#123;</span><br><span class="line">  console.log<span class="list">(<span class="keyword">a</span>)</span><span class="comment">; // 输出 100</span></span><br><span class="line">  var a = <span class="number">10</span><span class="comment">;</span></span><br><span class="line">&#125;</span>)</span><span class="list">(<span class="number">100</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h3 id="反面教材2">反面教材2</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 输出 functiong a()&#123;&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span><span class="title">g</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 输出 undefined</span></span><br><span class="line"><span class="keyword">var</span> a = funciton()&#123;&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="反面教材3">反面教材3</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  a = <span class="number">10</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a); <span class="comment">// 输出 10</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">// 输出 undefined</span></span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">20</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a); <span class="comment">// 输出 20</span></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等于下面的</span></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a; </span><br><span class="line">  a = <span class="number">10</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a); <span class="comment">// 输出 10</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">// 输出 undefined</span></span><br><span class="line">  a = <span class="number">20</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a); <span class="comment">// 输出 20</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+      
+
+      
+        
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/02/24/MutationObserver/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MutationObserver</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'hejx'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+</section>
+</section>
+        <aside id="sidebar">
+  <nav class="menus">
+  	<ul>
+  		<li><a href="/"><i class="icon icon-home"></i></a></li>
+  		
+			<li><a href="/archives"><i class="icon icon-fenlei"></i></a></li>
+  		
+  		
+			<li><a href="/tags"><i class="icon icon-tag"></i></a></li>
+  		
+  		
+  			<li><a href="https://github.com/Alex-fun" target="_blank"><i class="icon icon-github"></i></a></li>
+  		
+  	</ul>
+  </nav>
+  <a id="go-top" href="#"><i class="icon icon-up"></i></a>
+</aside>
+      </div>
+      <footer id="footer">
+  
+	<div id="footer-info" class="inner">
+	  &copy; 2016 Hejx 
+	  - Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  - Theme <a href="https://github.com/Alex-fun/hexo-theme-jane/" target="_blank">Jane</a>
+	</div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tag</a>
+  
+    <a href="https://github.com/Alex-fun" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'hejx';
+  
+  var disqus_url = 'http://yoursite.com/2016/02/25/关于javascript里的变量提升和函数提升/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

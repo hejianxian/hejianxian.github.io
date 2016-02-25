@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-24T05:28:51.000Z</updated>
+  <updated>2016-02-25T15:38:17.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[关于javascript里的声明提前（hoisting）]]></title>
+    <link href="http://yoursite.com/2016/02/25/%E5%85%B3%E4%BA%8Ejavascript%E9%87%8C%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E5%92%8C%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/"/>
+    <id>http://yoursite.com/2016/02/25/关于javascript里的变量提升和函数提升/</id>
+    <published>2016-02-25T13:52:47.000Z</published>
+    <updated>2016-02-25T15:38:17.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>“声明提前”是在javascript引擎的“预编译”时进行的，也就是在代码开始运行之前。</p>
+</blockquote>
+<p>在函数里声明的所有变量（但不涉及赋值），都会被“提前”至函数体的顶部。在函数体内，局部变量的优先级高于同名的全局变量，如果在函数体内声明一个局部变量或者函数参数中带有的变量和全局变量同名，那么全局变量将会被局部变量覆盖。而给一个没有被声明的变量赋值，在非严谨模式下，等同于在全局范围创建了一个同名属性。</p>
+<p>在脚本里，所有的函数包括嵌套的函数，都会在当前的上下文中其他代码之前声明。函数定义语句中的函数会被显式地“提前”（包括函数名和函数体），在脚本和函数内部都是可见的，因此可以被提前调用。而使用var的话（函数定义表达式），只有变量会被提前，变量的定义还在原来的位置。</p>
+<a id="more"></a>
+<h3 id="反面教材1">反面教材1</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">function</span><span class="list">(<span class="keyword">a</span>)</span><span class="collection">&#123;</span><br><span class="line">  console.log<span class="list">(<span class="keyword">a</span>)</span><span class="comment">; // 输出 function a()&#123;&#125;</span></span><br><span class="line">  var a = <span class="number">10</span><span class="comment">;</span></span><br><span class="line">  function a<span class="list">()</span><span class="collection">&#123;&#125;</span><span class="comment">;</span></span><br><span class="line">&#125;</span>)</span><span class="list">(<span class="number">100</span>)</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">function</span><span class="list">(<span class="keyword">a</span>)</span><span class="collection">&#123;</span><br><span class="line">  console.log<span class="list">(<span class="keyword">a</span>)</span><span class="comment">; // 输出 100</span></span><br><span class="line">  var a = <span class="number">10</span><span class="comment">;</span></span><br><span class="line">&#125;</span>)</span><span class="list">(<span class="number">100</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h3 id="反面教材2">反面教材2</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 输出 functiong a()&#123;&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span><span class="title">g</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 输出 undefined</span></span><br><span class="line"><span class="keyword">var</span> a = funciton()&#123;&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="反面教材3">反面教材3</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  a = <span class="number">10</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a); <span class="comment">// 输出 10</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">// 输出 undefined</span></span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">20</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a); <span class="comment">// 输出 20</span></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等于下面的</span></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a; </span><br><span class="line">  a = <span class="number">10</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a); <span class="comment">// 输出 10</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">// 输出 undefined</span></span><br><span class="line">  a = <span class="number">20</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a); <span class="comment">// 输出 20</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>“声明提前”是在javascript引擎的“预编译”时进行的，也就是在代码开始运行之前。</p>
+</blockquote>
+<p>在函数里声明的所有变量（但不涉及赋值），都会被“提前”至函数体的顶部。在函数体内，局部变量的优先级高于同名的全局变量，如果在函数体内声明一个局部变量或者函数参数中带有的变量和全局变量同名，那么全局变量将会被局部变量覆盖。而给一个没有被声明的变量赋值，在非严谨模式下，等同于在全局范围创建了一个同名属性。</p>
+<p>在脚本里，所有的函数包括嵌套的函数，都会在当前的上下文中其他代码之前声明。函数定义语句中的函数会被显式地“提前”（包括函数名和函数体），在脚本和函数内部都是可见的，因此可以被提前调用。而使用var的话（函数定义表达式），只有变量会被提前，变量的定义还在原来的位置。</p>]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[MutationObserver]]></title>
