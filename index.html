@@ -230,10 +230,202 @@
 
 
   
+    <article id="post-语录" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/18/语录/">语录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/02/18/语录/" class="article-date">
+  <time datetime="2016-02-18T01:42:46.000Z" itemprop="datePublished">2016-02-18</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>把复杂拆分成简单，将简单组合成强大，再用强大去解决复杂。  ——Unix设计思想之一</p>
+</blockquote>
+
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-解决手机端border1px变粗的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/09/解决手机端border1px变粗的问题/">解决手机端border1px变粗的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/02/09/解决手机端border1px变粗的问题/" class="article-date">
+  <time datetime="2016-02-09T09:02:38.000Z" itemprop="datePublished">2016-02-09</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="因由">因由</h3><p>简单地举例说吧，例如iphone 5s，2倍高清屏，实际的屏幕像素是1136×640px，物理像素只有其1/2，然而css上使用的border:1px却是物理尺寸，所以，在手机上看到的线就会变成了2个px（如果有对比的话，会非常明显）。同理在3倍高清屏上，也是一样，会变成3px。解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3倍就33.333%。</p>
+<h3 id="1、使用scale">1、使用scale</h3><p>举个例子，现在要做一个上边框 <em>border-top</em> ，这里是用了伪类元素:before来模拟这条上边框，样式如下：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ～border-top</span></span><br><span class="line"><span class="tag">div</span><span class="class">.ui-border-top</span><span class="pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: auto;</span><br><span class="line">  <span class="attribute">right</span>: auto;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="hexcolor">#c8c7cc</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">-webkit-transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">  <span class="attribute">transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2016/02/09/解决手机端border1px变粗的问题/#more">More...</a>
+          </p>
+        
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jane-test" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/07/jane-test/">jane-test</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/02/07/jane-test/" class="article-date">
+  <time datetime="2016-02-07T10:46:28.000Z" itemprop="datePublished">2016-02-07</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="代码">代码</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">test</span> = '<span class="keyword">test</span>';</span><br><span class="line">console.<span class="literal">log</span>(<span class="keyword">test</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//message</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = 0, len = 10; i &lt; len; i+=) &#123;</span><br><span class="line">	console.<span class="literal">log</span>(i + 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Blockquotes">Blockquotes</h3><blockquote>
+<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,<br>consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.<br>Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
+<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse<br>id sem consectetuer libero luctus adipiscing.</p>
+</blockquote>
+<h3 id="link">link</h3><p><a href="https://github.com/Alex-fun/hexo-theme-jane" target="_blank" rel="external">项目地址</a></p>
+<h3 id="image">image</h3><p><img src="https://dn-cnode.qbox.me/FggySaifXShKXx-Rp9c5gxh6Gox0" alt="image"></p>
+
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hexo-theme-jane" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/07/hexo-theme-jane/">hexo-theme-jane</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/02/07/hexo-theme-jane/" class="article-date">
+  <time datetime="2016-02-07T09:59:50.000Z" itemprop="datePublished">2016-02-07</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="关于">关于</h3><p>这是一个极其简单的hexo主题，甚至说，她是不及格的。这完全是按照我自己的需求和想法来设计的一个主题，没有太多的功能，例如，没有搜索功能，没有海贼王和火影忍者，没有分享，也没有脸书和推特。因为，我只希望这仅仅是一个给自己记录文字的地方，所以，没有太多花俏的功能！</p>
+<p>如果您也喜欢这样，欢迎您使用的我的主题！</p>
+<h3 id="安装">安装</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/</span><span class="constant">Alex</span>-<span class="function"><span class="keyword">fun</span><span class="title">/</span></span>hexo-theme-jane.git themes/jane</span><br></pre></td></tr></table></figure>
+<p>然后配置根目录的_config.yml文件（并非theme里的那个）</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">theme</span>: <span class="string">jane</span></span><br></pre></td></tr></table></figure>
+<h3 id="tags">tags</h3><p>因为tags是单独一个页面展示，所以需要手动添加，输入以下命令就可以了</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page <span class="keyword">tags</span></span><br></pre></td></tr></table></figure>
+<h3 id="更新">更新</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/jane</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-新的开始" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/07/新的开始/">新的开始</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/02/07/新的开始/" class="article-date">
+  <time datetime="2016-02-07T09:50:43.000Z" itemprop="datePublished">2016-02-07</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2016，重新起航！</p>
+
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
   
 </section>
         <aside id="sidebar">
