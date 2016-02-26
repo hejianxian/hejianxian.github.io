@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/02/07/jane-test/</loc>
+    <lastmod>2016-02-26T06:14:41.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/02/26/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-1/</loc>
+    <lastmod>2016-02-25T16:25:34.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/02/25/%E5%85%B3%E4%BA%8Ejavascript%E9%87%8C%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E5%92%8C%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/</loc>
     <lastmod>2016-02-25T15:38:17.000Z</lastmod>
   </url>
@@ -29,11 +39,6 @@
   <url>
     <loc>http://yoursite.com/2016/02/18/%E8%AF%AD%E5%BD%95/</loc>
     <lastmod>2016-02-18T01:55:19.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/02/07/jane-test/</loc>
-    <lastmod>2016-02-07T10:59:51.000Z</lastmod>
   </url>
   
   <url>
