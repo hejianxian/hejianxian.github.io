@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>常用命令 | Hejx&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="lsls最常用的参数有三个： -a -l -F。
+ls –a
+Linux上的文件以.开头的文件被系统视为隐藏文件，仅用ls命令是看不到他们的，而用ls -a除了显示一般文件名外，连隐藏文件也会显示出来。
+ls –l
+该参数显示更详细的文件信息。
+ls –F
+使用这个参数表示在文件的后面多添加表示文件类型的符号，例如*表示可执行，/表示目录，@表示连结文件，这都是因为使用了-F这个参数。但是现在基本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用命令">
+<meta property="og:url" content="http://yoursite.com/2016/02/26/常用命令/index.html">
+<meta property="og:site_name" content="Hejx's blog">
+<meta property="og:description" content="lsls最常用的参数有三个： -a -l -F。
+ls –a
+Linux上的文件以.开头的文件被系统视为隐藏文件，仅用ls命令是看不到他们的，而用ls -a除了显示一般文件名外，连隐藏文件也会显示出来。
+ls –l
+该参数显示更详细的文件信息。
+ls –F
+使用这个参数表示在文件的后面多添加表示文件类型的符号，例如*表示可执行，/表示目录，@表示连结文件，这都是因为使用了-F这个参数。但是现在基本">
+<meta property="og:updated_time" content="2016-02-27T05:11:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用命令">
+<meta name="twitter:description" content="lsls最常用的参数有三个： -a -l -F。
+ls –a
+Linux上的文件以.开头的文件被系统视为隐藏文件，仅用ls命令是看不到他们的，而用ls -a除了显示一般文件名外，连隐藏文件也会显示出来。
+ls –l
+该参数显示更详细的文件信息。
+ls –F
+使用这个参数表示在文件的后面多添加表示文件类型的符号，例如*表示可执行，/表示目录，@表示连结文件，这都是因为使用了-F这个参数。但是现在基本">
+  
+    <link rel="alternative" href="/atom.xml" title="Hejx&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <section id="main"><article id="post-常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常用命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/02/26/常用命令/" class="article-date">
+  <time datetime="2016-02-25T16:25:34.000Z" itemprop="datePublished">2016-02-26</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="ls">ls</h3><p>ls最常用的参数有三个： -a -l -F。</p>
+<p>ls –a</p>
+<p>Linux上的文件以.开头的文件被系统视为隐藏文件，仅用ls命令是看不到他们的，而用ls -a除了显示一般文件名外，连隐藏文件也会显示出来。</p>
+<p>ls –l</p>
+<p>该参数显示更详细的文件信息。</p>
+<p>ls –F</p>
+<p>使用这个参数表示在文件的后面多添加表示文件类型的符号，例如*表示可执行，/表示目录，@表示连结文件，这都是因为使用了-F这个参数。但是现在基本上所有的Linux发行版本的ls都已经内建了-F参数，也就是说，不用输入这个参数，我们也能看到各种分辨符号。</p>
+<h3 id="cd">cd</h3><p>cd aaa 进入aaa目录</p>
+<p>cd    命令后不指定目录，会切换到当前用户的home 目录</p>
+<p>cd ~  作用同cd后不指定目录，切换到当前用户的home 目录</p>
+<p>cd -  命令后跟一个减号，则会退回到切换前的目录</p>
+<p>cd .. 返回到当前目录下的上一级目录</p>
+<h3 id="pwd">pwd</h3><p>用于显示用户当前工作目录</p>
+<h3 id="mkdir">mkdir</h3><p>用于创建目录</p>
+<p>-p参数，若指定路径的父目录不存在则一并创建</p>
+<h3 id="cp复制命令">cp复制命令</h3><p>复制一个文件到另一目录：cp 1.txt ../test2</p>
+<p>复制一个文件到本目录并改名：cp 1.txt 2.txt</p>
+<p>复制一个文件夹a并改名为b：cp -r a b</p>
+<h3 id="mv移动命令">mv移动命令</h3><p>将一个文件移动到另一个目录：mv 1.txt ../test1</p>
+<p>将一个文件在本目录改名：mv 1.txt 2.txt</p>
+<p>将一个文件一定到另一个目录并改名：mv 1.txt ../test1/2.txt</p>
+<h3 id="rm删除命令">rm删除命令</h3><p>rm命令常用的参数有三个：-i，-r，-f。</p>
+<p>–i ：系统在删除文件之前会先询问确认，用户回车之后，文件才会真的被删除。需要注意，linux下删除的文件是不能恢复的，删除之前一定要谨慎确认。</p>
+<p>–r：该参数支持目录删除，功能和rmdir命令相似。</p>
+<p>–f：和-i参数相反，-f表示强制删除</p>
+<p>-rf: 强制删除，慎用</p>
+<h3 id="less查看文件">less查看文件</h3><p>v 调用vi编辑器</p>
+<p>q 退出less</p>
+<h3 id="clear">clear</h3><p>clear命令是用来清除当前屏幕显示的内容。</p>
+<p><a href="http://blog.csdn.net/junmail/article/details/4602745" target="_blank" rel="external">无耻地摘自</a></p>
+
+      
+
+      
+        
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/02/27/理解Object-keys/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          理解Object.keys()
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/02/25/关于javascript里的变量提升和函数提升/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">关于javascript里的声明提前（hoisting）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'hejx'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+</section>
+</section>
+        <aside id="sidebar">
+  <nav class="menus">
+  	<ul>
+  		<li><a href="/"><i class="icon icon-home"></i></a></li>
+  		
+			<li><a href="/archives"><i class="icon icon-fenlei"></i></a></li>
+  		
+  		
+			<li><a href="/tags"><i class="icon icon-tag"></i></a></li>
+  		
+  		
+  			<li><a href="https://github.com/Alex-fun" target="_blank"><i class="icon icon-github"></i></a></li>
+  		
+  	</ul>
+  </nav>
+  <a id="go-top" href="#"><i class="icon icon-up"></i></a>
+</aside>
+      </div>
+      <footer id="footer">
+  
+	<div id="footer-info" class="inner">
+	  &copy; 2016 Hejx 
+	  - Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  - Theme <a href="https://github.com/Alex-fun/hexo-theme-jane/" target="_blank">Jane</a>
+	</div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tag</a>
+  
+    <a href="https://github.com/Alex-fun" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'hejx';
+  
+  var disqus_url = 'http://yoursite.com/2016/02/26/常用命令/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
