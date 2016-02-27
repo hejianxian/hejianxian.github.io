@@ -331,9 +331,16 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="因由">因由</h3><p>简单地举例说吧，例如iphone 5s，2倍高清屏，实际的屏幕像素是1136×640px，物理像素只有其1/2，然而css上使用的border:1px却是物理尺寸，所以，在手机上看到的线就会变成了2个px（如果有对比的话，会非常明显）。同理在3倍高清屏上，也是一样，会变成3px。解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3倍就33.333%。</p>
-<h3 id="1、使用scale">1、使用scale</h3><p>举个例子，现在要做一个上边框 <em>border-top</em> ，这里是用了伪类元素:before来模拟这条上边框，样式如下：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ～border-top</span></span><br><span class="line"><span class="tag">div</span><span class="class">.ui-border-top</span><span class="pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: auto;</span><br><span class="line">  <span class="attribute">right</span>: auto;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="hexcolor">#c8c7cc</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">-webkit-transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">  <span class="attribute">transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="物理像素(physical_pixel)">物理像素(physical pixel)</h3><p>物理像素又被称为设备像素，他是显示设备中一个最微小的物理部件。每个像素可以根据操作系统设置自己的颜色和亮度。正是这些设备像素的微小距离欺骗了我们肉眼看到的图像效果。</p>
+<h3 id="设备独立像素(density-independent_pixel)">设备独立像素(density-independent pixel)</h3><p>设备独立像素也称为密度无关像素，可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用的虚拟像素(比如说CSS像素)，然后由相关系统转换为物理像素。</p>
+<h3 id="CSS像素">CSS像素</h3><p>CSS像素是一个抽像的单位，主要使用在浏览器上，用来精确度量Web页面上的内容。一般情况之下，CSS像素称为与设备无关的像素(device-independent pixel)，简称DIPs。</p>
+<h3 id="设备像素比(device_pixel_ratio)">设备像素比(device pixel ratio)</h3><p>设备像素比简称为dpr，其定义了物理像素和设备独立像素的对应关系。它的值可以按下面的公式计算得到：</p>
+<blockquote>
+<p>设备像素比 ＝ 物理像素 / 设备独立像素</p>
+</blockquote>
+<h3 id="为何会变粗">为何会变粗</h3><p>如iphone 5s，2倍高清屏，css上使用的border:1px对应的是设备独立像素，而此时，这1px会被转成4个物理像素（放大2倍，如下图）。所以，在手机上看到的边框（横向）其实是占用了2个物理像素的高度（如果有对比的话，会非常明显感觉边框高了一倍）。同理在3倍高清屏上，也是一样。</p>
+<p>解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3倍就33.333%。</p>
+<p><img src="//dn-cnode.qbox.me/Fqm0dZ_CkXiIHo4lLhqyjvNhsd8B" alt="css"><br>
         
           <p class="article-more-link">
             <a href="/2016/02/09/解决手机端border1px变粗的问题/#more">More...</a>
