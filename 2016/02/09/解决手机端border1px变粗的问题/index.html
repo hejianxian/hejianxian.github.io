@@ -5,20 +5,20 @@
   
   <title>解决手机端border1px变粗的问题 | Hejx&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="物理像素(physical pixel)物理像素又被称为设备像素，他是显示设备中一个最微小的物理部件。每个像素可以根据操作系统设置自己的颜色和亮度。正是这些设备像素的微小距离欺骗了我们肉眼看到的图像效果。
-设备独立像素(density-independent pixel)设备独立像素也称为密度无关像素，可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用的虚拟像素(比如说CSS像素)，">
+  <meta name="description" content="为何会变粗如iphone 5s，2倍高清屏，css上使用的border:1px对应的是设备独立像素，而此时，这1px会被转成4个物理像素（放大2倍，如下图）。所以，在手机上看到的边框（横向）其实是占用了2个物理像素的高度（如果有对比的话，会非常明显感觉边框高了一倍）。同理在3倍高清屏上，也是一样。
+解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决手机端border1px变粗的问题">
 <meta property="og:url" content="http://yoursite.com/2016/02/09/解决手机端border1px变粗的问题/index.html">
 <meta property="og:site_name" content="Hejx's blog">
-<meta property="og:description" content="物理像素(physical pixel)物理像素又被称为设备像素，他是显示设备中一个最微小的物理部件。每个像素可以根据操作系统设置自己的颜色和亮度。正是这些设备像素的微小距离欺骗了我们肉眼看到的图像效果。
-设备独立像素(density-independent pixel)设备独立像素也称为密度无关像素，可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用的虚拟像素(比如说CSS像素)，">
+<meta property="og:description" content="为何会变粗如iphone 5s，2倍高清屏，css上使用的border:1px对应的是设备独立像素，而此时，这1px会被转成4个物理像素（放大2倍，如下图）。所以，在手机上看到的边框（横向）其实是占用了2个物理像素的高度（如果有对比的话，会非常明显感觉边框高了一倍）。同理在3倍高清屏上，也是一样。
+解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3">
 <meta property="og:image" content="http://yoursite.com//dn-cnode.qbox.me/Fqm0dZ_CkXiIHo4lLhqyjvNhsd8B">
-<meta property="og:updated_time" content="2016-02-27T07:04:33.000Z">
+<meta property="og:updated_time" content="2016-02-27T07:07:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决手机端border1px变粗的问题">
-<meta name="twitter:description" content="物理像素(physical pixel)物理像素又被称为设备像素，他是显示设备中一个最微小的物理部件。每个像素可以根据操作系统设置自己的颜色和亮度。正是这些设备像素的微小距离欺骗了我们肉眼看到的图像效果。
-设备独立像素(density-independent pixel)设备独立像素也称为密度无关像素，可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用的虚拟像素(比如说CSS像素)，">
+<meta name="twitter:description" content="为何会变粗如iphone 5s，2倍高清屏，css上使用的border:1px对应的是设备独立像素，而此时，这1px会被转成4个物理像素（放大2倍，如下图）。所以，在手机上看到的边框（横向）其实是占用了2个物理像素的高度（如果有对比的话，会非常明显感觉边框高了一倍）。同理在3倍高清屏上，也是一样。
+解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3">
   
     <link rel="alternative" href="/atom.xml" title="Hejx&#39;s blog" type="application/atom+xml">
   
@@ -56,16 +56,16 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="物理像素(physical_pixel)">物理像素(physical pixel)</h3><p>物理像素又被称为设备像素，他是显示设备中一个最微小的物理部件。每个像素可以根据操作系统设置自己的颜色和亮度。正是这些设备像素的微小距离欺骗了我们肉眼看到的图像效果。</p>
+        <h3 id="为何会变粗">为何会变粗</h3><p>如iphone 5s，2倍高清屏，css上使用的border:1px对应的是设备独立像素，而此时，这1px会被转成4个物理像素（放大2倍，如下图）。所以，在手机上看到的边框（横向）其实是占用了2个物理像素的高度（如果有对比的话，会非常明显感觉边框高了一倍）。同理在3倍高清屏上，也是一样。</p>
+<p>解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3倍就33.333%。</p>
+<p><img src="//dn-cnode.qbox.me/Fqm0dZ_CkXiIHo4lLhqyjvNhsd8B" alt="css"><br><a id="more"></a></p>
+<h3 id="物理像素(physical_pixel)">物理像素(physical pixel)</h3><p>物理像素又被称为设备像素，他是显示设备中一个最微小的物理部件。每个像素可以根据操作系统设置自己的颜色和亮度。正是这些设备像素的微小距离欺骗了我们肉眼看到的图像效果。</p>
 <h3 id="设备独立像素(density-independent_pixel)">设备独立像素(density-independent pixel)</h3><p>设备独立像素也称为密度无关像素，可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用的虚拟像素(比如说CSS像素)，然后由相关系统转换为物理像素。</p>
 <h3 id="CSS像素">CSS像素</h3><p>CSS像素是一个抽像的单位，主要使用在浏览器上，用来精确度量Web页面上的内容。一般情况之下，CSS像素称为与设备无关的像素(device-independent pixel)，简称DIPs。</p>
 <h3 id="设备像素比(device_pixel_ratio)">设备像素比(device pixel ratio)</h3><p>设备像素比简称为dpr，其定义了物理像素和设备独立像素的对应关系。它的值可以按下面的公式计算得到：</p>
 <blockquote>
 <p>设备像素比 ＝ 物理像素 / 设备独立像素</p>
 </blockquote>
-<h3 id="为何会变粗">为何会变粗</h3><p>如iphone 5s，2倍高清屏，css上使用的border:1px对应的是设备独立像素，而此时，这1px会被转成4个物理像素（放大2倍，如下图）。所以，在手机上看到的边框（横向）其实是占用了2个物理像素的高度（如果有对比的话，会非常明显感觉边框高了一倍）。同理在3倍高清屏上，也是一样。</p>
-<p>解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3倍就33.333%。</p>
-<p><img src="//dn-cnode.qbox.me/Fqm0dZ_CkXiIHo4lLhqyjvNhsd8B" alt="css"><br><a id="more"></a></p>
 <h3 id="1、使用scale">1、使用scale</h3><p>举个例子，现在要做一个上边框 <em>border-top</em> ，这里是用了伪类元素:before来模拟这条上边框，样式如下：</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ～border-top</span></span><br><span class="line"><span class="tag">div</span><span class="class">.ui-border-top</span><span class="pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: auto;</span><br><span class="line">  <span class="attribute">right</span>: auto;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="hexcolor">#c8c7cc</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">-webkit-transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">  <span class="attribute">transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后就需要根据不同的屏来缩放大小，如下：</p>
@@ -77,7 +77,7 @@
 <h3 id="3、制作圆角边框">3、制作圆角边框</h3><p>同样使用伪类元素:before来代替。因为有圆角，所以上面提到的方法就行不通了，那么这里使用的方法就是制作一个2倍大小的元素（对应2倍高清屏），然后缩小一倍，来达到1px边框的效果。</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@media</span> screen and (<span class="attribute">-webkit-min-device-pixel-ratio</span>: <span class="number">2</span>)&#123;</span><br><span class="line">  <span class="class">.ui-border-radius</span><span class="pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200%</span>; <span class="comment">//2倍大小</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200%</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="hexcolor">#e0e0e0</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="function">scale</span>(<span class="number">0.5</span>); <span class="comment">//缩小50%</span></span><br><span class="line">    <span class="attribute">-webkit-transform-origin</span>: <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">-webkit-box-sizing</span>: border-box;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line">    <span class="attribute">pointer-events</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="4、总结">4、总结</h3><p>整个实现的方法都是通过使用别的元素来模拟边框，然后根据不同的屏幕来缩放，建议使用伪类元素来替代，这样就不会影响到html的元素布局。（ps：以上的方法并未进行兼容测试，不过可以默认webkit内核的都可以，部分渣渣安卓手机可能也不太兼容！）</p>
-<p><a href="http://frozenui.github.io/base.html#border" target="_blank" rel="external">参考资料：frozenui</a></p>
+<p><a href="http://frozenui.github.io/base.html#border" target="_blank" rel="external">参考资料：frozenui</a><br><a href="https://github.com/amfe/article/issues/17" target="_blank" rel="external">参考资料：Flexible</a></p>
 
       
 

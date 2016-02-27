@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-27T04:43:51.000Z</updated>
+  <updated>2016-02-27T09:22:43.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,15 +15,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[理解Object.keys()]]></title>
-    <link href="http://yoursite.com/2016/02/27/%E7%90%86%E8%A7%A3Object-keys/"/>
-    <id>http://yoursite.com/2016/02/27/理解Object-keys/</id>
-    <published>2016-02-27T04:43:51.000Z</published>
-    <updated>2016-02-27T04:43:51.000Z</updated>
+    <title><![CDATA[webp]]></title>
+    <link href="http://yoursite.com/2016/02/27/webp/"/>
+    <id>http://yoursite.com/2016/02/27/webp/</id>
+    <published>2016-02-27T09:22:43.000Z</published>
+    <updated>2016-02-27T09:22:43.000Z</updated>
     <content type="html"></content>
     <summary type="html">
     
     </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[理解Object.keys()]]></title>
+    <link href="http://yoursite.com/2016/02/27/%E7%90%86%E8%A7%A3Object-keys/"/>
+    <id>http://yoursite.com/2016/02/27/理解Object-keys/</id>
+    <published>2016-02-27T04:43:51.000Z</published>
+    <updated>2016-02-27T15:19:44.000Z</updated>
+    <content type="html"><![CDATA[<p>此方法可以返回由传入对象的所有可枚举的自有属性的属性名组成的数组，这和使用<em>for…in</em>遍历对象不同，for-in会把对象的原型链上继承到的可枚举属性也会遍历出来。</p>
+<p>属性名的顺序和for-in出来的一样。</p>
+<blockquote>
+<p>Object.keys(obj)<br><a id="more"></a></p>
+<h3 id="Examples">Examples</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(arr));  <span class="comment">// 输出 ["0", "1", "2"]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'foo'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(str));  <span class="comment">// 输出 ["0", "1", "2"] 注： 在es5下，这会抛出一个TypeError的错误</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(&#123;<span class="string">'bar'</span>: <span class="number">2</span>&#125;, &#123;</span><br><span class="line">  baz: &#123;</span><br><span class="line">    value: <span class="string">'hello'</span>,</span><br><span class="line">    enumerable: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  foo: &#123;</span><br><span class="line">  	value: <span class="string">'10'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">obj.test = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(obj)); <span class="comment">// 输出 ["baz", "test"]</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj)&#123;<span class="built_in">console</span>.log(i)&#125; <span class="comment">// 输出 baz, test, bar  注： 顺序是一样的，但是bar是继承回来的属性</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="Polyfill">Polyfill</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">Object</span>.keys) &#123;</span><br><span class="line">  <span class="built_in">Object</span>.keys = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="pi">    'use strict'</span>;  </span><br><span class="line">    <span class="keyword">var</span> hasOwnProperty = <span class="built_in">Object</span>.prototype.hasOwnProperty,</span><br><span class="line">        hasDontEnumBug = !(&#123;toString: <span class="literal">null</span>&#125;).propertyIsEnumerable(<span class="string">'toString'</span>);</span><br><span class="line">        dontEnums = [</span><br><span class="line">          <span class="string">'toString'</span>,</span><br><span class="line">          <span class="string">'toLocaleString'</span>,</span><br><span class="line">          <span class="string">'valueOf'</span>,</span><br><span class="line">          <span class="string">'hasOwnProperty'</span>,</span><br><span class="line">          <span class="string">'isPrototypeOf'</span>,</span><br><span class="line">          <span class="string">'propertyIsEnumerable'</span>,</span><br><span class="line">          <span class="string">'constructor'</span></span><br><span class="line">        ],</span><br><span class="line">        dontEnumsLength = dontEnums.length;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">'Object'</span> &amp;&amp; (<span class="keyword">typeof</span> obj !== <span class="string">'function'</span> || obj === <span class="literal">null</span>))&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Object.keys called on non-object'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">var</span> result = [], prop, i;</span><br><span class="line">      <span class="keyword">for</span> (prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        <span class="keyword">if</span> (hasOwnProperty.call(obj, prop)) &#123;</span><br><span class="line">          result.push(prop);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">if</span> (hasDontEnumBug) &#123;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; dontEnumsLength; i++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (hasOwnProperty.call(obj, dontEnums[i])) &#123;</span><br><span class="line">            result.push(dontEnums[i]);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">return</span> result;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;)();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys" target="_blank" rel="external">摘自</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>此方法可以返回由传入对象的所有可枚举的自有属性的属性名组成的数组，这和使用<em>for…in</em>遍历对象不同，for-in会把对象的原型链上继承到的可枚举属性也会遍历出来。</p>
+<p>属性名的顺序和for-in出来的一样。</p>
+<blockquote>
+<p>Object.keys(obj)<br>]]>
+    
+    </summary>
+    
+      <category term="javascript-Object" scheme="http://yoursite.com/tags/javascript-Object/"/>
     
   </entry>
   
@@ -227,17 +254,17 @@
     <link href="http://yoursite.com/2016/02/09/%E8%A7%A3%E5%86%B3%E6%89%8B%E6%9C%BA%E7%AB%AFborder1px%E5%8F%98%E7%B2%97%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2016/02/09/解决手机端border1px变粗的问题/</id>
     <published>2016-02-09T09:02:38.000Z</published>
-    <updated>2016-02-27T07:04:33.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="物理像素(physical_pixel)">物理像素(physical pixel)</h3><p>物理像素又被称为设备像素，他是显示设备中一个最微小的物理部件。每个像素可以根据操作系统设置自己的颜色和亮度。正是这些设备像素的微小距离欺骗了我们肉眼看到的图像效果。</p>
+    <updated>2016-02-27T07:07:54.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="为何会变粗">为何会变粗</h3><p>如iphone 5s，2倍高清屏，css上使用的border:1px对应的是设备独立像素，而此时，这1px会被转成4个物理像素（放大2倍，如下图）。所以，在手机上看到的边框（横向）其实是占用了2个物理像素的高度（如果有对比的话，会非常明显感觉边框高了一倍）。同理在3倍高清屏上，也是一样。</p>
+<p>解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3倍就33.333%。</p>
+<p><img src="//dn-cnode.qbox.me/Fqm0dZ_CkXiIHo4lLhqyjvNhsd8B" alt="css"><br><a id="more"></a></p>
+<h3 id="物理像素(physical_pixel)">物理像素(physical pixel)</h3><p>物理像素又被称为设备像素，他是显示设备中一个最微小的物理部件。每个像素可以根据操作系统设置自己的颜色和亮度。正是这些设备像素的微小距离欺骗了我们肉眼看到的图像效果。</p>
 <h3 id="设备独立像素(density-independent_pixel)">设备独立像素(density-independent pixel)</h3><p>设备独立像素也称为密度无关像素，可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用的虚拟像素(比如说CSS像素)，然后由相关系统转换为物理像素。</p>
 <h3 id="CSS像素">CSS像素</h3><p>CSS像素是一个抽像的单位，主要使用在浏览器上，用来精确度量Web页面上的内容。一般情况之下，CSS像素称为与设备无关的像素(device-independent pixel)，简称DIPs。</p>
 <h3 id="设备像素比(device_pixel_ratio)">设备像素比(device pixel ratio)</h3><p>设备像素比简称为dpr，其定义了物理像素和设备独立像素的对应关系。它的值可以按下面的公式计算得到：</p>
 <blockquote>
 <p>设备像素比 ＝ 物理像素 / 设备独立像素</p>
 </blockquote>
-<h3 id="为何会变粗">为何会变粗</h3><p>如iphone 5s，2倍高清屏，css上使用的border:1px对应的是设备独立像素，而此时，这1px会被转成4个物理像素（放大2倍，如下图）。所以，在手机上看到的边框（横向）其实是占用了2个物理像素的高度（如果有对比的话，会非常明显感觉边框高了一倍）。同理在3倍高清屏上，也是一样。</p>
-<p>解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3倍就33.333%。</p>
-<p><img src="//dn-cnode.qbox.me/Fqm0dZ_CkXiIHo4lLhqyjvNhsd8B" alt="css"><br><a id="more"></a></p>
 <h3 id="1、使用scale">1、使用scale</h3><p>举个例子，现在要做一个上边框 <em>border-top</em> ，这里是用了伪类元素:before来模拟这条上边框，样式如下：</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ～border-top</span></span><br><span class="line"><span class="tag">div</span><span class="class">.ui-border-top</span><span class="pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: auto;</span><br><span class="line">  <span class="attribute">right</span>: auto;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="hexcolor">#c8c7cc</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">-webkit-transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">  <span class="attribute">transform-origin</span>: <span class="number">50%</span> <span class="number">0%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后就需要根据不同的屏来缩放大小，如下：</p>
@@ -249,17 +276,10 @@
 <h3 id="3、制作圆角边框">3、制作圆角边框</h3><p>同样使用伪类元素:before来代替。因为有圆角，所以上面提到的方法就行不通了，那么这里使用的方法就是制作一个2倍大小的元素（对应2倍高清屏），然后缩小一倍，来达到1px边框的效果。</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@media</span> screen and (<span class="attribute">-webkit-min-device-pixel-ratio</span>: <span class="number">2</span>)&#123;</span><br><span class="line">  <span class="class">.ui-border-radius</span><span class="pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200%</span>; <span class="comment">//2倍大小</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200%</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="hexcolor">#e0e0e0</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="function">scale</span>(<span class="number">0.5</span>); <span class="comment">//缩小50%</span></span><br><span class="line">    <span class="attribute">-webkit-transform-origin</span>: <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">-webkit-box-sizing</span>: border-box;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line">    <span class="attribute">pointer-events</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="4、总结">4、总结</h3><p>整个实现的方法都是通过使用别的元素来模拟边框，然后根据不同的屏幕来缩放，建议使用伪类元素来替代，这样就不会影响到html的元素布局。（ps：以上的方法并未进行兼容测试，不过可以默认webkit内核的都可以，部分渣渣安卓手机可能也不太兼容！）</p>
-<p><a href="http://frozenui.github.io/base.html#border" target="_blank" rel="external">参考资料：frozenui</a></p>
+<p><a href="http://frozenui.github.io/base.html#border" target="_blank" rel="external">参考资料：frozenui</a><br><a href="https://github.com/amfe/article/issues/17" target="_blank" rel="external">参考资料：Flexible</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h3 id="物理像素(physical_pixel)">物理像素(physical pixel)</h3><p>物理像素又被称为设备像素，他是显示设备中一个最微小的物理部件。每个像素可以根据操作系统设置自己的颜色和亮度。正是这些设备像素的微小距离欺骗了我们肉眼看到的图像效果。</p>
-<h3 id="设备独立像素(density-independent_pixel)">设备独立像素(density-independent pixel)</h3><p>设备独立像素也称为密度无关像素，可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用的虚拟像素(比如说CSS像素)，然后由相关系统转换为物理像素。</p>
-<h3 id="CSS像素">CSS像素</h3><p>CSS像素是一个抽像的单位，主要使用在浏览器上，用来精确度量Web页面上的内容。一般情况之下，CSS像素称为与设备无关的像素(device-independent pixel)，简称DIPs。</p>
-<h3 id="设备像素比(device_pixel_ratio)">设备像素比(device pixel ratio)</h3><p>设备像素比简称为dpr，其定义了物理像素和设备独立像素的对应关系。它的值可以按下面的公式计算得到：</p>
-<blockquote>
-<p>设备像素比 ＝ 物理像素 / 设备独立像素</p>
-</blockquote>
-<h3 id="为何会变粗">为何会变粗</h3><p>如iphone 5s，2倍高清屏，css上使用的border:1px对应的是设备独立像素，而此时，这1px会被转成4个物理像素（放大2倍，如下图）。所以，在手机上看到的边框（横向）其实是占用了2个物理像素的高度（如果有对比的话，会非常明显感觉边框高了一倍）。同理在3倍高清屏上，也是一样。</p>
+    <![CDATA[<h3 id="为何会变粗">为何会变粗</h3><p>如iphone 5s，2倍高清屏，css上使用的border:1px对应的是设备独立像素，而此时，这1px会被转成4个物理像素（放大2倍，如下图）。所以，在手机上看到的边框（横向）其实是占用了2个物理像素的高度（如果有对比的话，会非常明显感觉边框高了一倍）。同理在3倍高清屏上，也是一样。</p>
 <p>解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3倍就33.333%。</p>
 <p><img src="//dn-cnode.qbox.me/Fqm0dZ_CkXiIHo4lLhqyjvNhsd8B" alt="css"><br>]]>
     
