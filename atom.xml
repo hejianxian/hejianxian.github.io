@@ -57,11 +57,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[常用命令]]></title>
+    <title><![CDATA[常用shell命令]]></title>
     <link href="http://yoursite.com/2016/02/26/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2016/02/26/常用命令/</id>
     <published>2016-02-25T16:25:34.000Z</published>
-    <updated>2016-02-27T06:04:24.000Z</updated>
+    <updated>2016-02-27T15:29:57.000Z</updated>
     <content type="html"><![CDATA[<h3 id="1、ls">1、ls</h3><p>ls最常用的参数有三个： -a -l -F。</p>
 <p>ls –a<br>Linux上的文件以.开头的文件被系统视为隐藏文件，仅用ls命令是看不到他们的，而用ls -a除了显示一般文件名外，连隐藏文件也会显示出来。</p>
 <p>ls –l<br>该参数显示更详细的文件信息。</p>
