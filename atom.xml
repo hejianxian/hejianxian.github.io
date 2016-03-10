@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-10T01:09:45.000Z</updated>
+  <updated>2016-03-10T01:47:57.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,13 +19,14 @@
     <link href="http://yoursite.com/2016/03/10/%E7%94%A8css3%E5%88%B6%E4%BD%9Ctab%E6%8E%A7%E4%BB%B6%E7%9A%844%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
     <id>http://yoursite.com/2016/03/10/用css3制作tab控件的4种方法/</id>
     <published>2016-03-10T00:57:06.000Z</published>
-    <updated>2016-03-10T01:09:45.000Z</updated>
+    <updated>2016-03-10T01:47:57.000Z</updated>
     <content type="html"><![CDATA[<p>使用（:focus :hover :target :checked）4种方法来实现tab效果。</p>
-<h3 id=":focus">:focus</h3><p><a href="http://csscience.com/css3-tabs/#tabC" target="_blank" rel="external">无耻地摘自</a></p>
+<a id="more"></a>
+<p><a href="http://csscience.com/css3-tabs/#tabC" target="_blank" rel="external">无耻地摘自</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>使用（:focus :hover :target :checked）4种方法来实现tab效果。</p>
-<h3 id=":focus">:focus</h3><p><a href="http://csscience.com/css3-tabs/#tabC" target="]]>
+    <![CDATA[<p>使用（:focus :hover :target :checked）4种方法来实现tab效果。</p>]]>
+    
     </summary>
     
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
@@ -37,18 +38,19 @@
     <link href="http://yoursite.com/2016/03/02/awesome-button/"/>
     <id>http://yoursite.com/2016/03/02/awesome-button/</id>
     <published>2016-03-02T01:19:40.000Z</published>
-    <updated>2016-03-10T01:43:33.000Z</updated>
+    <updated>2016-03-10T01:47:42.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>收集每一个很帅的特效按钮！</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="1:展开效果">1:展开效果</h3><iframe width="100%" height="300" src="//jsfiddle.net/yan_alex/x6adfrpz/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 <h3 id="2:红霞灯效果">2:红霞灯效果</h3><iframe width="100%" height="300" src="//jsfiddle.net/yan_alex/zhpnmxwu/4/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>]]></content>
     <summary type="html">
     <![CDATA[<blockquote>
 <p>收集每一个很帅的特效按钮！</p>
-</blockquote>
-<h3 id="1:展开效果">1:展开效果</h3><iframe width="100%" height="300" src="//jsfiddle.net/yan_alex/x6]]>
+</blockquote>]]>
+    
     </summary>
     
       <category term="button" scheme="http://yoursite.com/tags/button/"/>
