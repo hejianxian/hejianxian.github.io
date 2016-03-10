@@ -37,10 +37,12 @@
     <link href="http://yoursite.com/2016/03/02/awesome-button/"/>
     <id>http://yoursite.com/2016/03/02/awesome-button/</id>
     <published>2016-03-02T01:19:40.000Z</published>
-    <updated>2016-03-10T01:22:19.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="展开效果">展开效果</h3><script async src="//jsfiddle.net/yan_alex/x6adfrpz/embed/result,html,css/"></script>]]></content>
+    <updated>2016-03-10T01:35:50.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="展开效果">展开效果</h3><iframe width="100%" height="300" src="//jsfiddle.net/yan_alex/x6adfrpz/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+<h3 id="红霞灯效果">红霞灯效果</h3><iframe width="100%" height="300" src="//jsfiddle.net/yan_alex/zhpnmxwu/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>]]></content>
     <summary type="html">
-    <![CDATA[<h3 id="展开效果">展开效果</h3><script async src="//jsfiddle.net/yan_alex/x6adfrpz/embed/result,html,css/"></script>]]>
+    <![CDATA[<h3 id="展开效果">展开效果</h3><iframe width="100%" height="300" src="//jsfiddle.net/yan_alex/x6adfrpz/embedded/result,html,css/" allowfullscreen="a]]>
     </summary>
     
       <category term="button" scheme="http://yoursite.com/tags/button/"/>
