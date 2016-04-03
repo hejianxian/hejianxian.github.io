@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-10T01:47:57.000Z</updated>
+  <updated>2016-04-03T05:12:07.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[获取字符串里最长单词的3种方法]]></title>
+    <link href="http://yoursite.com/2016/04/03/%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E6%9C%80%E9%95%BF%E5%8D%95%E8%AF%8D%E7%9A%843%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2016/04/03/获取字符串里最长单词的3种方法/</id>
+    <published>2016-04-03T04:20:16.000Z</published>
+    <updated>2016-04-03T05:12:07.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>返回字符串中最长的单词的长度(number类型)</p>
+</blockquote>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findLongestWord</span><span class="params">(str)</span> &#123;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="transposed_variable">str.</span><span class="built_in">length</span>;</span><br><span class="line">&#125;</span><br><span class="line">findLongestWord(<span class="string">"The quick brown fox jumped over the lazy dog"</span>);</span><br></pre></td></tr></table></figure>
+<p>这里会使用3种方法，首先是FOR loop方法，接着是sort方法,最后是reduce方法。</p>
+<a id="more"></a>
+<h4 id="一、FOR_loop">一、FOR loop</h4><p>用split方法把字符串拆开，然后逐个遍历，找出最长的单词，并返回长度</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findLongestWord</span><span class="params">(str)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> strSplit = str.split(<span class="string">' '</span>);</span><br><span class="line">  <span class="keyword">var</span> longestWord = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; strSplit.length; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(strSplit[i].length &gt; longestWord)&#123;</span><br><span class="line">	longestWord = strSplit[i].length;</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> longestWord;</span><br><span class="line">&#125;</span><br><span class="line">findLongestWord(<span class="string">"The quick brown fox jumped over the lazy dog"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="二、sort()">二、sort()</h4><p>sort() 方法对数组的元素做原地的排序，并返回这个数组。 sort 可能不是稳定的。默认按照字符串的Unicode码位点（code point）排序。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findLongestWord</span><span class="params">(str)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> longestWord = str.split(<span class="string">' '</span>).sort(<span class="function"><span class="keyword">function</span><span class="params">(a, b)</span> </span>&#123; <span class="keyword">return</span> b.length - a.length; &#125;);</span><br><span class="line">  <span class="keyword">return</span> longestWord[<span class="number">0</span>].length;</span><br><span class="line">&#125;</span><br><span class="line">findLongestWord(<span class="string">"The quick brown fox jumped over the lazy dog"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="三、reduce()">三、reduce()</h4><p>reduce() 方法接收一个函数作为累加器（accumulator），数组中的每个值（从左到右）开始合并，最终为一个值。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="external">reduce()–MDN</a></p>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findLongestWord</span><span class="params">(str)</span> &#123;</span></span><br><span class="line">  var longestWord = <span class="transposed_variable">str.</span>split(<span class="string">' '</span>).reduce(<span class="function"><span class="keyword">function</span><span class="params">(longest, currentWord)</span> &#123;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="transposed_variable">currentWord.</span><span class="built_in">length</span> &gt; <span class="transposed_variable">longest.</span><span class="built_in">length</span> ? currentWord : longest;</span><br><span class="line">  &#125;, <span class="string">""</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="transposed_variable">longestWord.</span><span class="built_in">length</span>;</span><br><span class="line">&#125;</span><br><span class="line">findLongestWord(<span class="string">"The quick brown fox jumped over the lazy dog"</span>);</span><br><span class="line">view raw</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>返回字符串中最长的单词的长度(number类型)</p>
+</blockquote>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findLongestWord</span><span class="params">(str)</span> &#123;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="transposed_variable">str.</span><span class="built_in">length</span>;</span><br><span class="line">&#125;</span><br><span class="line">findLongestWord(<span class="string">"The quick brown fox jumped over the lazy dog"</span>);</span><br></pre></td></tr></table></figure>
+<p>这里会使用3种方法，首先是FOR loop方法，接着是sort方法,最后是reduce方法。</p>]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[用css3制作tab控件的4种方法]]></title>
