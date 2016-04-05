@@ -17,7 +17,7 @@
 
 1234function findLongestWord(str) &amp;#123;  return str.length;&amp;#125;findLongestWord(&quot;The quick brown fox jumped over the lazy dog&quot;);
 这里会使用3种方法，首先是FOR loop方法，接着是sort方法，最后是reduce">
-<meta property="og:updated_time" content="2016-04-03T05:13:14.000Z">
+<meta property="og:updated_time" content="2016-04-03T05:19:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="获取字符串里最长单词的3种方法">
 <meta name="twitter:description" content="返回字符串中最长的单词的长度(number类型)
@@ -74,6 +74,7 @@
 <h4 id="三、reduce()">三、reduce()</h4><p>reduce() 方法接收一个函数作为累加器（accumulator），数组中的每个值（从左到右）开始合并，最终为一个值。</p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="external">reduce()–MDN</a></p>
 <figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findLongestWord</span><span class="params">(str)</span> &#123;</span></span><br><span class="line">  var longestWord = <span class="transposed_variable">str.</span>split(<span class="string">' '</span>).reduce(<span class="function"><span class="keyword">function</span><span class="params">(longest, currentWord)</span> &#123;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="transposed_variable">currentWord.</span><span class="built_in">length</span> &gt; <span class="transposed_variable">longest.</span><span class="built_in">length</span> ? currentWord : longest;</span><br><span class="line">  &#125;, <span class="string">""</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="transposed_variable">longestWord.</span><span class="built_in">length</span>;</span><br><span class="line">&#125;</span><br><span class="line">findLongestWord(<span class="string">"The quick brown fox jumped over the lazy dog"</span>);</span><br><span class="line">view raw</span><br></pre></td></tr></table></figure>
+<p><a href="https://medium.freecodecamp.com/three-ways-to-find-the-longest-word-in-a-string-in-javascript-a2fb04c9757c#.oy3xuke6g" target="_blank" rel="external">摘自freecodecamp</a></p>
 
       
 
