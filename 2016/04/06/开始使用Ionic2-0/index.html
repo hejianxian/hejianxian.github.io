@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>开始使用Ionic2 | Hejx&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="0、介绍紧随angular的步伐，ionic也推出了2.0版本(beta)，把ng1换成了ng2，ui上也增加了material design和window phone的风格，组件上并没有太多的变化。因为ng2，代码风格完全不一样了，熟悉es6的童鞋应该很容易就能上手，而也因为ng2，让整个项目更组建化、模块化了。路由配置也更加简单。
+Ionic 2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开始使用Ionic2">
+<meta property="og:url" content="http://yoursite.com/2016/04/06/开始使用Ionic2-0/index.html">
+<meta property="og:site_name" content="Hejx's blog">
+<meta property="og:description" content="0、介绍紧随angular的步伐，ionic也推出了2.0版本(beta)，把ng1换成了ng2，ui上也增加了material design和window phone的风格，组件上并没有太多的变化。因为ng2，代码风格完全不一样了，熟悉es6的童鞋应该很容易就能上手，而也因为ng2，让整个项目更组建化、模块化了。路由配置也更加简单。
+Ionic 2">
+<meta property="og:image" content="https://dn-cnode.qbox.me/FpA5jex9jPVAHpTIUqVbMQdXEvmd">
+<meta property="og:updated_time" content="2016-04-06T12:40:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开始使用Ionic2">
+<meta name="twitter:description" content="0、介绍紧随angular的步伐，ionic也推出了2.0版本(beta)，把ng1换成了ng2，ui上也增加了material design和window phone的风格，组件上并没有太多的变化。因为ng2，代码风格完全不一样了，熟悉es6的童鞋应该很容易就能上手，而也因为ng2，让整个项目更组建化、模块化了。路由配置也更加简单。
+Ionic 2">
+  
+    <link rel="alternative" href="/atom.xml" title="Hejx&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <section id="main"><article id="post-开始使用Ionic2-0" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      开始使用Ionic2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/04/06/开始使用Ionic2-0/" class="article-date">
+  <time datetime="2016-04-06T02:46:53.000Z" itemprop="datePublished">2016-04-06</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="0、介绍">0、介绍</h4><p>紧随angular的步伐，ionic也推出了2.0版本(beta)，把ng1换成了ng2，ui上也增加了material design和window phone的风格，组件上并没有太多的变化。因为ng2，代码风格完全不一样了，熟悉es6的童鞋应该很容易就能上手，而也因为ng2，让整个项目更组建化、模块化了。路由配置也更加简单。</p>
+<p><a href="https://dn-cnode.qbox.me/FpA5jex9jPVAHpTIUqVbMQdXEvmd" title="ionic 2" class="fancybox" rel="external" target="_blank"><img src="https://dn-cnode.qbox.me/FpA5jex9jPVAHpTIUqVbMQdXEvmd" width="180" alt="ionic 2"></a><span class="caption">Ionic 2</span><br><br><br>          </p>
+
+<a id="more"></a>
+<h4 id="1、技术栈">1、技术栈</h4><ul>
+<li>Angular 2.0</li>
+<li>TypeScript</li>
+<li>Webpack Gulp</li>
+<li>ES6</li>
+<li>Sass</li>
+</ul>
+<h4 id="2、目录结构">2、目录结构</h4><p>这样的目录结构，更能体现模块化。</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string">____app.html</span><br><span class="line"></span>|<span class="string">____app.ts</span><br><span class="line"></span>|____pages</span><br><span class="line">|<span class="string"> </span>|____page1</span><br><span class="line">|<span class="string"> </span>|<span class="string"> </span>|<span class="string">____page1.html</span><br><span class="line"></span>|<span class="string"> </span>|<span class="string"> </span>|<span class="string">____page1.scss</span><br><span class="line"></span>|<span class="string"> </span>|<span class="string"> </span>|<span class="string">____page1.ts</span><br><span class="line"></span>|____services</span><br><span class="line">|<span class="string"> </span>|<span class="string">____service.ts</span><br><span class="line"></span>|____theme</span><br></pre></td></tr></table></figure>
+<h4 id="3、配置">3、配置</h4><p>1、app配置：app/app.ts作为入口文件（查看webpack.config.js），需要使用@app()来指定初始页面，同时还有相关的配置选项。<a href="http://ionicframework.com/docs/v2/api/decorators/App/" target="_blank" rel="external">doc</a></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@App(&#123;</span><br><span class="line">  templateUrl: <span class="string">'./build/app.html'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">class</span> DemoApp &#123;</span><br><span class="line">  <span class="constructor"><span class="keyword">constructor</span> () </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、路由配置：非常简单明了，不像1.0版本的ui-router，若需要在路由跳转时传递参数，并不用在配置时标明。跳转路由时，引入<code>NavController</code>模块，把新的页面push进去并带上需要传递的参数。而被跳转的页面，可以引入<code>NavParams</code>模块获取传递的参数。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;RouteConfig, Location&#125; from <span class="string">'angular2/router'</span>; <span class="comment">// 引入路由模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 配置路由</span></span><br><span class="line"><span class="keyword">const</span> ROUTES = [</span><br><span class="line">  &#123; path: <span class="string">'/list'</span>, component: ListPage, useAsDefault: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; path: <span class="string">'/detail'</span>, component: DetailPage &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">@App(&#123;</span><br><span class="line">  templateUrl: <span class="string">'./build/app.html'</span></span><br><span class="line">&#125;)</span><br><span class="line">@RouteConfig(ROUTES) <span class="comment">//传入</span></span><br><span class="line"><span class="keyword">class</span> DemoApp &#123;</span><br><span class="line">  <span class="constructor"><span class="keyword">constructor</span> () </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 跳转页面</span></span><br><span class="line">goDetail (item) &#123;</span><br><span class="line">   <span class="keyword">this</span>.nav.push(DetailPage, &#123;</span><br><span class="line">      id: item.id</span><br><span class="line">   &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4、@page">4、@page</h4><p>每一个页面都当成是一个component，这@page是由ng2的@component演变过来的，<code>providers</code>属性是要注入的服务。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Page(&#123;</span><br><span class="line">  templateUrl: <span class="string">'./build/pages/list/list.html'</span>,</span><br><span class="line">  providers: [TopicService]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ListPage &#123;</span><br><span class="line">	<span class="constructor"><span class="keyword">constructor</span> () </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.topics = []; <span class="comment">//绑定到页面的数据</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//这里可以写各种方法</span></span><br><span class="line">	getTopics () &#123;</span><br><span class="line">		<span class="keyword">this</span>.topics.push(&#123;title: <span class="string">'test'</span>&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>绑定数据的方法也有了一点改变，详情可以看ng2的官方文档。页面渲染时，数据必须存在，不然会报错，或者渲染成undefined，这点感觉跟ng1有点不一样，没去深入研究。</p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">ion-list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ion-item</span> *<span class="attribute">ngFor</span>=<span class="value">"#t of topic"</span> (<span class="attribute">click</span>)=<span class="value">"goDetail(t)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">ion-avatar</span> <span class="attribute">item-left</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"</span></span></span><span class="expression">&#123;&#123;<span class="variable">t.author.avatar</span>_<span class="variable">url</span>&#125;&#125;</span><span class="xml"><span class="tag"><span class="value">"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">ion-avatar</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h2</span>&gt;</span></span><span class="expression">&#123;&#123;<span class="variable">t.author.loginname</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span></span><span class="expression">&#123;&#123;<span class="variable">t.title</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span>&gt;</span></span><span class="expression">&#123;&#123;<span class="variable">t.create</span>_<span class="variable">at</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ion-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ion-list</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="5、http">5、http</h4><p>在网上搜了几种方法，唯独就这种写法可以，<code>rxjs/add/operator/map</code>这个必须引入，不然下面的map方法不会执行，但是也不报错，一个坑。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//service.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; Inject &#125; from <span class="string">'angular2/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Http &#125; from <span class="string">'angular2/http'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'rxjs/add/operator/map'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> TopicService &#123;</span><br><span class="line"></span><br><span class="line">    <span class="constructor"><span class="keyword">constructor</span>(@Inject(Http) http: Http) </span>&#123; <span class="comment">// 注意此处的@Inject()</span></span><br><span class="line">        <span class="keyword">this</span>.http = http</span><br><span class="line">    &#125;   </span><br><span class="line"> </span><br><span class="line">    getTopics () &#123;</span><br><span class="line">        <span class="keyword">var</span> url = <span class="string">'http://api.url.com'</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.http.get(url).map(res =&gt; res.json());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="6、项目地址">6、<a href="https://github.com/Alex-fun/ionic2-starter" target="_blank" rel="external">项目地址</a></h4>
+      
+
+      
+        
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/06/ajax与302/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ajax与302</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'hejx'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+</section>
+</section>
+        <aside id="sidebar">
+  <nav class="menus">
+  	<ul>
+  		<li><a href="/"><i class="icon icon-home"></i></a></li>
+  		
+			<li><a href="/archives"><i class="icon icon-fenlei"></i></a></li>
+  		
+  		
+			<li><a href="/tags"><i class="icon icon-tag"></i></a></li>
+  		
+  		
+  			<li><a href="https://github.com/Alex-fun" target="_blank"><i class="icon icon-github"></i></a></li>
+  		
+  	</ul>
+  </nav>
+  <a id="go-top" href="#"><i class="icon icon-up"></i></a>
+</aside>
+      </div>
+      <footer id="footer">
+  
+	<div id="footer-info" class="inner">
+	  &copy; 2016 Hejx 
+	  - Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  - Theme <a href="https://github.com/Alex-fun/hexo-theme-jane/" target="_blank">Jane</a>
+	</div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tag</a>
+  
+    <a href="https://github.com/Alex-fun" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'hejx';
+  
+  var disqus_url = 'http://yoursite.com/2016/04/06/开始使用Ionic2-0/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

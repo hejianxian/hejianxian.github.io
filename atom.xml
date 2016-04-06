@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-03T05:19:11.000Z</updated>
+  <updated>2016-04-06T12:40:48.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,70 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[开始使用Ionic2]]></title>
+    <link href="http://yoursite.com/2016/04/06/%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8Ionic2-0/"/>
+    <id>http://yoursite.com/2016/04/06/开始使用Ionic2-0/</id>
+    <published>2016-04-06T02:46:53.000Z</published>
+    <updated>2016-04-06T12:40:48.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="0、介绍">0、介绍</h4><p>紧随angular的步伐，ionic也推出了2.0版本(beta)，把ng1换成了ng2，ui上也增加了material design和window phone的风格，组件上并没有太多的变化。因为ng2，代码风格完全不一样了，熟悉es6的童鞋应该很容易就能上手，而也因为ng2，让整个项目更组建化、模块化了。路由配置也更加简单。</p>
+<p><a href="https://dn-cnode.qbox.me/FpA5jex9jPVAHpTIUqVbMQdXEvmd" title="ionic 2" class="fancybox" rel="external" target="_blank"><img src="https://dn-cnode.qbox.me/FpA5jex9jPVAHpTIUqVbMQdXEvmd" width="180" alt="ionic 2"></a><span class="caption">Ionic 2</span><br><br><br>          </p>
+
+<a id="more"></a>
+<h4 id="1、技术栈">1、技术栈</h4><ul>
+<li>Angular 2.0</li>
+<li>TypeScript</li>
+<li>Webpack Gulp</li>
+<li>ES6</li>
+<li>Sass</li>
+</ul>
+<h4 id="2、目录结构">2、目录结构</h4><p>这样的目录结构，更能体现模块化。</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string">____app.html</span><br><span class="line"></span>|<span class="string">____app.ts</span><br><span class="line"></span>|____pages</span><br><span class="line">|<span class="string"> </span>|____page1</span><br><span class="line">|<span class="string"> </span>|<span class="string"> </span>|<span class="string">____page1.html</span><br><span class="line"></span>|<span class="string"> </span>|<span class="string"> </span>|<span class="string">____page1.scss</span><br><span class="line"></span>|<span class="string"> </span>|<span class="string"> </span>|<span class="string">____page1.ts</span><br><span class="line"></span>|____services</span><br><span class="line">|<span class="string"> </span>|<span class="string">____service.ts</span><br><span class="line"></span>|____theme</span><br></pre></td></tr></table></figure>
+<h4 id="3、配置">3、配置</h4><p>1、app配置：app/app.ts作为入口文件（查看webpack.config.js），需要使用@app()来指定初始页面，同时还有相关的配置选项。<a href="http://ionicframework.com/docs/v2/api/decorators/App/" target="_blank" rel="external">doc</a></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@App(&#123;</span><br><span class="line">  templateUrl: <span class="string">'./build/app.html'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">class</span> DemoApp &#123;</span><br><span class="line">  <span class="constructor"><span class="keyword">constructor</span> () </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、路由配置：非常简单明了，不像1.0版本的ui-router，若需要在路由跳转时传递参数，并不用在配置时标明。跳转路由时，引入<code>NavController</code>模块，把新的页面push进去并带上需要传递的参数。而被跳转的页面，可以引入<code>NavParams</code>模块获取传递的参数。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;RouteConfig, Location&#125; from <span class="string">'angular2/router'</span>; <span class="comment">// 引入路由模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 配置路由</span></span><br><span class="line"><span class="keyword">const</span> ROUTES = [</span><br><span class="line">  &#123; path: <span class="string">'/list'</span>, component: ListPage, useAsDefault: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; path: <span class="string">'/detail'</span>, component: DetailPage &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">@App(&#123;</span><br><span class="line">  templateUrl: <span class="string">'./build/app.html'</span></span><br><span class="line">&#125;)</span><br><span class="line">@RouteConfig(ROUTES) <span class="comment">//传入</span></span><br><span class="line"><span class="keyword">class</span> DemoApp &#123;</span><br><span class="line">  <span class="constructor"><span class="keyword">constructor</span> () </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 跳转页面</span></span><br><span class="line">goDetail (item) &#123;</span><br><span class="line">   <span class="keyword">this</span>.nav.push(DetailPage, &#123;</span><br><span class="line">      id: item.id</span><br><span class="line">   &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4、@page">4、@page</h4><p>每一个页面都当成是一个component，这@page是由ng2的@component演变过来的，<code>providers</code>属性是要注入的服务。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Page(&#123;</span><br><span class="line">  templateUrl: <span class="string">'./build/pages/list/list.html'</span>,</span><br><span class="line">  providers: [TopicService]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ListPage &#123;</span><br><span class="line">	<span class="constructor"><span class="keyword">constructor</span> () </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.topics = []; <span class="comment">//绑定到页面的数据</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//这里可以写各种方法</span></span><br><span class="line">	getTopics () &#123;</span><br><span class="line">		<span class="keyword">this</span>.topics.push(&#123;title: <span class="string">'test'</span>&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>绑定数据的方法也有了一点改变，详情可以看ng2的官方文档。页面渲染时，数据必须存在，不然会报错，或者渲染成undefined，这点感觉跟ng1有点不一样，没去深入研究。</p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">ion-list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ion-item</span> *<span class="attribute">ngFor</span>=<span class="value">"#t of topic"</span> (<span class="attribute">click</span>)=<span class="value">"goDetail(t)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">ion-avatar</span> <span class="attribute">item-left</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"</span></span></span><span class="expression">&#123;&#123;<span class="variable">t.author.avatar</span>_<span class="variable">url</span>&#125;&#125;</span><span class="xml"><span class="tag"><span class="value">"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">ion-avatar</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h2</span>&gt;</span></span><span class="expression">&#123;&#123;<span class="variable">t.author.loginname</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span></span><span class="expression">&#123;&#123;<span class="variable">t.title</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span>&gt;</span></span><span class="expression">&#123;&#123;<span class="variable">t.create</span>_<span class="variable">at</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ion-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ion-list</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="5、http">5、http</h4><p>在网上搜了几种方法，唯独就这种写法可以，<code>rxjs/add/operator/map</code>这个必须引入，不然下面的map方法不会执行，但是也不报错，一个坑。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//service.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; Inject &#125; from <span class="string">'angular2/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Http &#125; from <span class="string">'angular2/http'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'rxjs/add/operator/map'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> TopicService &#123;</span><br><span class="line"></span><br><span class="line">    <span class="constructor"><span class="keyword">constructor</span>(@Inject(Http) http: Http) </span>&#123; <span class="comment">// 注意此处的@Inject()</span></span><br><span class="line">        <span class="keyword">this</span>.http = http</span><br><span class="line">    &#125;   </span><br><span class="line"> </span><br><span class="line">    getTopics () &#123;</span><br><span class="line">        <span class="keyword">var</span> url = <span class="string">'http://api.url.com'</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.http.get(url).map(res =&gt; res.json());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="6、项目地址">6、<a href="https://github.com/Alex-fun/ionic2-starter" target="_blank" rel="external">项目地址</a></h4>]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="0、介绍">0、介绍</h4><p>紧随angular的步伐，ionic也推出了2.0版本(beta)，把ng1换成了ng2，ui上也增加了material design和window phone的风格，组件上并没有太多的变化。因为ng2，代码风格完全不一样了，熟悉es6的童鞋应该很容易就能上手，而也因为ng2，让整个项目更组建化、模块化了。路由配置也更加简单。</p>
+<p><a href="https://dn-cnode.qbox.me/FpA5jex9jPVAHpTIUqVbMQdXEvmd" title="ionic 2" class="fancybox" rel="article2"><img src="https://dn-cnode.qbox.me/FpA5jex9jPVAHpTIUqVbMQdXEvmd" width="180" alt="ionic 2"></a><span class="caption">Ionic 2</span><br><br><br>          </p>]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[ajax与302]]></title>
+    <link href="http://yoursite.com/2016/04/06/ajax%E4%B8%8E302/"/>
+    <id>http://yoursite.com/2016/04/06/ajax与302/</id>
+    <published>2016-04-06T02:10:59.000Z</published>
+    <updated>2016-04-06T12:51:27.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>You can’t handle redirects with XHR callbacks because the browser takes care of them automatically. You will only get back what at the redirected location.</p>
+</blockquote>
+<p>在ajax进行请求时，如果服务器返回302（重定向），ajax并不会马上收的，因为浏览器自动去访问了重定向的哪个连接，然后再返回结果。也就说，如果需要重定向的连接或者说是接口，是合法可以调用的，那ajax会返回重定向的那个连接的调用结果，反则就返回404。</p>
+<p>大概流程如下：</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ajax<span class="function"> -&gt;</span> browser<span class="function"> -&gt;</span> server<span class="function"> -&gt;</span> <span class="number">302</span><span class="function"> -&gt;</span> browser<span class="function"><span class="params">(redirect)</span> -&gt;</span> server<span class="function"> -&gt;</span> browser<span class="function"> -&gt;</span> ajax callback</span><br></pre></td></tr></table></figure>
+<p>如是需要利用重定向来跳转到某些页面，就不能直接返还302了。</p>
+<p>常见的情况，登录过期，需要跳转到登录页面，这种情况，建议在返回需要重定向的状态码，例如返回{status: 302}, 然后由前端进行页面跳转。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>You can’t handle redirects with XHR callbacks because the browser takes care of them automatically. You will only get back w]]>
+    </summary>
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[获取字符串里最长单词的3种方法]]></title>
