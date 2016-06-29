@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-29T14:53:28.000Z</updated>
+  <updated>2016-06-29T15:08:59.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2016/06/29/%E5%85%B3%E4%BA%8E%E7%A7%BB%E5%8A%A8hybrid%E5%BC%80%E5%8F%91%E4%B8%ADH5%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%AD%97%E4%BD%93%E5%BA%94%E4%B8%8E%E7%B3%BB%E7%BB%9F%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2016/06/29/关于移动hybrid开发中H5页面的字体应与系统保持一致的问题/</id>
     <published>2016-06-29T14:02:24.000Z</published>
-    <updated>2016-06-29T14:53:28.000Z</updated>
+    <updated>2016-06-29T15:08:59.000Z</updated>
     <content type="html"><![CDATA[<h4 id="0、问题来源">0、问题来源</h4><p>在移动hybrid开发，也就是说，部分页面会使用html+css+javascript技术来制作，例如个人中心，收藏页面等。一般来说，移动端都会将字体设置为system系统默认类型。起初，愚钝的我认为，只要在css里不设置任何字体，将会默认使用系统默认字体。然而结果并未如我所想，页面出来后，中文、英文和数字几乎是3种不同的字体，而且没有一类是和移动端的字体相同。</p>
 <h4 id="1、浏览器默认字体">1、浏览器默认字体</h4><p>基于上述的问题，我google了一下iOS和Android的默认字体。大概如下：</p>
 <h5 id="1-1、iOS系统">1.1、iOS系统</h5><ul>
@@ -35,7 +35,7 @@
 </ul>
 <a id="more"></a>
 <p>然后，我将上面的字体对应系统地测试了一遍，结果，也没有一款字体是和原生页面中的字体相同。</p>
-<p>那么在此时，我突然觉得有个问题maybe理解错了，就是webview的默认字体和app级别的默认字体是同一回事么？从上面的测试，我觉得应该是不同的。当然也有可能是我找到的字体其实也是错的。</p>
+<p>那么在此时，我突然觉得有个问题maybe理解错了，就是webview的默认字体和app级别的默认字体是同一回事么？从上面的测试，我觉得应该是不同的（当然也有可能是我找到的字体其实也是错的）。但就算是相同，每个系统的字体也不一定都一样，特别是android，各种字体乱来，如果按照不同的系统来配置字体，简直会让人疯掉。</p>
 <p>然后我再去google…</p>
 <h4 id="2、css设置system默认字体:_-apple-system">2、css设置system默认字体: -apple-system</h4><p>最终，我找到了-apple-system，一个<a href="https://webkit.org/blog/3709/using-the-system-font-in-web-content/" target="_blank" rel="external">AppleWebkit</a>里独有的属性。</p>
 <blockquote>
