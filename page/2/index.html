@@ -31,6 +31,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-理解Object-create" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/20/理解Object-create/">理解Object.create</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/02/20/理解Object-create/" class="article-date">
+  <time datetime="2016-02-20T04:58:06.000Z" itemprop="datePublished">2016-02-20</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Object.create()方法是用来创建新的对象，并且可以指定原型（proto），和设定自身属性（propertiesObject）。如果指定的原型（proto）不是null或者一个对象值，将会抛出类型错误异常。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.<span class="function"><span class="title">create</span><span class="params">(proto[, propertiesObject])</span></span></span><br></pre></td></tr></table></figure>
+<p>在js里，所有的端口都默认继承至Obejct，如果使用此方法创建一个对象，需要指定原型为Object.prototype，如果传入null的话，就不继承任何东西。<br>
+        
+          <p class="article-more-link">
+            <a href="/2016/02/20/理解Object-create/#more">More...</a>
+          </p>
+        
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-理解Object-assign" class="article article-type-post" itemscope itemprop="blogPost">
   
   <div class="article-inner">
