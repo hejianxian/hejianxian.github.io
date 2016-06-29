@@ -5,16 +5,19 @@
   
   <title>关于移动hybrid开发中H5页面的字体应与系统保持一致的问题 | Hejx&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="0、问题来源在移动hybrid开发，也就是说，部分页面会使用html+css+javascript技术来制作，例如个人中心，收藏页面等。一般来说，移动端都会将字体设置为system系统默认类型。起初，愚钝的我认为，只要在css里不设置任何字体，将会默认使用系统默认字体。然而结果并未如我所想，页面出来后，中文、英文和数字几乎是3种不同的字体，而且没有一类是和移动端的字体相同。">
+  <meta name="description" content="0、问题来源在移动hybrid开发，也就是说，部分页面会使用html+css+javascript技术来制作，例如个人中心，收藏页面等。一般来说，移动端都会将字体设置为system系统默认类型。起初，愚钝的我认为，只要在css里不设置任何字体，将会默认使用系统默认字体。然而结果并未如我所想，页面出来后，中文、英文和数字几乎是3种不同的字体，而且没有一类是和移动端的字体相同。
+1、浏览器默认字体基于">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于移动hybrid开发中H5页面的字体应与系统保持一致的问题">
 <meta property="og:url" content="http://yoursite.com/2016/06/29/关于移动hybrid开发中H5页面的字体应与系统保持一致的问题/index.html">
 <meta property="og:site_name" content="Hejx's blog">
-<meta property="og:description" content="0、问题来源在移动hybrid开发，也就是说，部分页面会使用html+css+javascript技术来制作，例如个人中心，收藏页面等。一般来说，移动端都会将字体设置为system系统默认类型。起初，愚钝的我认为，只要在css里不设置任何字体，将会默认使用系统默认字体。然而结果并未如我所想，页面出来后，中文、英文和数字几乎是3种不同的字体，而且没有一类是和移动端的字体相同。">
-<meta property="og:updated_time" content="2016-06-29T14:51:39.000Z">
+<meta property="og:description" content="0、问题来源在移动hybrid开发，也就是说，部分页面会使用html+css+javascript技术来制作，例如个人中心，收藏页面等。一般来说，移动端都会将字体设置为system系统默认类型。起初，愚钝的我认为，只要在css里不设置任何字体，将会默认使用系统默认字体。然而结果并未如我所想，页面出来后，中文、英文和数字几乎是3种不同的字体，而且没有一类是和移动端的字体相同。
+1、浏览器默认字体基于">
+<meta property="og:updated_time" content="2016-06-29T14:53:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于移动hybrid开发中H5页面的字体应与系统保持一致的问题">
-<meta name="twitter:description" content="0、问题来源在移动hybrid开发，也就是说，部分页面会使用html+css+javascript技术来制作，例如个人中心，收藏页面等。一般来说，移动端都会将字体设置为system系统默认类型。起初，愚钝的我认为，只要在css里不设置任何字体，将会默认使用系统默认字体。然而结果并未如我所想，页面出来后，中文、英文和数字几乎是3种不同的字体，而且没有一类是和移动端的字体相同。">
+<meta name="twitter:description" content="0、问题来源在移动hybrid开发，也就是说，部分页面会使用html+css+javascript技术来制作，例如个人中心，收藏页面等。一般来说，移动端都会将字体设置为system系统默认类型。起初，愚钝的我认为，只要在css里不设置任何字体，将会默认使用系统默认字体。然而结果并未如我所想，页面出来后，中文、英文和数字几乎是3种不同的字体，而且没有一类是和移动端的字体相同。
+1、浏览器默认字体基于">
   
     <link rel="alternative" href="/atom.xml" title="Hejx&#39;s blog" type="application/atom+xml">
   
@@ -53,7 +56,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="0、问题来源">0、问题来源</h4><p>在移动hybrid开发，也就是说，部分页面会使用html+css+javascript技术来制作，例如个人中心，收藏页面等。一般来说，移动端都会将字体设置为system系统默认类型。起初，愚钝的我认为，只要在css里不设置任何字体，将会默认使用系统默认字体。然而结果并未如我所想，页面出来后，中文、英文和数字几乎是3种不同的字体，而且没有一类是和移动端的字体相同。</p>
-<a id="more"></a>
 <h4 id="1、浏览器默认字体">1、浏览器默认字体</h4><p>基于上述的问题，我google了一下iOS和Android的默认字体。大概如下：</p>
 <h5 id="1-1、iOS系统">1.1、iOS系统</h5><ul>
 <li>默认中文字体是Heiti SC</li>
@@ -66,6 +68,7 @@
 <li>默认英文和数字字体是Droid Sans</li>
 <li>无微软雅黑字体</li>
 </ul>
+<a id="more"></a>
 <p>然后，我将上面的字体对应系统地测试了一遍，结果，也没有一款字体是和原生页面中的字体相同。</p>
 <p>那么在此时，我突然觉得有个问题maybe理解错了，就是webview的默认字体和app级别的默认字体是同一回事么？从上面的测试，我觉得应该是不同的。当然也有可能是我找到的字体其实也是错的。</p>
 <p>然后我再去google…</p>
