@@ -467,7 +467,6 @@ a.article-title:hover {
   display: inline-block;
   line-height: 1em;
   padding: 6px 0;
-  -webkit-border-radius: 15px;
   border-radius: 15px;
   background: #fff;
   color: #991a1a;
@@ -531,7 +530,6 @@ a.article-title:hover {
     margin-top: -4px;
     margin-left: -4px;
     content: "";
-    -webkit-border-radius: 50%;
     border-radius: 50%;
     background: #ddd;
     -webkit-box-shadow: 0 1px 2px #fff;
@@ -593,7 +591,6 @@ a.article-title:hover {
   background: #fff;
   -webkit-box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
   box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   margin-left: -145px;
   overflow: hidden;
@@ -613,7 +610,6 @@ a.article-title:hover {
   color: #555;
   outline: none;
   border: 1px solid #ddd;
-  -webkit-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
   height: 36px;
   line-height: 36px;
@@ -805,7 +801,6 @@ a.article-title:hover {
 }
 .article-entry pre,
 .article-entry .highlight {
-  -webkit-border-radius: 4px;
   border-radius: 4px;
   background: #f7f7f7;
   margin: 0 -10px;
@@ -868,7 +863,6 @@ a.article-title:hover {
   padding: 0 10px;
   border-right: 1px solid #ddd;
   margin-right: 10px;
-  -webkit-border-radius: 0;
   border-radius: 0;
 }
 .article-entry .highlight .line {

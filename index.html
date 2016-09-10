@@ -5,15 +5,12 @@
   
   <title>Hejx&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="Hejx's blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Hejx's blog">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hejx's blog">
-<meta name="twitter:description">
   
     <link rel="alternative" href="/atom.xml" title="Hejx&#39;s blog" type="application/atom+xml">
   
@@ -21,7 +18,7 @@
     <link rel="icon" href="/favicon.png">
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
 
 </head>
@@ -30,6 +27,60 @@
     <div id="wrap">
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Python之禅" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/10/Python之禅/">Python之禅</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/09/10/Python之禅/" class="article-date">
+  <time datetime="2016-09-10T04:57:11.000Z" itemprop="datePublished">2016-09-10</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>优美胜于丑陋</p>
+<p>明了胜于隐晦</p>
+<p>简洁胜于复杂</p>
+<p>复杂胜于混乱</p>
+<p>扁平胜于嵌套</p>
+<p>宽松胜于紧凑</p>
+<p>可读性很重要</p>
+<p>即便是特例，也不可违背这些规则</p>
+<p>虽然现实往往不那么完美</p>
+<p>但是不应该放过任何异常</p>
+<p>除非你确定需要如此</p>
+<p>如果存在多种可能，不要猜测</p>
+<p>肯定有一种－通常也是唯一一种－最佳的解决方案</p>
+<p>虽然这并不容易，因为你不是Python之父</p>
+<p>动手比不动手要好</p>
+<p>但不假思索就动手还不如不做</p>
+<p>如果你的方案很难懂，那肯定不是一个好方案</p>
+<p>如果你的方案很好懂，那肯定是一个好方案</p>
+<p>命名空间非常有用，我们应当多加利用</p>
+<p>–by Tim Peters</p>
+
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
   
     <article id="post-javascript面向对象精要" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -53,7 +104,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="0-数据类型">0.数据类型</h3><p>javaScript 有两种数据类型： 原始类型和引用类型。原始类型保存为简单类型。引用类型则保存为对象，其本质是指向内存位置的引用。</p>
+        <h3 id="0-数据类型"><a href="#0-数据类型" class="headerlink" title="0.数据类型"></a>0.数据类型</h3><p>javaScript 有两种数据类型： 原始类型和引用类型。原始类型保存为简单类型。引用类型则保存为对象，其本质是指向内存位置的引用。</p>
 <p>javaScript共有5种原始类型：boolean、number、string、null、undefined.</p>
 <blockquote>
 <p>typeof null 的值为 ‘obejct’， 逻辑上可以认为null是一个空的对象指针（设计错误），判断是否为空类型的最佳方法是直接和null比较，使用 ‘===’。</p>
@@ -97,15 +148,15 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="0、问题来源">0、问题来源</h4><p>在移动hybrid开发，也就是说，部分页面会使用html+css+javascript技术来制作，例如个人中心，收藏页面等。一般来说，移动端都会将字体设置为system系统默认类型。起初，愚钝的我认为，只要在css里不设置任何字体，将会默认使用系统默认字体。然而结果并未如我所想，页面出来后，中文、英文和数字几乎是3种不同的字体，而且没有一类是和移动端的字体相同。</p>
-<h4 id="1、浏览器默认字体">1、浏览器默认字体</h4><p>基于上述的问题，我google了一下iOS和Android的默认字体。找到了一篇大概如下：</p>
-<h5 id="1-1、iOS系统（感觉很正确）">1.1、iOS系统（感觉很正确）</h5><ul>
+        <h4 id="0、问题来源"><a href="#0、问题来源" class="headerlink" title="0、问题来源"></a>0、问题来源</h4><p>在移动hybrid开发，也就是说，部分页面会使用html+css+javascript技术来制作，例如个人中心，收藏页面等。一般来说，移动端都会将字体设置为system系统默认类型。起初，愚钝的我认为，只要在css里不设置任何字体，将会默认使用系统默认字体。然而结果并未如我所想，页面出来后，中文、英文和数字几乎是3种不同的字体，而且没有一类是和移动端的字体相同。</p>
+<h4 id="1、浏览器默认字体"><a href="#1、浏览器默认字体" class="headerlink" title="1、浏览器默认字体"></a>1、浏览器默认字体</h4><p>基于上述的问题，我google了一下iOS和Android的默认字体。找到了一篇大概如下：</p>
+<h5 id="1-1、iOS系统（感觉很正确）"><a href="#1-1、iOS系统（感觉很正确）" class="headerlink" title="1.1、iOS系统（感觉很正确）"></a>1.1、iOS系统（感觉很正确）</h5><ul>
 <li>默认中文字体是Heiti SC</li>
 <li>默认英文字体是Helvetica</li>
 <li>默认数字字体是HelveticaNeue</li>
 <li>无微软雅黑字体</li>
 </ul>
-<h5 id="1-2、Android系统">1.2、Android系统</h5><ul>
+<h5 id="1-2、Android系统"><a href="#1-2、Android系统" class="headerlink" title="1.2、Android系统"></a>1.2、Android系统</h5><ul>
 <li>默认中文字体是Droidsansfallback</li>
 <li>默认英文和数字字体是Droid Sans</li>
 <li>无微软雅黑字体</li>
@@ -148,7 +199,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="0、介绍">0、介绍</h4><p>紧随angular的步伐，ionic也推出了2.0版本(beta)，把ng1换成了ng2，ui上也增加了material design和window phone的风格，组件上并没有太多的变化。因为ng2，代码风格完全不一样了，熟悉es6的童鞋应该很容易就能上手，而也因为ng2，让整个项目更组建化、模块化了。路由配置也更加简单。</p>
+        <h4 id="0、介绍"><a href="#0、介绍" class="headerlink" title="0、介绍"></a>0、介绍</h4><p>紧随angular的步伐，ionic也推出了2.0版本(beta)，把ng1换成了ng2，ui上也增加了material design和window phone的风格，组件上并没有太多的变化。因为ng2，代码风格完全不一样了，熟悉es6的童鞋应该很容易就能上手，而也因为ng2，让整个项目更组建化、模块化了。路由配置也更加简单。</p>
 <p><a href="https://dn-cnode.qbox.me/FpA5jex9jPVAHpTIUqVbMQdXEvmd" title="ionic 2" class="fancybox" rel="article2"><img src="https://dn-cnode.qbox.me/FpA5jex9jPVAHpTIUqVbMQdXEvmd" width="180" alt="ionic 2"></a><span class="caption">Ionic 2</span><br><br><br>          </p>
         
           <p class="article-more-link">
@@ -193,7 +244,7 @@
 </blockquote>
 <p>在ajax进行请求时，如果服务器返回302（重定向），ajax并不会马上收的，因为浏览器自动去访问了重定向的哪个连接，然后再返回结果。也就说，如果需要重定向的连接或者说是接口，是合法可以调用的，那ajax会返回重定向的那个连接的调用结果，反则就返回404。</p>
 <p>大概流程如下：</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ajax<span class="function"> -&gt;</span> browser<span class="function"> -&gt;</span> server<span class="function"> -&gt;</span> <span class="number">302</span><span class="function"> -&gt;</span> browser<span class="function"><span class="params">(redirect)</span> -&gt;</span> server<span class="function"> -&gt;</span> browser<span class="function"> -&gt;</span> ajax callback</span><br></pre></td></tr></table></figure>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">ajax</span> -&gt;</span> <span class="function"><span class="title">browser</span> -&gt;</span> <span class="function"><span class="title">server</span> -&gt;</span> <span class="number">302</span> -&gt; <span class="function"><span class="title">browser</span>(redirect) -&gt;</span> <span class="function"><span class="title">server</span> -&gt;</span> <span class="function"><span class="title">browser</span> -&gt;</span> ajax callback</div></pre></td></tr></table></figure>
 <p>如是需要利用重定向来跳转到某些页面，就不能直接返还302了。</p>
 <p>常见的情况，登录过期，需要跳转到登录页面，这种情况，建议在返回需要重定向的状态码，例如返回{status: 302}, 然后由前端进行页面跳转。</p>
 
@@ -233,7 +284,7 @@
         <blockquote>
 <p>返回字符串中最长的单词的长度(number类型)</p>
 </blockquote>
-<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findLongestWord</span><span class="params">(str)</span> &#123;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="transposed_variable">str.</span><span class="built_in">length</span>;</span><br><span class="line">&#125;</span><br><span class="line">findLongestWord(<span class="string">"The quick brown fox jumped over the lazy dog"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="title">findLongestWord</span>(str) &#123;</div><div class="line">  <span class="keyword">return</span> <span class="type">str.length</span>;</div><div class="line">&#125;</div><div class="line">findLongestWord(<span class="string">"The quick brown fox jumped over the lazy dog"</span>);</div></pre></td></tr></table></figure>
 <p>这里会使用3种方法，首先是FOR loop方法，接着是sort方法，最后是reduce方法。</p>
         
           <p class="article-more-link">
@@ -274,7 +325,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>使用（:focus :hover :target :checked）4种方法来实现tab效果。</p>
-<h4 id=":checked">:checked</h4><script async src="http://jsfiddle.net/yan_alex/yd5uyjd8/2/embed/html,css,result/"></script>
+<h4 id="checked"><a href="#checked" class="headerlink" title=":checked"></a>:checked</h4><script async src="http://jsfiddle.net/yan_alex/yd5uyjd8/2/embed/html,css,result/"></script>
         
           <p class="article-more-link">
             <a href="/2016/03/10/用css3制作tab控件的4种方法/#more">More...</a>
@@ -397,56 +448,13 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1、ls">1、ls</h3><p>ls最常用的参数有三个： -a -l -F。</p>
+        <h3 id="1、ls"><a href="#1、ls" class="headerlink" title="1、ls"></a>1、ls</h3><p>ls最常用的参数有三个： -a -l -F。</p>
 <p>ls –a<br/>Linux上的文件以.开头的文件被系统视为隐藏文件，仅用ls命令是看不到他们的，而用ls -a除了显示一般文件名外，连隐藏文件也会显示出来。</p>
 <p>ls –l<br/>该参数显示更详细的文件信息。</p>
 <p>ls –F<br/>使用这个参数表示在文件的后面多添加表示文件类型的符号，例如*表示可执行，/表示目录，@表示连结文件，这都是因为使用了-F这个参数。但是现在基本上所有的Linux发行版本的ls都已经内建了-F参数，也就是说，不用输入这个参数，我们也能看到各种分辨符号。<br>
         
           <p class="article-more-link">
             <a href="/2016/02/26/常用命令/#more">More...</a>
-          </p>
-        
-      
-
-      
-        
-    </div>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-关于javascript里的变量提升和函数提升" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/25/关于javascript里的变量提升和函数提升/">关于javascript里的声明提前（hoisting）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/02/25/关于javascript里的变量提升和函数提升/" class="article-date">
-  <time datetime="2016-02-25T13:52:47.000Z" itemprop="datePublished">2016-02-25</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>“声明提前”是在javascript引擎的“预编译”时进行的，也就是在代码开始运行之前。</p>
-</blockquote>
-<p>在函数里声明的所有变量（但不涉及赋值），都会被“提前”至函数体的顶部。在函数体内，局部变量的优先级高于同名的全局变量，如果在函数体内声明一个局部变量或者函数参数中带有的变量和全局变量同名，那么全局变量将会被局部变量覆盖。而给一个没有被声明的变量赋值，在非严谨模式下，等同于在全局范围创建了一个同名属性。</p>
-<p>在脚本里，所有的函数包括嵌套的函数，都会在当前的上下文中其他代码之前声明。函数定义语句中的函数会被显式地“提前”（包括函数名和函数体），在脚本和函数内部都是可见的，因此可以被提前调用。而使用var的话（函数定义表达式），只有变量会被提前，变量的定义还在原来的位置。</p>
-        
-          <p class="article-more-link">
-            <a href="/2016/02/25/关于javascript里的变量提升和函数提升/#more">More...</a>
           </p>
         
       
@@ -521,11 +529,11 @@
 <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

@@ -7,20 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="You can’t handle redirects with XHR callbacks because the browser takes care of them automatically. You will only get back what at the redirected location.
 
-在ajax进行请求时，如果服务器返回302（重定向），ajax并不会马上收的，因为浏览">
+在ajax进行请求时，如果服务器返回302（重定向），ajax并不会马上收的，因为浏">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ajax与302">
 <meta property="og:url" content="http://yoursite.com/2016/04/06/ajax与302/index.html">
 <meta property="og:site_name" content="Hejx's blog">
 <meta property="og:description" content="You can’t handle redirects with XHR callbacks because the browser takes care of them automatically. You will only get back what at the redirected location.
 
-在ajax进行请求时，如果服务器返回302（重定向），ajax并不会马上收的，因为浏览">
+在ajax进行请求时，如果服务器返回302（重定向），ajax并不会马上收的，因为浏">
 <meta property="og:updated_time" content="2016-04-06T12:51:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ajax与302">
 <meta name="twitter:description" content="You can’t handle redirects with XHR callbacks because the browser takes care of them automatically. You will only get back what at the redirected location.
 
-在ajax进行请求时，如果服务器返回302（重定向），ajax并不会马上收的，因为浏览">
+在ajax进行请求时，如果服务器返回302（重定向），ajax并不会马上收的，因为浏">
   
     <link rel="alternative" href="/atom.xml" title="Hejx&#39;s blog" type="application/atom+xml">
   
@@ -28,7 +28,7 @@
     <link rel="icon" href="/favicon.png">
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
 
 </head>
@@ -63,7 +63,7 @@
 </blockquote>
 <p>在ajax进行请求时，如果服务器返回302（重定向），ajax并不会马上收的，因为浏览器自动去访问了重定向的哪个连接，然后再返回结果。也就说，如果需要重定向的连接或者说是接口，是合法可以调用的，那ajax会返回重定向的那个连接的调用结果，反则就返回404。</p>
 <p>大概流程如下：</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ajax<span class="function"> -&gt;</span> browser<span class="function"> -&gt;</span> server<span class="function"> -&gt;</span> <span class="number">302</span><span class="function"> -&gt;</span> browser<span class="function"><span class="params">(redirect)</span> -&gt;</span> server<span class="function"> -&gt;</span> browser<span class="function"> -&gt;</span> ajax callback</span><br></pre></td></tr></table></figure>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">ajax</span> -&gt;</span> <span class="function"><span class="title">browser</span> -&gt;</span> <span class="function"><span class="title">server</span> -&gt;</span> <span class="number">302</span> -&gt; <span class="function"><span class="title">browser</span>(redirect) -&gt;</span> <span class="function"><span class="title">server</span> -&gt;</span> <span class="function"><span class="title">browser</span> -&gt;</span> ajax callback</div></pre></td></tr></table></figure>
 <p>如是需要利用重定向来跳转到某些页面，就不能直接返还302了。</p>
 <p>常见的情况，登录过期，需要跳转到登录页面，这种情况，建议在返回需要重定向的状态码，例如返回{status: 302}, 然后由前端进行页面跳转。</p>
 
@@ -174,11 +174,11 @@
 <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

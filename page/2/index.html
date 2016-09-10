@@ -5,15 +5,12 @@
   
   <title>Hejx&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="Hejx's blog">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Hejx's blog">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hejx's blog">
-<meta name="twitter:description">
   
     <link rel="alternative" href="/atom.xml" title="Hejx&#39;s blog" type="application/atom+xml">
   
@@ -21,7 +18,7 @@
     <link rel="icon" href="/favicon.png">
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
 
 </head>
@@ -30,6 +27,49 @@
     <div id="wrap">
       <div class="outer">
         <section id="main">
+  
+    <article id="post-关于javascript里的变量提升和函数提升" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/25/关于javascript里的变量提升和函数提升/">关于javascript里的声明提前（hoisting）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/02/25/关于javascript里的变量提升和函数提升/" class="article-date">
+  <time datetime="2016-02-25T13:52:47.000Z" itemprop="datePublished">2016-02-25</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>“声明提前”是在javascript引擎的“预编译”时进行的，也就是在代码开始运行之前。</p>
+</blockquote>
+<p>在函数里声明的所有变量（但不涉及赋值），都会被“提前”至函数体的顶部。在函数体内，局部变量的优先级高于同名的全局变量，如果在函数体内声明一个局部变量或者函数参数中带有的变量和全局变量同名，那么全局变量将会被局部变量覆盖。而给一个没有被声明的变量赋值，在非严谨模式下，等同于在全局范围创建了一个同名属性。</p>
+<p>在脚本里，所有的函数包括嵌套的函数，都会在当前的上下文中其他代码之前声明。函数定义语句中的函数会被显式地“提前”（包括函数名和函数体），在脚本和函数内部都是可见的，因此可以被提前调用。而使用var的话（函数定义表达式），只有变量会被提前，变量的定义还在原来的位置。</p>
+        
+          <p class="article-more-link">
+            <a href="/2016/02/25/关于javascript里的变量提升和函数提升/#more">More...</a>
+          </p>
+        
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
   
     <article id="post-MutationObserver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -88,7 +128,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Object.create()方法是用来创建新的对象，并且可以指定原型（proto），和设定自身属性（propertiesObject）。如果指定的原型（proto）不是null或者一个对象值，将会抛出类型错误异常。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.<span class="function"><span class="title">create</span><span class="params">(proto[, propertiesObject])</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Object</span><span class="selector-class">.create</span>(<span class="selector-tag">proto</span><span class="selector-attr">[, propertiesObject]</span>)</div></pre></td></tr></table></figure>
 <p>在js里，所有的端口都默认继承至Obejct，如果使用此方法创建一个对象，需要指定原型为Object.prototype，如果传入null的话，就不继承任何东西。<br>
         
           <p class="article-more-link">
@@ -129,13 +169,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Object.assign()方法用于从一个或多个源对象（sources）中拷贝所有可枚举的自有属性到目标对象（target），并返回目标对象。拷贝过程中将调用源对象的getter方法，并在target对象上使用setter方法实现目标对象的拷贝。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.<span class="function"><span class="title">assign</span><span class="params">(target, ...sources)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Object</span><span class="selector-class">.assign</span>(<span class="selector-tag">target</span>, ..<span class="selector-class">.sources</span>)</div></pre></td></tr></table></figure>
 <p>不过，采用这种方法克隆，只能克隆原始对象自身的值，不能克隆它继承的值。如果想要保持继承链，可以采用下面的代码。</p>
 <blockquote>
 <p>原文：Both String and Symbol properties are copied.</p>
 </blockquote>
 <p>String和Symbol类型都可被直接分配。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">origin</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> originProto = <span class="built_in">Object</span>.getPrototypeOf(origin);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(<span class="built_in">Object</span>.create(originProto), origin);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">origin</span>) </span>&#123;</div><div class="line">	<span class="keyword">let</span> originProto = <span class="built_in">Object</span>.getPrototypeOf(origin);</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(<span class="built_in">Object</span>.create(originProto), origin);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>注意：如果属性是只读的，那将会抛出异常，目标对象将会停止改变（而之前的改变会保留）。但是对于null或者undefind会直接忽略。</p>
         
           <p class="article-more-link">
@@ -212,7 +252,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="为何会变粗">为何会变粗</h3><p>如iphone 5s，2倍高清屏，css上使用的border:1px对应的是设备独立像素，而此时，这1px会被转成4个物理像素（放大2倍，如下图）。所以，在手机上看到的边框（横向）其实是占用了2个物理像素的高度（如果有对比的话，会非常明显感觉边框高了一倍）。同理在3倍高清屏上，也是一样。</p>
+        <h3 id="为何会变粗"><a href="#为何会变粗" class="headerlink" title="为何会变粗"></a>为何会变粗</h3><p>如iphone 5s，2倍高清屏，css上使用的border:1px对应的是设备独立像素，而此时，这1px会被转成4个物理像素（放大2倍，如下图）。所以，在手机上看到的边框（横向）其实是占用了2个物理像素的高度（如果有对比的话，会非常明显感觉边框高了一倍）。同理在3倍高清屏上，也是一样。</p>
 <p>解决的方法都是差不多，使用其他元素来替代border，然后根据不同的屏幕来缩放大小，2倍就50%，3倍就33.333%。</p>
 <p><img src="//dn-cnode.qbox.me/Fqm0dZ_CkXiIHo4lLhqyjvNhsd8B" alt="css"><br>
         
@@ -253,13 +293,13 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="代码">代码</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">test</span> = '<span class="keyword">test</span>';</span><br><span class="line">console.<span class="literal">log</span>(<span class="keyword">test</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//message</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = 0, len = 10; i &lt; len; i+=) &#123;</span><br><span class="line">	console.<span class="literal">log</span>(i + 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Blockquotes">Blockquotes</h3><blockquote>
+        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">test</span> = '<span class="keyword">test</span>';</div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">test</span>);</div><div class="line"></div><div class="line"><span class="comment">//message</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = 0, len = 10; i &lt; len; i+=) &#123;</div><div class="line">	console.<span class="built_in">log</span>(i + 1);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Blockquotes"><a href="#Blockquotes" class="headerlink" title="Blockquotes"></a>Blockquotes</h3><blockquote>
 <p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,<br>consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.<br>Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
 <p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse<br>id sem consectetuer libero luctus adipiscing.</p>
 </blockquote>
-<h3 id="link">link</h3><p><a href="https://github.com/Alex-fun/hexo-theme-jane" target="_blank" rel="external">项目地址</a></p>
-<h3 id="image">image</h3><p><img src="https://hexo.io/build/screenshots/jane-c5c7c338b3@2x.png" alt="image"></p>
+<h3 id="link"><a href="#link" class="headerlink" title="link"></a>link</h3><p><a href="https://github.com/Alex-fun/hexo-theme-jane" target="_blank" rel="external">项目地址</a></p>
+<h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><p><img src="https://hexo.io/build/screenshots/jane-c5c7c338b3@2x.png" alt="image"></p>
 
       
 
@@ -294,14 +334,14 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="关于">关于</h3><p>这是一个极其简单的hexo主题，甚至说，她是不及格的。这完全是按照我自己的需求和想法来设计的一个主题，没有太多的功能，例如，没有搜索功能，没有海贼王和火影忍者，没有分享，也没有脸书和推特。因为，我只希望这仅仅是一个给自己记录文字的地方，所以，没有太多花俏的功能！</p>
+        <h3 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h3><p>这是一个极其简单的hexo主题，甚至说，她是不及格的。这完全是按照我自己的需求和想法来设计的一个主题，没有太多的功能，例如，没有搜索功能，没有海贼王和火影忍者，没有分享，也没有脸书和推特。因为，我只希望这仅仅是一个给自己记录文字的地方，所以，没有太多花俏的功能！</p>
 <p>如果您也喜欢这样，欢迎您使用的我的主题！</p>
-<h3 id="安装">安装</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/</span><span class="constant">Alex</span>-<span class="function"><span class="keyword">fun</span><span class="title">/</span></span>hexo-theme-jane.git themes/jane</span><br></pre></td></tr></table></figure>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/</span>Alex-<span class="function"><span class="keyword">fun</span><span class="title">/</span></span>hexo-theme-jane.git themes/jane</div></pre></td></tr></table></figure>
 <p>然后配置根目录的_config.yml文件（并非theme里的那个）</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">theme</span>: <span class="string">jane</span></span><br></pre></td></tr></table></figure>
-<h3 id="tags">tags</h3><p>因为tags是单独一个页面展示，所以需要手动添加，输入以下命令就可以了</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page <span class="keyword">tags</span></span><br></pre></td></tr></table></figure>
-<h3 id="更新">更新</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/jane</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">theme:</span> jane</div></pre></td></tr></table></figure>
+<h3 id="tags"><a href="#tags" class="headerlink" title="tags"></a>tags</h3><p>因为tags是单独一个页面展示，所以需要手动添加，输入以下命令就可以了</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">new</span> page <span class="keyword">tags</span></div></pre></td></tr></table></figure>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> themes/jane</div><div class="line">git pull</div></pre></td></tr></table></figure>
 
       
 
@@ -410,11 +450,11 @@
 <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

@@ -25,7 +25,7 @@
     <link rel="icon" href="/favicon.png">
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
 
 </head>
@@ -55,15 +55,15 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="0、问题来源">0、问题来源</h4><p>在移动hybrid开发，也就是说，部分页面会使用html+css+javascript技术来制作，例如个人中心，收藏页面等。一般来说，移动端都会将字体设置为system系统默认类型。起初，愚钝的我认为，只要在css里不设置任何字体，将会默认使用系统默认字体。然而结果并未如我所想，页面出来后，中文、英文和数字几乎是3种不同的字体，而且没有一类是和移动端的字体相同。</p>
-<h4 id="1、浏览器默认字体">1、浏览器默认字体</h4><p>基于上述的问题，我google了一下iOS和Android的默认字体。找到了一篇大概如下：</p>
-<h5 id="1-1、iOS系统（感觉很正确）">1.1、iOS系统（感觉很正确）</h5><ul>
+        <h4 id="0、问题来源"><a href="#0、问题来源" class="headerlink" title="0、问题来源"></a>0、问题来源</h4><p>在移动hybrid开发，也就是说，部分页面会使用html+css+javascript技术来制作，例如个人中心，收藏页面等。一般来说，移动端都会将字体设置为system系统默认类型。起初，愚钝的我认为，只要在css里不设置任何字体，将会默认使用系统默认字体。然而结果并未如我所想，页面出来后，中文、英文和数字几乎是3种不同的字体，而且没有一类是和移动端的字体相同。</p>
+<h4 id="1、浏览器默认字体"><a href="#1、浏览器默认字体" class="headerlink" title="1、浏览器默认字体"></a>1、浏览器默认字体</h4><p>基于上述的问题，我google了一下iOS和Android的默认字体。找到了一篇大概如下：</p>
+<h5 id="1-1、iOS系统（感觉很正确）"><a href="#1-1、iOS系统（感觉很正确）" class="headerlink" title="1.1、iOS系统（感觉很正确）"></a>1.1、iOS系统（感觉很正确）</h5><ul>
 <li>默认中文字体是Heiti SC</li>
 <li>默认英文字体是Helvetica</li>
 <li>默认数字字体是HelveticaNeue</li>
 <li>无微软雅黑字体</li>
 </ul>
-<h5 id="1-2、Android系统">1.2、Android系统</h5><ul>
+<h5 id="1-2、Android系统"><a href="#1-2、Android系统" class="headerlink" title="1.2、Android系统"></a>1.2、Android系统</h5><ul>
 <li>默认中文字体是Droidsansfallback</li>
 <li>默认英文和数字字体是Droid Sans</li>
 <li>无微软雅黑字体</li>
@@ -72,16 +72,16 @@
 <p>然后，我将上面的字体对应系统地测试了一遍，结果，也没有一款字体是和原生页面中的字体相同。</p>
 <p>那么在此时，我突然觉得有个问题maybe理解错了，就是webview的默认字体和app级别的默认字体是同一回事么？从上面的测试，我觉得应该是不同的（当然也有可能是我找到的字体其实也是错的）。但就算是相同，每个系统的字体也不一定都一样，特别是android，各种字体乱来，如果按照不同的系统来配置字体，简直会让人疯掉。</p>
 <p>然后我再去google…</p>
-<h4 id="2、css设置system默认字体:_-apple-system">2、css设置system默认字体: -apple-system</h4><p>最终，我找到了-apple-system，一个<a href="https://webkit.org/blog/3709/using-the-system-font-in-web-content/" target="_blank" rel="external">AppleWebkit</a>里独有的属性。</p>
+<h4 id="2、css设置system默认字体-apple-system"><a href="#2、css设置system默认字体-apple-system" class="headerlink" title="2、css设置system默认字体: -apple-system"></a>2、css设置system默认字体: -apple-system</h4><p>最终，我找到了-apple-system，一个<a href="https://webkit.org/blog/3709/using-the-system-font-in-web-content/" target="_blank" rel="external">AppleWebkit</a>里独有的属性。</p>
 <blockquote>
 <p>On iOS 9 and OS X 10.11, doing this allows you to use Apple’s new system font, San Francisco(打脸). On platforms which do not support -apple-system, the browser will simply fall back to the next item in the font-family fallback list. </p>
 </blockquote>
 <p>简单地设置一下</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">body</span><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">font-family</span>:<span class="value"> -apple-system</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span>&#123;</div><div class="line">    <span class="attribute">font-family</span>: -apple-system;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>完美！！字体完全一致。</p>
 <p>虽然这个属性不兼容低版本的iOS系统，也不是规范（AppleWebkit的私有属性），但是真的很cool。更巧的是，crosswalk也是基于AppleWebkit，所以如果你的原生app集成了crosswalk，那恭喜你，这方法完全能用。更更巧的是，咱们的Android就集成了crosswalk(这其实很正常)，所以安卓的也算是解决了。</p>
 <p>那低版本的iOS7，8怎样解决呢？</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">font-family</span>: -apple-system, <span class="string">"Helvetica"</span>; <span class="comment">//再次打脸</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span>&#123;</div><div class="line">    <span class="attribute">font-family</span>: -apple-system, <span class="string">"Helvetica"</span>; <span class="comment">//再次打脸</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>完美！</p>
 
       
@@ -191,11 +191,11 @@
 <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>
