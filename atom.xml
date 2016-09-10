@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-09-10T05:11:38.000Z</updated>
+  <updated>2016-09-10T05:19:25.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,13 +16,14 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Python之禅</title>
+    <title>Python之禅 by Tim Peters</title>
     <link href="http://yoursite.com/2016/09/10/Python%E4%B9%8B%E7%A6%85/"/>
     <id>http://yoursite.com/2016/09/10/Python之禅/</id>
     <published>2016-09-10T04:57:11.000Z</published>
-    <updated>2016-09-10T05:11:38.000Z</updated>
+    <updated>2016-09-10T05:19:25.000Z</updated>
     
-    <content type="html"><![CDATA[<p>优美胜于丑陋</p>
+    <content type="html"><![CDATA[<blockquote>
+<p>优美胜于丑陋</p>
 <p>明了胜于隐晦</p>
 <p>简洁胜于复杂</p>
 <p>复杂胜于混乱</p>
@@ -41,12 +42,13 @@
 <p>如果你的方案很难懂，那肯定不是一个好方案</p>
 <p>如果你的方案很好懂，那肯定是一个好方案</p>
 <p>命名空间非常有用，我们应当多加利用</p>
-<p>–by Tim Peters</p>
+</blockquote>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;优美胜于丑陋&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;优美胜于丑陋&lt;/p&gt;
 &lt;p&gt;明了胜于隐晦&lt;/p&gt;
 &lt;p&gt;简洁胜于复杂&lt;/p&gt;
 &lt;p&gt;复杂胜于混乱&lt;/p&gt;
@@ -54,8 +56,7 @@
 &lt;p&gt;宽松胜于紧凑&lt;/p&gt;
 &lt;p&gt;可读性很重要&lt;/p&gt;
 &lt;p&gt;即便是特例，也不可违背这些规则&lt;/p&gt;
-&lt;p&gt;虽然现实往往不那么完美&lt;/p&gt;
-
+&lt;p&gt;虽然现
     
     </summary>
     
