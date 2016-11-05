@@ -28,6 +28,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-迁移到webpack2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/21/迁移到webpack2/">迁移到webpack2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/10/21/迁移到webpack2/" class="article-date">
+  <time datetime="2016-10-21T14:55:05.000Z" itemprop="datePublished">2016-10-21</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近前端聊得最多的莫过于<strong>某某某2.0发布了</strong>，作为前端狗即感兴奋又觉苦逼。然而，webpack也不例外，一个东西的新版发布，文档什么的都得跟上，然而现在好像资料并不多，官方的说法是，webpack1和2在使用上并没有太大的区别。 好吧，那就折腾折腾webpack2吧.</p>
+<blockquote>
+<p><a href="http://javascriptplayground.com/blog/2016/10/moving-to-webpack-2/">原文地址 http://javascriptplayground.com/blog/2016/10/moving-to-webpack-2/</a></p>
+</blockquote>
+<h3 id="Install-Webpack-2"><a href="#Install-Webpack-2" class="headerlink" title="Install Webpack 2"></a>Install Webpack 2</h3><p>第一步，当然是安装最新版本的webpack2，不过因为还没正式发布，所以咱们就指定一个版本。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev webpack@2.1.0-beta.25</div></pre></td></tr></table></figure>
+<p>如果你还用到其他的webpack插件（这假设简直是多余），那很可能就需要升级到2.0。</p>
+<p>例如<code>extract-text-webpack-plugin</code>，同样也在2.0的路上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev extract-text-webpack-plugin@2.0.0-beta.4</div></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2016/10/21/迁移到webpack2/#more">More...</a>
+          </p>
+        
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python之禅" class="article article-type-post" itemscope itemprop="blogPost">
   
   <div class="article-inner">
@@ -50,28 +97,17 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>优美胜于丑陋</p>
+        <p>优美胜于丑陋</p>
 <p>明了胜于隐晦</p>
 <p>简洁胜于复杂</p>
 <p>复杂胜于混乱</p>
 <p>扁平胜于嵌套</p>
 <p>宽松胜于紧凑</p>
-<p>可读性很重要</p>
-<p>即便是特例，也不可违背这些规则</p>
-<p>虽然现实往往不那么完美</p>
-<p>但是不应该放过任何异常</p>
-<p>除非你确定需要如此</p>
-<p>如果存在多种可能，不要猜测</p>
-<p>肯定有一种－通常也是唯一一种－最佳的解决方案</p>
-<p>虽然这并不容易，因为你不是Python之父</p>
-<p>动手比不动手要好</p>
-<p>但不假思索就动手还不如不做</p>
-<p>如果你的方案很难懂，那肯定不是一个好方案</p>
-<p>如果你的方案很好懂，那肯定是一个好方案</p>
-<p>命名空间非常有用，我们应当多加利用</p>
-</blockquote>
-
+        
+          <p class="article-more-link">
+            <a href="/2016/09/10/Python之禅/#more">More...</a>
+          </p>
+        
       
 
       
@@ -414,48 +450,6 @@
         
           <p class="article-more-link">
             <a href="/2016/02/27/理解Object-keys/#more">More...</a>
-          </p>
-        
-      
-
-      
-        
-    </div>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-常用命令" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/26/常用命令/">常用shell命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/02/26/常用命令/" class="article-date">
-  <time datetime="2016-02-25T16:25:34.000Z" itemprop="datePublished">2016-02-26</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1、ls"><a href="#1、ls" class="headerlink" title="1、ls"></a>1、ls</h3><p>ls最常用的参数有三个： -a -l -F。</p>
-<p>ls –a<br/>Linux上的文件以.开头的文件被系统视为隐藏文件，仅用ls命令是看不到他们的，而用ls -a除了显示一般文件名外，连隐藏文件也会显示出来。</p>
-<p>ls –l<br/>该参数显示更详细的文件信息。</p>
-<p>ls –F<br/>使用这个参数表示在文件的后面多添加表示文件类型的符号，例如*表示可执行，/表示目录，@表示连结文件，这都是因为使用了-F这个参数。但是现在基本上所有的Linux发行版本的ls都已经内建了-F参数，也就是说，不用输入这个参数，我们也能看到各种分辨符号。<br>
-        
-          <p class="article-more-link">
-            <a href="/2016/02/26/常用命令/#more">More...</a>
           </p>
         
       
