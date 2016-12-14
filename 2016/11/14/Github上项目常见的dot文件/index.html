@@ -20,7 +20,7 @@
 .gitattributes这个文件的作用是可以对项目中的个别文件或目录定义不同的合并策略，让Git知道怎样比较非文本文件，在你提交或签出前让 Git 过滤内容。
 但是在Github上却">
 <meta property="og:image" content="https://cloud.githubusercontent.com/assets/6087438/21188326/fcafa1e8-c255-11e6-8570-a33e272fe3bf.png">
-<meta property="og:updated_time" content="2016-12-14T15:56:58.000Z">
+<meta property="og:updated_time" content="2016-12-14T16:03:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github上前端项目常见的dot文件">
 <meta name="twitter:description" content=".gitignore这个文件的作用就是告诉Git哪些文件不需要添加到版本管理中。
@@ -74,6 +74,7 @@
 <a id="more"></a>
 <p>那么，这种情况就可以使用.gitattributes主动告诉Github，咱们项目是啥类型：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test<span class="comment">/**/</span>*.js linguist-language=Vue</div></pre></td></tr></table></figure>
+<p>Git相关的可以看这里<a href="https://git-scm.com/book/zh/v1/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git%E5%B1%9E%E6%80%A7" target="_blank" rel="external">git-scm</a>。</p>
 <h3 id="gitkeep"><a href="#gitkeep" class="headerlink" title=".gitkeep"></a>.gitkeep</h3><p>Git会忽略空的文件夹，但是某些时候我们希望把空的文件夹也添加到版本控制中，也许可以在文件夹里随意放点东西，一旦不为空，那就会被纳入版本控制范围内。但是在空的文件夹里特意放点东西，感觉会很唐突和奇怪。</p>
 <p>然后，就有了这个看似合理的文件: .gitkeep，但其并不是Git的规范。</p>
 <h3 id="babelrc"><a href="#babelrc" class="headerlink" title=".babelrc"></a>.babelrc</h3><p>Babel可以说是当今前端领域里非常重要的一个工具，那么以rc(run control)结尾的文件，通常都代表为配置文件。</p>
@@ -83,7 +84,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"env"</span>: &#123;</div><div class="line">    <span class="string">"mocha"</span>: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"globals"</span>: &#123;</div><div class="line">    <span class="string">"expect"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"sinon"</span>: <span class="literal">true</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="eslintignore"><a href="#eslintignore" class="headerlink" title=".eslintignore"></a>.eslintignore</h3><p>看到ignore这个单词，基本都能猜出这文件时干嘛的，和.gitignore文件一样，都是用来说明需要忽略的文件。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">**<span class="comment">/*.min.js</span></div><div class="line">**/vendor<span class="comment">/*</span></div><div class="line">**/dist<span class="comment">/*</span></div></pre></td></tr></table></figure>
-<h3 id="github"><a href="#github" class="headerlink" title=".github"></a>.github</h3><p>在一些比较有名的项目中，基本都能看到这个文件夹。一般这些项目贡献者都比较多，为了更好的管理项目，可以在这文件里进行一下配置，包括issue，pull-request和contribute的指引。</p>
+<h3 id="github"><a href="#github" class="headerlink" title=".github"></a>.github</h3><p>在一些比较有名的项目中，基本都能看到这个文件夹。一般这些项目贡献者都比较多，为了更好的管理项目，可以在这文件里进行一下配置，包括issue，pull-request和contribute的指引。<a href="https://github.com/ElemeFE/element/tree/dev/.github" target="_blank" rel="external">.github</a></p>
 <p>例如 <em>ISSUE_TEMPLATE.md</em>:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">### OS/Browers version</div><div class="line">&lt;!-- macOS/Chrome 53 --&gt;</div><div class="line"></div><div class="line">### Vue version</div><div class="line">&lt;!-- 2.0.0-rc.4 --&gt;</div><div class="line"></div><div class="line">### Reproduction Link</div><div class="line">&lt;!-- A minimal JSBin, JSFiddle, Codepen, or a GitHub repository that can reproduce the bug. --&gt;</div><div class="line">&lt;!-- https://codepen.io/anon/pen/ozYpNA --&gt;</div><div class="line">&lt;!-- https://jsfiddle.net/gmve9d3p/ --&gt;</div><div class="line"></div><div class="line">### Steps to reproduce</div><div class="line"></div><div class="line">### What is Expected?</div><div class="line"></div><div class="line">### What is actually happening?</div></pre></td></tr></table></figure>
 <p>那么当给该项目提issue时，所打开的文本编辑框中，就会出现以上的模版。</p>
