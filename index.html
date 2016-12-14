@@ -36,7 +36,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/14/Github上项目常见的dot文件/">Github上项目常见的dot文件</a>
+      <a class="article-title" href="/2016/11/14/Github上项目常见的dot文件/">Github上前端项目常见的dot文件</a>
     </h1>
   
 
@@ -53,6 +53,8 @@
         <h3 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h3><p>这个文件的作用就是告诉Git哪些文件不需要添加到版本管理中。</p>
 <p>在实际项目中，往往会有很多文件不需要进行版本管理，例如这几个常见的：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.DS_Store</div><div class="line">node_modules/</div><div class="line">dist/</div></pre></td></tr></table></figure>
+<h3 id="gitattributes"><a href="#gitattributes" class="headerlink" title=".gitattributes"></a>.gitattributes</h3><p>这个文件的作用是可以对项目中的个别文件或目录定义不同的合并策略，让Git知道怎样比较非文本文件，在你提交或签出前让 Git 过滤内容。</p>
+<p>但是在Github上却有别的用处。在Github的仓库上，咱们都可以看到项目的描述下方会有一条颜色的粗线，不同的颜色代表不同的语言，例如黄色代表javascript。然后在搜索的时候，所显示的项目类型是由占比例最多的文件来决定，这样偶尔会出现JS的项目类型却是HTML，就只因为HTML的文件比JS的多。</p>
         
           <p class="article-more-link">
             <a href="/2016/11/14/Github上项目常见的dot文件/#more">More...</a>
