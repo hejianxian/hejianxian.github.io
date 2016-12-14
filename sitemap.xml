@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/11/14/Github%E4%B8%8A%E9%A1%B9%E7%9B%AE%E5%B8%B8%E8%A7%81%E7%9A%84dot%E6%96%87%E4%BB%B6/</loc>
+    
+    <lastmod>2016-12-14T15:52:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/10/21/%E8%BF%81%E7%A7%BB%E5%88%B0webpack2/</loc>
     
     <lastmod>2016-11-05T03:53:26.000Z</lastmod>

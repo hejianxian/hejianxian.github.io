@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-05T03:53:26.000Z</updated>
+  <updated>2016-12-14T15:52:58.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Github上项目常见的dot文件</title>
+    <link href="http://yoursite.com/2016/11/14/Github%E4%B8%8A%E9%A1%B9%E7%9B%AE%E5%B8%B8%E8%A7%81%E7%9A%84dot%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2016/11/14/Github上项目常见的dot文件/</id>
+    <published>2016-11-14T03:15:25.000Z</published>
+    <updated>2016-12-14T15:52:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h3><p>这个文件的作用就是告诉Git哪些文件不需要添加到版本管理中。</p>
+<p>在实际项目中，往往会有很多文件不需要进行版本管理，例如这几个常见的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.DS_Store</div><div class="line">node_modules/</div><div class="line">dist/</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="gitattributes"><a href="#gitattributes" class="headerlink" title=".gitattributes"></a>.gitattributes</h3><p>这个文件的作用是可以对项目中的个别文件或目录定义不同的合并策略，让Git知道怎样比较非文本文件，在你提交或签出前让 Git 过滤内容。</p>
+<p>但是在Github上却有别的用处。在Github的仓库上，咱们都可以看到项目的描述下方会有一条颜色的粗线，不同的颜色代表不同的语言，例如黄色代表javascript。然后在搜索的时候，所显示的项目类型是由占比例最多的文件来决定，这样偶尔会出现JS的项目类型却是HTML，就只因为HTML的文件比JS的多。</p>
+<p>那么，这种情况就可以使用.gitattributes主动告诉Github，咱们项目是啥类型：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test<span class="comment">/**/</span>*.js linguist-language=Vue</div></pre></td></tr></table></figure>
+<h3 id="gitkeep"><a href="#gitkeep" class="headerlink" title=".gitkeep"></a>.gitkeep</h3><p>Git会忽略空的文件夹，但是某些时候我们希望把空的文件夹也添加到版本控制中，也许可以在文件夹里随意放点东西，一旦不为空，那就会被纳入版本控制范围内。但是在空的文件夹里特意放点东西，感觉会很唐突和奇怪。</p>
+<p>然后，就有了这个看似合理的文件: .gitkeep，但其并不是Git的规范。</p>
+<h3 id="babelrc"><a href="#babelrc" class="headerlink" title=".babelrc"></a>.babelrc</h3><p>Babel可以说是当今前端领域里非常重要的一个工具，那么以rc(run control)结尾的文件，通常都代表为配置文件。</p>
+<p>那.babelrc文件毫无疑问就是对Babel进行配置的咯。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"presets"</span>: [<span class="string">"es2015"</span>, <span class="string">"stage-2"</span>],</div><div class="line">  <span class="string">"plugins"</span>: [<span class="string">"transform-runtime"</span>],</div><div class="line">  <span class="string">"comments"</span>: <span class="literal">false</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="eslintrc"><a href="#eslintrc" class="headerlink" title=".eslintrc"></a>.eslintrc</h3><p>.eslintrc文件是属于ESLint的配置文件，支持JSON和YAML两种语法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"env"</span>: &#123;</div><div class="line">    <span class="string">"mocha"</span>: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"globals"</span>: &#123;</div><div class="line">    <span class="string">"expect"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"sinon"</span>: <span class="literal">true</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="eslintignore"><a href="#eslintignore" class="headerlink" title=".eslintignore"></a>.eslintignore</h3><p>看到ignore这个单词，基本都能猜出这文件时干嘛的，和.gitignore文件一样，都是用来说明需要忽略的文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">**<span class="comment">/*.min.js</span></div><div class="line">**/vendor<span class="comment">/*</span></div><div class="line">**/dist<span class="comment">/*</span></div></pre></td></tr></table></figure>
+<h3 id="github"><a href="#github" class="headerlink" title=".github"></a>.github</h3><p>在一些比较有名的项目中，基本都能看到这个文件夹。一般这些项目贡献者都比较多，为了更好的管理项目，可以在这文件里进行一下配置，包括issue，pull-request和contribute的指引。</p>
+<p>例如 <em>ISSUE_TEMPLATE.md</em>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">### OS/Browers version</div><div class="line">&lt;!-- macOS/Chrome 53 --&gt;</div><div class="line"></div><div class="line">### Vue version</div><div class="line">&lt;!-- 2.0.0-rc.4 --&gt;</div><div class="line"></div><div class="line">### Reproduction Link</div><div class="line">&lt;!-- A minimal JSBin, JSFiddle, Codepen, or a GitHub repository that can reproduce the bug. --&gt;</div><div class="line">&lt;!-- https://codepen.io/anon/pen/ozYpNA --&gt;</div><div class="line">&lt;!-- https://jsfiddle.net/gmve9d3p/ --&gt;</div><div class="line"></div><div class="line">### Steps to reproduce</div><div class="line"></div><div class="line">### What is Expected?</div><div class="line"></div><div class="line">### What is actually happening?</div></pre></td></tr></table></figure>
+<p>那么当给该项目提issue时，所打开的文本编辑框中，就会出现以上的模版。</p>
+<p><img src="https://cloud.githubusercontent.com/assets/6087438/21188326/fcafa1e8-c255-11e6-8570-a33e272fe3bf.png" alt="image"></p>
+<h3 id="editorconfig"><a href="#editorconfig" class="headerlink" title=".editorconfig"></a>.editorconfig</h3><p>不同的人在开发时可能会选择不同的编辑器，哪怕在同一个团队，有人喜欢Sublime，有人喜欢VScode。喜欢哪个编辑器并无问题，关键是代码的规范能否统一，例如最常说的缩进，到底是2个空格还是直接tab一下。</p>
+<p>那么.editorconfig文件的作用就是来统一项目编码规范（需要安装编辑器对应的EditorConfig插件）。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># editorconfig.org</div><div class="line"></div><div class="line">root = true</div><div class="line"></div><div class="line">[*]</div><div class="line">charset = utf-8</div><div class="line">end_of_line = lf</div><div class="line">indent_size = 2</div><div class="line">indent_style = space</div><div class="line">insert_final_newline = true</div><div class="line">trim_trailing_whitespace = true</div></pre></td></tr></table></figure>
+<h3 id="travis-yml"><a href="#travis-yml" class="headerlink" title=".travis.yml"></a>.travis.yml</h3><p>.travis.yml也是在有名的Github项目中很常见的一种文件，它是属于Travis Ci的配置说明文件。Travis Ci是一个基于云的持续集成项目，目前已经支持大部分主流语言了，Travis Ci与Github集成非常紧密，官方的集成测试托管只支持Github项目，不过你也可以通过Travis Ci开源项目搭建一套属于自己的方案。</p>
+<p>简单地来说，.travis.yml文件的作用就是告诉Travis Ci应该用何种环境或配置条件来测试项目。</p>
+<p>例如Node.js的项目：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">language: node_js</div><div class="line">node_js: <span class="number">5</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;gitignore&quot;&gt;&lt;a href=&quot;#gitignore&quot; class=&quot;headerlink&quot; title=&quot;.gitignore&quot;&gt;&lt;/a&gt;.gitignore&lt;/h3&gt;&lt;p&gt;这个文件的作用就是告诉Git哪些文件不需要添加到版本管理中。&lt;/p&gt;
+&lt;p&gt;在实际项目中，往往会有很多文件不需要进行版本管理，例如这几个常见的：&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;.DS_Store&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;node_modules/&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;dist/&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>迁移到webpack2</title>
@@ -379,9 +430,9 @@
     </summary>
     
     
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
       <category term="button" scheme="http://yoursite.com/tags/button/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   

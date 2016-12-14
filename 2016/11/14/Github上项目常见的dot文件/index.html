@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Github上项目常见的dot文件 | Hejx&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content=".gitignore这个文件的作用就是告诉Git哪些文件不需要添加到版本管理中。
+在实际项目中，往往会有很多文件不需要进行版本管理，例如这几个常见的：
+123.DS_Storenode_modules/dist/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github上项目常见的dot文件">
+<meta property="og:url" content="http://yoursite.com/2016/11/14/Github上项目常见的dot文件/index.html">
+<meta property="og:site_name" content="Hejx's blog">
+<meta property="og:description" content=".gitignore这个文件的作用就是告诉Git哪些文件不需要添加到版本管理中。
+在实际项目中，往往会有很多文件不需要进行版本管理，例如这几个常见的：
+123.DS_Storenode_modules/dist/">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/6087438/21188326/fcafa1e8-c255-11e6-8570-a33e272fe3bf.png">
+<meta property="og:updated_time" content="2016-12-14T15:52:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Github上项目常见的dot文件">
+<meta name="twitter:description" content=".gitignore这个文件的作用就是告诉Git哪些文件不需要添加到版本管理中。
+在实际项目中，往往会有很多文件不需要进行版本管理，例如这几个常见的：
+123.DS_Storenode_modules/dist/">
+<meta name="twitter:image" content="https://cloud.githubusercontent.com/assets/6087438/21188326/fcafa1e8-c255-11e6-8570-a33e272fe3bf.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hejx&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <section id="main"><article id="post-Github上项目常见的dot文件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Github上项目常见的dot文件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/11/14/Github上项目常见的dot文件/" class="article-date">
+  <time datetime="2016-11-14T03:15:25.000Z" itemprop="datePublished">2016-11-14</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h3><p>这个文件的作用就是告诉Git哪些文件不需要添加到版本管理中。</p>
+<p>在实际项目中，往往会有很多文件不需要进行版本管理，例如这几个常见的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.DS_Store</div><div class="line">node_modules/</div><div class="line">dist/</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="gitattributes"><a href="#gitattributes" class="headerlink" title=".gitattributes"></a>.gitattributes</h3><p>这个文件的作用是可以对项目中的个别文件或目录定义不同的合并策略，让Git知道怎样比较非文本文件，在你提交或签出前让 Git 过滤内容。</p>
+<p>但是在Github上却有别的用处。在Github的仓库上，咱们都可以看到项目的描述下方会有一条颜色的粗线，不同的颜色代表不同的语言，例如黄色代表javascript。然后在搜索的时候，所显示的项目类型是由占比例最多的文件来决定，这样偶尔会出现JS的项目类型却是HTML，就只因为HTML的文件比JS的多。</p>
+<p>那么，这种情况就可以使用.gitattributes主动告诉Github，咱们项目是啥类型：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test<span class="comment">/**/</span>*.js linguist-language=Vue</div></pre></td></tr></table></figure>
+<h3 id="gitkeep"><a href="#gitkeep" class="headerlink" title=".gitkeep"></a>.gitkeep</h3><p>Git会忽略空的文件夹，但是某些时候我们希望把空的文件夹也添加到版本控制中，也许可以在文件夹里随意放点东西，一旦不为空，那就会被纳入版本控制范围内。但是在空的文件夹里特意放点东西，感觉会很唐突和奇怪。</p>
+<p>然后，就有了这个看似合理的文件: .gitkeep，但其并不是Git的规范。</p>
+<h3 id="babelrc"><a href="#babelrc" class="headerlink" title=".babelrc"></a>.babelrc</h3><p>Babel可以说是当今前端领域里非常重要的一个工具，那么以rc(run control)结尾的文件，通常都代表为配置文件。</p>
+<p>那.babelrc文件毫无疑问就是对Babel进行配置的咯。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"presets"</span>: [<span class="string">"es2015"</span>, <span class="string">"stage-2"</span>],</div><div class="line">  <span class="string">"plugins"</span>: [<span class="string">"transform-runtime"</span>],</div><div class="line">  <span class="string">"comments"</span>: <span class="literal">false</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="eslintrc"><a href="#eslintrc" class="headerlink" title=".eslintrc"></a>.eslintrc</h3><p>.eslintrc文件是属于ESLint的配置文件，支持JSON和YAML两种语法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"env"</span>: &#123;</div><div class="line">    <span class="string">"mocha"</span>: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"globals"</span>: &#123;</div><div class="line">    <span class="string">"expect"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"sinon"</span>: <span class="literal">true</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="eslintignore"><a href="#eslintignore" class="headerlink" title=".eslintignore"></a>.eslintignore</h3><p>看到ignore这个单词，基本都能猜出这文件时干嘛的，和.gitignore文件一样，都是用来说明需要忽略的文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">**<span class="comment">/*.min.js</span></div><div class="line">**/vendor<span class="comment">/*</span></div><div class="line">**/dist<span class="comment">/*</span></div></pre></td></tr></table></figure>
+<h3 id="github"><a href="#github" class="headerlink" title=".github"></a>.github</h3><p>在一些比较有名的项目中，基本都能看到这个文件夹。一般这些项目贡献者都比较多，为了更好的管理项目，可以在这文件里进行一下配置，包括issue，pull-request和contribute的指引。</p>
+<p>例如 <em>ISSUE_TEMPLATE.md</em>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">### OS/Browers version</div><div class="line">&lt;!-- macOS/Chrome 53 --&gt;</div><div class="line"></div><div class="line">### Vue version</div><div class="line">&lt;!-- 2.0.0-rc.4 --&gt;</div><div class="line"></div><div class="line">### Reproduction Link</div><div class="line">&lt;!-- A minimal JSBin, JSFiddle, Codepen, or a GitHub repository that can reproduce the bug. --&gt;</div><div class="line">&lt;!-- https://codepen.io/anon/pen/ozYpNA --&gt;</div><div class="line">&lt;!-- https://jsfiddle.net/gmve9d3p/ --&gt;</div><div class="line"></div><div class="line">### Steps to reproduce</div><div class="line"></div><div class="line">### What is Expected?</div><div class="line"></div><div class="line">### What is actually happening?</div></pre></td></tr></table></figure>
+<p>那么当给该项目提issue时，所打开的文本编辑框中，就会出现以上的模版。</p>
+<p><img src="https://cloud.githubusercontent.com/assets/6087438/21188326/fcafa1e8-c255-11e6-8570-a33e272fe3bf.png" alt="image"></p>
+<h3 id="editorconfig"><a href="#editorconfig" class="headerlink" title=".editorconfig"></a>.editorconfig</h3><p>不同的人在开发时可能会选择不同的编辑器，哪怕在同一个团队，有人喜欢Sublime，有人喜欢VScode。喜欢哪个编辑器并无问题，关键是代码的规范能否统一，例如最常说的缩进，到底是2个空格还是直接tab一下。</p>
+<p>那么.editorconfig文件的作用就是来统一项目编码规范（需要安装编辑器对应的EditorConfig插件）。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># editorconfig.org</div><div class="line"></div><div class="line">root = true</div><div class="line"></div><div class="line">[*]</div><div class="line">charset = utf-8</div><div class="line">end_of_line = lf</div><div class="line">indent_size = 2</div><div class="line">indent_style = space</div><div class="line">insert_final_newline = true</div><div class="line">trim_trailing_whitespace = true</div></pre></td></tr></table></figure>
+<h3 id="travis-yml"><a href="#travis-yml" class="headerlink" title=".travis.yml"></a>.travis.yml</h3><p>.travis.yml也是在有名的Github项目中很常见的一种文件，它是属于Travis Ci的配置说明文件。Travis Ci是一个基于云的持续集成项目，目前已经支持大部分主流语言了，Travis Ci与Github集成非常紧密，官方的集成测试托管只支持Github项目，不过你也可以通过Travis Ci开源项目搭建一套属于自己的方案。</p>
+<p>简单地来说，.travis.yml文件的作用就是告诉Travis Ci应该用何种环境或配置条件来测试项目。</p>
+<p>例如Node.js的项目：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">language: node_js</div><div class="line">node_js: <span class="number">5</span></div></pre></td></tr></table></figure>
+
+      
+
+      
+        
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/10/21/迁移到webpack2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">迁移到webpack2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'hejx'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+</section>
+</section>
+        <aside id="sidebar">
+  <nav class="menus">
+  	<ul>
+  		<li><a href="/"><i class="icon icon-home"></i></a></li>
+  		
+			<li><a href="/archives"><i class="icon icon-fenlei"></i></a></li>
+  		
+  		
+			<li><a href="/tags"><i class="icon icon-tag"></i></a></li>
+  		
+  		
+  			<li><a href="https://github.com/Alex-fun" target="_blank"><i class="icon icon-github"></i></a></li>
+  		
+  	</ul>
+  </nav>
+  <a id="go-top" href="#"><i class="icon icon-up"></i></a>
+</aside>
+      </div>
+      <footer id="footer">
+  
+	<div id="footer-info" class="inner">
+	  &copy; 2016 Hejx 
+	  - Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  - Theme <a href="https://github.com/Alex-fun/hexo-theme-jane/" target="_blank">Jane</a>
+	</div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tag</a>
+  
+    <a href="https://github.com/Alex-fun" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'hejx';
+  
+  var disqus_url = 'http://yoursite.com/2016/11/14/Github上项目常见的dot文件/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
