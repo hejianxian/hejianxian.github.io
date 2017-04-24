@@ -17,7 +17,7 @@
 1#menus &amp;gt; li &amp;#123; font-size: 14px; &amp;#125;
 可能都会猜想浏览器会使从左到右匹配上面的规则，我们会想象浏览器先找到唯一的 id 为 menus 的元素，然后把样式应用到其直系子元素 li 元素上。这看起来好像还挺高效的。
 但是，事实上，CSS选择符是从右到左进行匹配的。所以，上面的这条规则并不高效，浏览器必">
-<meta property="og:updated_time" content="2017-04-24T16:00:48.000Z">
+<meta property="og:updated_time" content="2017-04-24T16:03:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何编写高效的CSS选择器">
 <meta name="twitter:description" content="大部分人看到下面的这一小段 CSS 代码：
@@ -64,13 +64,13 @@
         <p>大部分人看到下面的这一小段 CSS 代码：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#menus</span> &gt; <span class="selector-tag">li</span> &#123; <span class="attribute">font-size</span>: <span class="number">14px</span>; &#125;</div></pre></td></tr></table></figure>
 <p>可能都会猜想浏览器会使从左到右匹配上面的规则，我们会想象浏览器先找到唯一的 id 为 menus 的元素，然后把样式应用到其直系子元素 li 元素上。这看起来好像还挺高效的。</p>
-<p>但是，事实上，<strong>CSS选择符是从右到左进行匹配</strong>的。所以，上面的这条规则并不高效，浏览器必需遍历页面上的每个li元素并确定其父元素的 id  是否为 menus。</p>
+<p>但是，事实上，<strong>CSS选择符是从右到左进行匹配</strong>的。所以，上面的这条规则并不高效，浏览器必需遍历页面上的每个 li 元素并确定其父元素的 id  是否为 menus。</p>
 <blockquote>
 <p>样式系统从最右边的选择符开始向左匹配规则。只有当前选择符的左边还有其他的选择符，样式系统就会继续向左移动，直到找到和规则匹配的元素，或者因为不匹配而退出。  —- 《在 Mozilla UI 中编写高效的 CSS》 David Hyatt</p>
 </blockquote>
 <a id="more"></a>
 <p>以下是 David Hyatt 在书中提出的编写高效选择符指南：</p>
-<h5 id="一、避免使用通配规则"><a href="#一、避免使用通配规则" class="headerlink" title="一、避免使用通配规则"></a>一、避免使用通配规则</h5><p>除了传统意义上的通配选择符之外，我们把相邻兄弟选择符、子选择符、后代选择符合属性选择符都归纳到<code>通配规则</code>分类下，推荐仅使用 ID、类和标签选择符。</p>
+<h5 id="一、避免使用通配规则"><a href="#一、避免使用通配规则" class="headerlink" title="一、避免使用通配规则"></a>一、避免使用通配规则</h5><p>除了传统意义上的通配选择符之外，我们把相邻兄弟选择符、子选择符、后代选择符合属性选择符都归纳到<strong>通配规则</strong>分类下，推荐仅使用 ID、类和标签选择符。</p>
 <h5 id="二、不要限定-ID-选择符"><a href="#二、不要限定-ID-选择符" class="headerlink" title="二、不要限定 ID 选择符"></a>二、不要限定 ID 选择符</h5><p>在页面中一个指定的ID只能对应一个元素，所以没有必要添加额外的限定符。例如，<code>div#header</code>是没有必要的，应该简化为<code>#header</code>。</p>
 <h5 id="三、不要限定类选择符"><a href="#三、不要限定类选择符" class="headerlink" title="三、不要限定类选择符"></a>三、不要限定类选择符</h5><p>不要用具体的标签限定类选择符，而是根据实际情况对类名进行扩展。例如，把<code>li.chapter</code>改成<code>.li-chapter</code>，或是<code>.list-chapter</code>更好。</p>
 <h5 id="四、让规则越具体越好"><a href="#四、让规则越具体越好" class="headerlink" title="四、让规则越具体越好"></a>四、让规则越具体越好</h5><p>不要试图编写像 ol li a 这样的长选择符，最好是创建一个像<code>.list-anchor</code>一样的类，并把它添加到适当的元素上。</p>
