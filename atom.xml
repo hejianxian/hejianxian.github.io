@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-14T16:03:49.000Z</updated>
+  <updated>2017-04-24T06:02:17.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>高效CSS选择器</title>
+    <link href="http://yoursite.com/2017/04/24/%E9%AB%98%E6%95%88CSS%E9%80%89%E6%8B%A9%E5%99%A8/"/>
+    <id>http://yoursite.com/2017/04/24/高效CSS选择器/</id>
+    <published>2017-04-24T05:37:29.000Z</published>
+    <updated>2017-04-24T06:02:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="避免使用通配规则"><a href="#避免使用通配规则" class="headerlink" title="避免使用通配规则"></a>避免使用通配规则</h3><p>除了传统意义上的通配选择符之外，我们把相邻兄弟选择符、子选择符、后代选择符合属性选择符都归纳到<code>通配规则</code>分类下，推荐仅使用ID、类和标签选择符。</p>
+<h3 id="不要限定-ID-选择符"><a href="#不要限定-ID-选择符" class="headerlink" title="不要限定 ID 选择符"></a>不要限定 ID 选择符</h3><p>在页面中一个指定的ID只能对应一个元素，所以没有必要添加额外的限定符。例如，<code>div#header</code>是没有必要的，应该简化为<code>#header</code>。</p>
+<h3 id="不要限定类选择符"><a href="#不要限定类选择符" class="headerlink" title="不要限定类选择符"></a>不要限定类选择符</h3><p>不要用具体的标签限定类选择符，而是根据实际情况对类名进行扩展。例如，把<code>li.chapter</code>改成<code>.li-chapter</code>，或是<code>.list-chapter</code>更好。</p>
+<h3 id="让规则越具体越好"><a href="#让规则越具体越好" class="headerlink" title="让规则越具体越好"></a>让规则越具体越好</h3><p>不要试图编写像 ol li a 这样的长选择符，最好是创建一个像<code>.list-anchor</code>一样的类，并把它添加到适当的元素上。</p>
+<h3 id="避免使用后代选择符"><a href="#避免使用后代选择符" class="headerlink" title="避免使用后代选择符"></a>避免使用后代选择符</h3><p>通常处理后代选择符的开销时最高的，而使用子选择符也可以得到想要的结果，并且更加高效。</p>
+<h3 id="避免使用标签–子选择符"><a href="#避免使用标签–子选择符" class="headerlink" title="避免使用标签–子选择符"></a>避免使用标签–子选择符</h3><p>如果有像<code>#menus &gt; li &gt; a</code>这样的基于标签的子选择符，那么应该使用一个类来关联每个标签元素，例如<code>.menus-item</code>。</p>
+<h3 id="质疑子选择符的所有用途"><a href="#质疑子选择符的所有用途" class="headerlink" title="质疑子选择符的所有用途"></a>质疑子选择符的所有用途</h3><p>检查所有使用子选择符的地方，然后尽可能用具体的类取代它们。</p>
+<h3 id="依靠继承"><a href="#依靠继承" class="headerlink" title="依靠继承"></a>依靠继承</h3><p>了解哪些属性可以通过继承而来，然后避免对这些属性重复指定规则。例如，对列表元素而不是每个列表元素指定<code>list-style-image</code>。请参考<a href="http://www.w3.org/TR/CSS21/propidx.html" target="_blank" rel="external">继承属性的列表</a>来了解每个元素的可继承的属性。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;避免使用通配规则&quot;&gt;&lt;a href=&quot;#避免使用通配规则&quot; class=&quot;headerlink&quot; title=&quot;避免使用通配规则&quot;&gt;&lt;/a&gt;避免使用通配规则&lt;/h3&gt;&lt;p&gt;除了传统意义上的通配选择符之外，我们把相邻兄弟选择符、子选择符、后代选择符合属性选择符都归纳
+    
+    </summary>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+  </entry>
   
   <entry>
     <title>Github上前端项目常见的dot文件</title>
@@ -775,28 +803,6 @@
     
     
       <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>新的开始</title>
-    <link href="http://yoursite.com/2016/02/07/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/"/>
-    <id>http://yoursite.com/2016/02/07/新的开始/</id>
-    <published>2016-02-07T09:50:43.000Z</published>
-    <updated>2016-02-07T09:52:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>2016，重新起航！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;2016，重新起航！&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-      <category term="bullshit" scheme="http://yoursite.com/tags/bullshit/"/>
     
   </entry>
   
