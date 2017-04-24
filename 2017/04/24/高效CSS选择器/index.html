@@ -17,7 +17,7 @@
 1#menus &amp;gt; li &amp;#123; font-size: 14px; &amp;#125;
 可能都会猜想浏览器会使从左到右匹配上面的规则，我们会想象浏览器先找到唯一的id为menus的元素，然后把样式应用到其直系子元素li元素上。这看起来好像还挺高效的。
 但是，事实上，CSS选择符是从右到左进行匹配的。所以，上面的这条规则并不高效，浏览器必需遍历页面上的每">
-<meta property="og:updated_time" content="2017-04-24T15:48:45.000Z">
+<meta property="og:updated_time" content="2017-04-24T15:52:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何编写高效的CSS选择器">
 <meta name="twitter:description" content="大部分人看到下面的这一小段CSS代码：
@@ -78,6 +78,7 @@
 <h5 id="六、避免使用标签–子选择符"><a href="#六、避免使用标签–子选择符" class="headerlink" title="六、避免使用标签–子选择符"></a>六、避免使用标签–子选择符</h5><p>如果有像<code>#menus &gt; li &gt; a</code>这样的基于标签的子选择符，那么应该使用一个类来关联每个标签元素，例如<code>.menus-item</code>。</p>
 <h5 id="七、质疑子选择符的所有用途"><a href="#七、质疑子选择符的所有用途" class="headerlink" title="七、质疑子选择符的所有用途"></a>七、质疑子选择符的所有用途</h5><p>检查所有使用子选择符的地方，然后尽可能用具体的类取代它们。</p>
 <h5 id="八、依靠继承"><a href="#八、依靠继承" class="headerlink" title="八、依靠继承"></a>八、依靠继承</h5><p>了解哪些属性可以通过继承而来，然后避免对这些属性重复指定规则。例如，对列表元素而不是每个列表元素指定<code>list-style-image</code>。请参考<a href="http://www.w3.org/TR/CSS21/propidx.html" target="_blank" rel="external">继承属性的列表</a>来了解每个元素的可继承的属性。</p>
+<p>摘自<strong>高性能网站建设进阶指南-Web开发者性能优化最佳实践</strong></p>
 
       
 

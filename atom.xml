@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-24T15:48:45.000Z</updated>
+  <updated>2017-04-24T15:52:42.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/04/24/%E9%AB%98%E6%95%88CSS%E9%80%89%E6%8B%A9%E5%99%A8/"/>
     <id>http://yoursite.com/2017/04/24/高效CSS选择器/</id>
     <published>2017-04-24T05:37:29.000Z</published>
-    <updated>2017-04-24T15:48:45.000Z</updated>
+    <updated>2017-04-24T15:52:42.000Z</updated>
     
     <content type="html"><![CDATA[<p>大部分人看到下面的这一小段CSS代码：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#menus</span> &gt; <span class="selector-tag">li</span> &#123; <span class="attribute">font-size</span>: <span class="number">14px</span>; &#125;</div></pre></td></tr></table></figure>
@@ -39,6 +39,7 @@
 <h5 id="六、避免使用标签–子选择符"><a href="#六、避免使用标签–子选择符" class="headerlink" title="六、避免使用标签–子选择符"></a>六、避免使用标签–子选择符</h5><p>如果有像<code>#menus &gt; li &gt; a</code>这样的基于标签的子选择符，那么应该使用一个类来关联每个标签元素，例如<code>.menus-item</code>。</p>
 <h5 id="七、质疑子选择符的所有用途"><a href="#七、质疑子选择符的所有用途" class="headerlink" title="七、质疑子选择符的所有用途"></a>七、质疑子选择符的所有用途</h5><p>检查所有使用子选择符的地方，然后尽可能用具体的类取代它们。</p>
 <h5 id="八、依靠继承"><a href="#八、依靠继承" class="headerlink" title="八、依靠继承"></a>八、依靠继承</h5><p>了解哪些属性可以通过继承而来，然后避免对这些属性重复指定规则。例如，对列表元素而不是每个列表元素指定<code>list-style-image</code>。请参考<a href="http://www.w3.org/TR/CSS21/propidx.html" target="_blank" rel="external">继承属性的列表</a>来了解每个元素的可继承的属性。</p>
+<p>摘自<strong>高性能网站建设进阶指南-Web开发者性能优化最佳实践</strong></p>
 ]]></content>
     
     <summary type="html">
