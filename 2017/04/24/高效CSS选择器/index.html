@@ -3,27 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>如何编写高效的CSS选择器 | Hejx&#39;s blog</title>
+  <title>如何编写高效的 CSS 选择器 | Hejx&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="大部分人看到下面的这一小段 CSS 代码：
 1#menus &amp;gt; li &amp;#123; font-size: 14px; &amp;#125;
 可能都会猜想浏览器会使从左到右匹配上面的规则，我们会想象浏览器先找到唯一的 id 为 menus 的元素，然后把样式应用到其直系子元素 li 元素上。这看起来好像还挺高效的。
-但是，事实上，CSS选择符是从右到左进行匹配的。所以，上面的这条规则并不高效，浏览器必">
+但是，事实上，CSS 选择符是从右到左进行匹配的。所以，上面的这条规则并不高效，浏览器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何编写高效的CSS选择器">
+<meta property="og:title" content="如何编写高效的 CSS 选择器">
 <meta property="og:url" content="http://yoursite.com/2017/04/24/高效CSS选择器/index.html">
 <meta property="og:site_name" content="Hejx's blog">
 <meta property="og:description" content="大部分人看到下面的这一小段 CSS 代码：
 1#menus &amp;gt; li &amp;#123; font-size: 14px; &amp;#125;
 可能都会猜想浏览器会使从左到右匹配上面的规则，我们会想象浏览器先找到唯一的 id 为 menus 的元素，然后把样式应用到其直系子元素 li 元素上。这看起来好像还挺高效的。
-但是，事实上，CSS选择符是从右到左进行匹配的。所以，上面的这条规则并不高效，浏览器必">
-<meta property="og:updated_time" content="2017-04-24T16:03:10.000Z">
+但是，事实上，CSS 选择符是从右到左进行匹配的。所以，上面的这条规则并不高效，浏览器">
+<meta property="og:updated_time" content="2017-04-24T16:04:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何编写高效的CSS选择器">
+<meta name="twitter:title" content="如何编写高效的 CSS 选择器">
 <meta name="twitter:description" content="大部分人看到下面的这一小段 CSS 代码：
 1#menus &amp;gt; li &amp;#123; font-size: 14px; &amp;#125;
 可能都会猜想浏览器会使从左到右匹配上面的规则，我们会想象浏览器先找到唯一的 id 为 menus 的元素，然后把样式应用到其直系子元素 li 元素上。这看起来好像还挺高效的。
-但是，事实上，CSS选择符是从右到左进行匹配的。所以，上面的这条规则并不高效，浏览器必">
+但是，事实上，CSS 选择符是从右到左进行匹配的。所以，上面的这条规则并不高效，浏览器">
   
     <link rel="alternative" href="/atom.xml" title="Hejx&#39;s blog" type="application/atom+xml">
   
@@ -47,7 +47,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      如何编写高效的CSS选择器
+      如何编写高效的 CSS 选择器
     </h1>
   
 
@@ -64,7 +64,7 @@
         <p>大部分人看到下面的这一小段 CSS 代码：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#menus</span> &gt; <span class="selector-tag">li</span> &#123; <span class="attribute">font-size</span>: <span class="number">14px</span>; &#125;</div></pre></td></tr></table></figure>
 <p>可能都会猜想浏览器会使从左到右匹配上面的规则，我们会想象浏览器先找到唯一的 id 为 menus 的元素，然后把样式应用到其直系子元素 li 元素上。这看起来好像还挺高效的。</p>
-<p>但是，事实上，<strong>CSS选择符是从右到左进行匹配</strong>的。所以，上面的这条规则并不高效，浏览器必需遍历页面上的每个 li 元素并确定其父元素的 id  是否为 menus。</p>
+<p>但是，事实上，<strong>CSS 选择符是从右到左进行匹配</strong>的。所以，上面的这条规则并不高效，浏览器必需遍历页面上的每个 li 元素并确定其父元素的 id  是否为 menus。</p>
 <blockquote>
 <p>样式系统从最右边的选择符开始向左匹配规则。只有当前选择符的左边还有其他的选择符，样式系统就会继续向左移动，直到找到和规则匹配的元素，或者因为不匹配而退出。  —- 《在 Mozilla UI 中编写高效的 CSS》 David Hyatt</p>
 </blockquote>
