@@ -28,6 +28,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-vi常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/03/vi常用命令/">vi常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2017/06/03/vi常用命令/" class="article-date">
+  <time datetime="2017-06-03T04:12:57.000Z" itemprop="datePublished">2017-06-03</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="vi命令模式和编辑模式切换"><a href="#vi命令模式和编辑模式切换" class="headerlink" title="vi命令模式和编辑模式切换"></a>vi命令模式和编辑模式切换</h3><p>进入vi之后默认是命令模式，按i或者insert以及其他编辑键进入编辑模式，按esc或者crtl+c退出编辑模式。</p>
+<h3 id="vi保存命令"><a href="#vi保存命令" class="headerlink" title="vi保存命令"></a>vi保存命令</h3><p>按ESC键 跳到命令模式，然后：</p>
+<ul>
+<li>:w   保存文件但不退出vi</li>
+<li>:w file 将修改另外保存到file中，不退出vi</li>
+<li>:w!   强制保存，不推出vi</li>
+<li>:wq  保存文件并退出vi</li>
+<li>:wq! 强制保存文件，并退出vi</li>
+<li>:q  不保存文件，退出vi</li>
+<li>:q! 不保存文件，强制退出vi</li>
+<li>:e! 放弃所有修改，从上次保存文件开始再编辑</li>
+</ul>
+
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-高效CSS选择器" class="article article-type-post" itemscope itemprop="blogPost">
   
   <div class="article-inner">
@@ -414,49 +460,6 @@
         
           <p class="article-more-link">
             <a href="/2016/04/03/获取字符串里最长单词的3种方法/#more">More...</a>
-          </p>
-        
-      
-
-      
-        
-    </div>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-理解Object-keys" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/27/理解Object-keys/">理解Object.keys</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/02/27/理解Object-keys/" class="article-date">
-  <time datetime="2016-02-27T04:43:51.000Z" itemprop="datePublished">2016-02-27</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Object.keys()方法可以返回由传入对象的所有可枚举的自有属性的属性名组成的数组，这和使用<em>for…in</em>遍历对象不同，for-in会把对象的原型链上继承到的可枚举属性也会遍历出来。</p>
-<p>属性名的顺序和for-in出来的一样。</p>
-<blockquote>
-<p>Object.keys(obj)</p>
-</blockquote>
-        
-          <p class="article-more-link">
-            <a href="/2016/02/27/理解Object-keys/#more">More...</a>
           </p>
         
       
