@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-03T04:18:19.000Z</updated>
+  <updated>2017-06-03T04:24:45.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://yoursite.com/2017/06/03/vi%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2017/06/03/vi常用命令/</id>
     <published>2017-06-03T04:12:57.000Z</published>
-    <updated>2017-06-03T04:18:19.000Z</updated>
+    <updated>2017-06-03T04:24:45.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="vi命令模式和编辑模式切换"><a href="#vi命令模式和编辑模式切换" class="headerlink" title="vi命令模式和编辑模式切换"></a>vi命令模式和编辑模式切换</h3><p>进入vi之后默认是命令模式，按i或者insert以及其他编辑键进入编辑模式，按esc或者crtl+c退出编辑模式。</p>
-<h3 id="vi保存命令"><a href="#vi保存命令" class="headerlink" title="vi保存命令"></a>vi保存命令</h3><p>按ESC键 跳到命令模式，然后：</p>
+    <content type="html"><![CDATA[<h4 id="一、命令模式和编辑模式切换"><a href="#一、命令模式和编辑模式切换" class="headerlink" title="一、命令模式和编辑模式切换"></a>一、命令模式和编辑模式切换</h4><p>进入vi之后默认是命令模式，按i或者insert以及其他编辑键进入编辑模式，按esc或者crtl+c退出编辑模式。</p>
+<h4 id="二、保存命令"><a href="#二、保存命令" class="headerlink" title="二、保存命令"></a>二、保存命令</h4><p>按ESC键 跳到命令模式，然后：</p>
 <ul>
 <li>:w   保存文件但不退出vi</li>
 <li>:w file 将修改另外保存到file中，不退出vi</li>
@@ -38,7 +38,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;vi命令模式和编辑模式切换&quot;&gt;&lt;a href=&quot;#vi命令模式和编辑模式切换&quot; class=&quot;headerlink&quot; title=&quot;vi命令模式和编辑模式切换&quot;&gt;&lt;/a&gt;vi命令模式和编辑模式切换&lt;/h3&gt;&lt;p&gt;进入vi之后默认是命令模式，按i或者insert以及
+      &lt;h4 id=&quot;一、命令模式和编辑模式切换&quot;&gt;&lt;a href=&quot;#一、命令模式和编辑模式切换&quot; class=&quot;headerlink&quot; title=&quot;一、命令模式和编辑模式切换&quot;&gt;&lt;/a&gt;一、命令模式和编辑模式切换&lt;/h4&gt;&lt;p&gt;进入vi之后默认是命令模式，按i或者insert以及
     
     </summary>
     
