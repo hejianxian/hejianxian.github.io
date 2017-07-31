@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/02/07/jane-test/</loc>
+    
+    <lastmod>2017-07-31T11:12:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/06/03/vi%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2017-06-03T04:24:45.000Z</lastmod>
@@ -96,13 +103,6 @@
     <loc>http://yoursite.com/2016/02/26/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2016-02-27T15:29:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/02/07/jane-test/</loc>
-    
-    <lastmod>2016-02-26T06:35:57.000Z</lastmod>
     
   </url>
   

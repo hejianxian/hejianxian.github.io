@@ -124,7 +124,7 @@ body,
 }
 body {
   background: #fff;
-  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 14px "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 .left,
@@ -268,6 +268,7 @@ body {
 .article {
   margin: 50px 0;
   border-bottom: 1px dashed #d9d9d9;
+  text-align: justify;
 }
 .article-inner {
   overflow: hidden;
@@ -394,12 +395,14 @@ a.article-title:hover {
   border-left: 4px solid #991a1a;
 }
 .article-entry blockquote p {
-  margin: 0;
+  margin: 10px 0;
+  text-align: justify;
+  word-break: break-word;
 }
 .article-entry blockquote footer {
   font-size: 14px;
   margin: 1.6em 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", sans-serif;
 }
 .article-entry blockquote footer cite:before {
   content: "—";
@@ -605,7 +608,7 @@ a.article-title:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 14px "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", sans-serif;
   padding: 0 15px;
   color: #555;
   outline: none;
@@ -809,8 +812,7 @@ a.article-title:hover {
   color: #666;
   line-height: 22.400000000000002px;
 }
-.article-entry .highlight .gutter pre,
-.article-entry .gist .gist-file .gist-data .line-numbers {
+.article-entry .highlight .gutter pre {
   color: #666;
   font-size: 0.85em;
 }
@@ -842,6 +844,7 @@ a.article-title:hover {
   padding: 0;
 }
 .article-entry .highlight figcaption {
+  padding: 0 10px;
   font-size: 0.85em;
   color: #999;
   line-height: 1em;
@@ -867,52 +870,6 @@ a.article-title:hover {
 }
 .article-entry .highlight .line {
   height: 22.400000000000002px;
-}
-.article-entry .gist {
-  margin: 0 -20px;
-  border-style: solid;
-  border-color: #ddd;
-  border-width: 1px 0;
-  background: #f7f7f7;
-  padding: 15px 20px 15px 0;
-}
-.article-entry .gist .gist-file {
-  border: none;
-  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
-  margin: 0;
-}
-.article-entry .gist .gist-file .gist-data {
-  background: none;
-  border: none;
-}
-.article-entry .gist .gist-file .gist-data .line-numbers {
-  background: none;
-  border: none;
-  padding: 0 10px 0 0;
-}
-.article-entry .gist .gist-file .gist-data .line-data {
-  padding: 0 !important;
-}
-.article-entry .gist .gist-file .highlight {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-.article-entry .gist .gist-file .gist-meta {
-  background: #f7f7f7;
-  color: #999;
-  font: 0.85em "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-shadow: 0 0;
-  padding: 0;
-  margin-top: 1em;
-  margin-left: 20px;
-}
-.article-entry .gist .gist-file .gist-meta a {
-  color: #991a1a;
-  font-weight: normal;
-}
-.article-entry .gist .gist-file .gist-meta a:hover {
-  text-decoration: underline;
 }
 pre .comment,
 pre .title {
@@ -1089,4 +1046,57 @@ pre .javascript .function {
   #sidebar .menus ul li a i.icon.icon-github:before {
     content: "\e604";
   }
+}
+.gist {
+  color: #000;
+}
+.gist div {
+  padding: 0;
+  margin: 0;
+}
+.gist .gist-file {
+  border: 1px solid #dedede; /* gray */
+  font-family: Monaco, 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+  margin-bottom: 1em;
+}
+.gist .gist-file .gist-meta {
+  overflow: hidden;
+  font-size: 85%;
+  padding: 0.5em 12px;
+  color: #666;
+  background-color: #f5f5f5;
+  font-size: 12px;
+}
+.gist .gist-file .gist-meta a {
+  color: #666;
+}
+.gist .gist-file .gist-meta a:visited {
+  color: #991a1a;
+}
+.gist .gist-file .gist-data {
+  overflow: auto;
+  word-wrap: normal;
+  background-color: #f8f8ff;
+  border-bottom: 1px solid #ddd;
+  font-size: 100%;
+}
+.gist .gist-file .gist-data pre {
+  font-family: 'Bitstream Vera Sans Mono', 'Courier', monospace;
+  background: transparent !important;
+  margin: 0 !important;
+  border: none !important;
+  padding: 0.25em 0.5em 0.5em 0.5em !important;
+}
+.gist .gist-file .gist-data .gist-highlight {
+  background: transparent !important;
+}
+.gist .gist-file .gist-data .gist-line-numbers {
+  background-color: #ececec;
+  color: #aaa;
+  border-right: 1px solid #ddd;
+  text-align: right;
+}
+.gist .gist-file .gist-data .gist-line-numbers span {
+  clear: right;
+  display: block;
 }
