@@ -28,6 +28,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Axios-源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/25/Axios-源码分析/">Axios-源码分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2017/08/25/Axios-源码分析/" class="article-date">
+  <time datetime="2017-08-25T08:26:37.000Z" itemprop="datePublished">2017-08-25</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/mzabriskie/axios">Axios</a> 可以说是当前 Github 上最受关注的 HTTP 库，目前已经有超过 25k 的 star 数。作为 vue.js 官方推荐的 HTTP 库，必然有着过人之处。</p>
+<p>Axios 的主要特性包括：</p>
+<ul>
+<li>基于 Promise</li>
+<li>支持浏览器和 node.js</li>
+<li>可添加拦截器和转换请求和响应数据</li>
+<li>请求可以取消</li>
+<li>自动转换 JSON 数据</li>
+<li>客户端支持防范 XSRF</li>
+<li>支持各主流浏览器及 IE8+</li>
+</ul>
+<p>对比于 fetch，除了同样支持 Promise API 外，aixos 的确拥有更加丰富的功能，而这次的源码分析也主要是针对‘拦截器’和‘请求取消’。</p>
+        
+          <p class="article-more-link">
+            <a href="/2017/08/25/Axios-源码分析/#more">More...</a>
+          </p>
+        
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-vi常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   
   <div class="article-inner">
@@ -430,52 +480,9 @@
 
 
   
-    <article id="post-获取字符串里最长单词的3种方法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/03/获取字符串里最长单词的3种方法/">获取字符串里最长单词的3种方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/04/03/获取字符串里最长单词的3种方法/" class="article-date">
-  <time datetime="2016-04-03T04:20:16.000Z" itemprop="datePublished">2016-04-03</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>返回字符串中最长的单词的长度(number类型)</p>
-</blockquote>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="title">findLongestWord</span>(str) &#123;</div><div class="line">  <span class="keyword">return</span> <span class="type">str.length</span>;</div><div class="line">&#125;</div><div class="line">findLongestWord(<span class="string">"The quick brown fox jumped over the lazy dog"</span>);</div></pre></td></tr></table></figure>
-<p>这里会使用3种方法，首先是FOR loop方法，接着是sort方法，最后是reduce方法。</p>
-        
-          <p class="article-more-link">
-            <a href="/2016/04/03/获取字符串里最长单词的3种方法/#more">More...</a>
-          </p>
-        
-      
-
-      
-        
-    </div>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </section>

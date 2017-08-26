@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-03T04:24:45.000Z</updated>
+  <updated>2017-08-26T16:27:59.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,87 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Axios-源码分析</title>
+    <link href="http://yoursite.com/2017/08/25/Axios-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
+    <id>http://yoursite.com/2017/08/25/Axios-源码分析/</id>
+    <published>2017-08-25T08:26:37.000Z</published>
+    <updated>2017-08-26T16:27:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/mzabriskie/axios" target="_blank" rel="external">Axios</a> 可以说是当前 Github 上最受关注的 HTTP 库，目前已经有超过 25k 的 star 数。作为 vue.js 官方推荐的 HTTP 库，必然有着过人之处。</p>
+<p>Axios 的主要特性包括：</p>
+<ul>
+<li>基于 Promise</li>
+<li>支持浏览器和 node.js</li>
+<li>可添加拦截器和转换请求和响应数据</li>
+<li>请求可以取消</li>
+<li>自动转换 JSON 数据</li>
+<li>客户端支持防范 XSRF</li>
+<li>支持各主流浏览器及 IE8+</li>
+</ul>
+<p>对比于 fetch，除了同样支持 Promise API 外，aixos 的确拥有更加丰富的功能，而这次的源码分析也主要是针对‘拦截器’和‘请求取消’。</p>
+<a id="more"></a>
+<h4 id="0、拦截器"><a href="#0、拦截器" class="headerlink" title="0、拦截器"></a>0、拦截器</h4><p>在 Axios 中，大概是这样添加拦截器：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Add a request interceptor</span></div><div class="line">axios.interceptors.request.use(<span class="function"><span class="keyword">function</span> (<span class="params">config</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> config;</div><div class="line">  &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</div><div class="line">  &#125;);</div><div class="line"></div><div class="line"><span class="comment">// Add a response interceptor</span></div><div class="line">axios.interceptors.response.use(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> response;</div><div class="line">  &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p>从上面的代码，我们可以把每一次请求想象成一条管道里的流过的水。当一个请求发出的时候，会先流过 interceptors 的 request 部分，接着请求会发出，当接受到响应时，会先流过 interceptors 的 response 部分，最后返回，这条管道大概如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">interceptors.request -&gt; request -&gt; interceptors.response -&gt; response</div></pre></td></tr></table></figure>
+<p>而 Axios 内部，很巧妙地实现了上面所说的管道式流程，首先看 <code>lib/core/Axios.js</code>文件里的部分代码:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dispatchRequest = <span class="built_in">require</span>(<span class="string">'./dispatchRequest'</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Axios</span>(<span class="params">instanceConfig</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.defaults = instanceConfig;</div><div class="line">  <span class="keyword">this</span>.interceptors = &#123;</div><div class="line">    request: <span class="keyword">new</span> InterceptorManager(),</div><div class="line">    response: <span class="keyword">new</span> InterceptorManager()</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Axios.prototype.request = <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>) </span>&#123;</div><div class="line">    <span class="comment">// 省略部分代码...</span></div><div class="line">    <span class="keyword">var</span> chain = [dispatchRequest, <span class="literal">undefined</span>];</div><div class="line">    <span class="keyword">var</span> promise = <span class="built_in">Promise</span>.resolve(config);</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.interceptors.request.forEach(<span class="function"><span class="keyword">function</span> <span class="title">unshiftRequestInterceptors</span>(<span class="params">interceptor</span>) </span>&#123;</div><div class="line">        chain.unshift(interceptor.fulfilled, interceptor.rejected);</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">this</span>.interceptors.response.forEach(<span class="function"><span class="keyword">function</span> <span class="title">pushResponseInterceptors</span>(<span class="params">interceptor</span>) </span>&#123;</div><div class="line">        chain.push(interceptor.fulfilled, interceptor.rejected);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (chain.length) &#123;</div><div class="line">        promise = promise.then(chain.shift(), chain.shift());</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> promise;</div><div class="line">&#125;;</div><div class="line"><span class="comment">// 省略部分代码...</span></div></pre></td></tr></table></figure>
+<p>上面的的代码中，首先看到 Axios 类的定义里面有 interceptors，并且带有 request 和 response 属性，而这 2 个属性都是指向 InterceptorManager 类的实例。这个等下再说，先看 request 方法里 interceptors 的实现。</p>
+<p>我们留意 chain 这个变量，经过 2 次 <code>forEach</code> 操作后，最后的值会变成：(这个 forEach 方法在 InterceptorManager 中定义)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[interceptor.request.fulfilled, interceptor.request.rejected, </div><div class="line">dispatchRequest, <span class="literal">undefined</span>, </div><div class="line">interceptor.response.fulfilled, interceptor.response.rejected]</div></pre></td></tr></table></figure>
+<p>而最终将 chain 里的方法包成 promise，并返回：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> (chain.length) &#123;</div><div class="line">    promise = promise.then(chain.shift(), chain.shift());</div><div class="line">&#125;</div><div class="line"><span class="keyword">return</span> promise;</div></pre></td></tr></table></figure>
+<p>返回的 promise 会是这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Promise</span>.resolve(config)</div><div class="line">    .then(interceptor.request.fulfilled, interceptor.request.rejected)</div><div class="line">    .then(dispatchRequest, <span class="literal">undefined</span>)</div><div class="line">    .then(interceptor.response.fulfilled, interceptor.response.rejected)</div></pre></td></tr></table></figure>
+<p>讲到这里，就差一步了，就是发起请求，截取部分代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">utils.forEach([<span class="string">'delete'</span>, <span class="string">'get'</span>, <span class="string">'head'</span>, <span class="string">'options'</span>], <span class="function"><span class="keyword">function</span> <span class="title">forEachMethodNoData</span>(<span class="params">method</span>) </span>&#123;</div><div class="line">  Axios.prototype[method] = <span class="function"><span class="keyword">function</span>(<span class="params">url, config</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.request(utils.merge(config || &#123;&#125;, &#123;</div><div class="line">      method: method,</div><div class="line">      url: url</div><div class="line">    &#125;));</div><div class="line">  &#125;;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 省略 'post', 'put', 'patch' 方法的定义</span></div></pre></td></tr></table></figure>
+<p>到这里，我们可以看到，axios 将所有的请求都通过 request 方法发起， 这样就完全符合我们在上面说的管道流程，而 <code>chain</code> 变量里定义的 <code>undefined</code> 也是很巧妙。而在<code>lib/core/InterceptorManager.js</code>里，定义了 InterceptorManager 类，和一些方法，例如 use 和 eject，包括上面的 forEach。</p>
+<h4 id="1、取消请求"><a href="#1、取消请求" class="headerlink" title="1、取消请求"></a>1、取消请求</h4><p>首先还是从调用方法开始看：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> CancelToken = axios.CancelToken;</div><div class="line"><span class="keyword">var</span> source = CancelToken.source();</div><div class="line"></div><div class="line">axios.get(<span class="string">'/user/12345'</span>, &#123;</div><div class="line">  cancelToken: source.token</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">thrown</span>) </span>&#123;</div><div class="line">  <span class="comment">// something</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// cancel the request (the message parameter is optional)</span></div><div class="line">source.cancel(<span class="string">'Operation canceled by the user.'</span>);</div></pre></td></tr></table></figure>
+<p>分析上面的这段代码，可以看得出<code>CancelToken.source()</code> 是起最主要作用的，包括它的<code>token</code>和<code>cancel</code>方法。我一开始以为取消请求，会是在拦截器的那条管道上去处理，但是实际上并没有，它是把这取消请求的逻辑放到了 adapter（这里主要分析 xhr.js，也就是浏览器部分） 来处理，而 adapter 会在 dispatchRequest 里引用。</p>
+<p>其实这一部分代码并不多，但是理解起来会有点乱，首先看 <code>lib/adapters/xhr.js</code> 这个文件，截取部分代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (config.cancelToken) &#123;</div><div class="line">    config.cancelToken.promise.then(<span class="function"><span class="keyword">function</span> <span class="title">onCanceled</span>(<span class="params">cancel</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!request) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        request.abort();</div><div class="line">        reject(cancel);</div><div class="line">        request = <span class="literal">null</span>;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那么这里出现了一个有趣的东西，就是 config.cancelToken，和在第二行代码中的 config.cancelToken.promise，这里的代码我们暂时就简单地理解成当执行了请求取消时，请求会被终止，并且 reject。</p>
+<p>那现在我们去看 cancel 的内部代码，只有 3 个 js 文件，都在 lib/cancel 文件夹里，然后里面最重要的是 CancelTOken.js 文件，代码不多：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">CancelToken</span>(<span class="params">executor</span>) </span>&#123;</div><div class="line">  <span class="comment">// 省略...</span></div><div class="line">  <span class="keyword">var</span> resolvePromise;</div><div class="line">  <span class="keyword">this</span>.promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> <span class="title">promiseExecutor</span>(<span class="params">resolve</span>) </span>&#123;</div><div class="line">    resolvePromise = resolve;</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  <span class="keyword">var</span> token = <span class="keyword">this</span>;</div><div class="line">  executor(<span class="function"><span class="keyword">function</span> <span class="title">cancel</span>(<span class="params">message</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (token.reason) &#123;</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    token.reason = <span class="keyword">new</span> Cancel(message);</div><div class="line">    resolvePromise(token.reason);</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那么从这里，我们看到了 this.promise 这个方法，和上面提到的那个其实是同一个，但是这里，它却没有执行 resolve，而是进行了一个变量赋值。而这个 resolve 是要在 executor 函数传入的函数方法执行的时候，才会被执行，并且返回 reason 信息。</p>
+<p>那其实到了这里，我们还是得从调用方式反过来推导，到现在 token 和 cancel 方法还没出现呢，请看下面的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">CancelToken.source = <span class="function"><span class="keyword">function</span> <span class="title">source</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> cancel;</div><div class="line">  <span class="keyword">var</span> token = <span class="keyword">new</span> CancelToken(<span class="function"><span class="keyword">function</span> <span class="title">executor</span>(<span class="params">c</span>) </span>&#123;</div><div class="line">    cancel = c;</div><div class="line">  &#125;);</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    token: token,</div><div class="line">    cancel: cancel</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>到这里，就很清晰了，如果调用了 cancel 方法，其实就等同于将上一段代码中的 resolvePromise 给执行了，并且 reason 也会被实例化。然后要注意的是，这里的 token，也就是 config.cancelToken，这里必须是要 cancel 方法执行后，this.promise 才会正式 resolve，不然会一直处于 pending 状态。</p>
+<p>那这时候回到 xhr.js 里的那段代码，就真正的连起来了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">执行 cancel 方法 -&gt; 生成 reason 信息 -&gt; promise resolve -&gt; request abort</div></pre></td></tr></table></figure>
+<p>然后这里还有一点，就是被取消的请求，会在 catch 方法里返回（或者在 then 的第二个方法里返回，但是这个没验证过），是因为在 dispatchRequest 里，在请求准备返回响应时，如果请求被取消了，会 throw 一个错误，而因为都是包在 Promise 里，所以这个异常也是会被捕捉到。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">throwIfCancellationRequested</span>(<span class="params">config</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (config.cancelToken) &#123;</div><div class="line">    config.cancelToken.throwIfRequested();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>而这个 throwIfRequested 方法就是简单地把 reason throw 出来。</p>
+<h4 id="2、总结"><a href="#2、总结" class="headerlink" title="2、总结"></a>2、总结</h4><p>Axios 其实还有很多接口方法和特性，也是进行了一些抽象封装什么的，不过这些都比较容易看的懂。在看源码的过程中，除了可以发现一些有趣的或者神奇的代码之外，其实重点还是在于学习一些编码的技巧和思路，及项目的管理，例如代码和模块的拆分。</p>
+<p>嗯，Axios 的源码分析就到这里，毕竟本人才疏学浅，如果发现某些错误，欢迎指出。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/mzabriskie/axios&quot;&gt;Axios&lt;/a&gt; 可以说是当前 Github 上最受关注的 HTTP 库，目前已经有超过 25k 的 star 数。作为 vue.js 官方推荐的 HTTP 库，必然有着过人之处。&lt;/p&gt;
+&lt;p&gt;Axios 的主要特性包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基于 Promise&lt;/li&gt;
+&lt;li&gt;支持浏览器和 node.js&lt;/li&gt;
+&lt;li&gt;可添加拦截器和转换请求和响应数据&lt;/li&gt;
+&lt;li&gt;请求可以取消&lt;/li&gt;
+&lt;li&gt;自动转换 JSON 数据&lt;/li&gt;
+&lt;li&gt;客户端支持防范 XSRF&lt;/li&gt;
+&lt;li&gt;支持各主流浏览器及 IE8+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对比于 fetch，除了同样支持 Promise API 外，aixos 的确拥有更加丰富的功能，而这次的源码分析也主要是针对‘拦截器’和‘请求取消’。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="源码分析" scheme="http://yoursite.com/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>vi常用命令</title>
@@ -811,28 +892,6 @@
     
     
       <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>新的开始</title>
-    <link href="http://yoursite.com/2016/02/07/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/"/>
-    <id>http://yoursite.com/2016/02/07/新的开始/</id>
-    <published>2016-02-07T09:50:43.000Z</published>
-    <updated>2016-02-07T09:52:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>2016，重新起航！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;2016，重新起航！&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-      <category term="bullshit" scheme="http://yoursite.com/tags/bullshit/"/>
     
   </entry>
   
