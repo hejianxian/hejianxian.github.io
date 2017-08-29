@@ -124,9 +124,9 @@
     </summary>
     
     
-      <category term="vi" scheme="http://yoursite.com/tags/vi/"/>
-    
       <category term="shell" scheme="http://yoursite.com/tags/shell/"/>
+    
+      <category term="vi" scheme="http://yoursite.com/tags/vi/"/>
     
   </entry>
   
