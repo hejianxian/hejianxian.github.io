@@ -101,7 +101,7 @@
     <link href="http://yoursite.com/2017/06/03/vi%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2017/06/03/vi常用命令/</id>
     <published>2017-06-03T04:12:57.000Z</published>
-    <updated>2017-10-09T15:44:30.000Z</updated>
+    <updated>2017-10-09T15:47:25.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="一、命令模式和编辑模式切换"><a href="#一、命令模式和编辑模式切换" class="headerlink" title="一、命令模式和编辑模式切换"></a>一、命令模式和编辑模式切换</h4><p>进入vi之后默认是命令模式，按i或者insert以及其他编辑键进入编辑模式，按esc或者crtl+c退出编辑模式。</p>
 <h4 id="二、保存命令"><a href="#二、保存命令" class="headerlink" title="二、保存命令"></a>二、保存命令</h4><p>按ESC键 跳到命令模式，然后：</p>
@@ -109,7 +109,7 @@
 <li>:w 保存文件但不退出vi</li>
 <li>:x 保存文件并退出vi</li>
 <li>:w file 将修改另外保存到file中，不退出vi</li>
-<li>:w! 强制保存，不推出vi</li>
+<li>:w! 强制保存，不退出vi</li>
 <li>:wq 保存文件并退出vi</li>
 <li>:wq! 强制保存文件，并退出vi</li>
 <li>:q 不保存文件，退出vi</li>
