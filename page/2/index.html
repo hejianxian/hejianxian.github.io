@@ -28,6 +28,88 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-开始使用Ionic2-0" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/06/开始使用Ionic2-0/">开始使用Ionic2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/04/06/开始使用Ionic2-0/" class="article-date">
+  <time datetime="2016-04-06T02:46:53.000Z" itemprop="datePublished">2016-04-06</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="0、介绍"><a href="#0、介绍" class="headerlink" title="0、介绍"></a>0、介绍</h4><p>紧随angular的步伐，ionic也推出了2.0版本(beta)，把ng1换成了ng2，ui上也增加了material design和window phone的风格，组件上并没有太多的变化。因为ng2，代码风格完全不一样了，熟悉es6的童鞋应该很容易就能上手，而也因为ng2，让整个项目更组建化、模块化了。路由配置也更加简单。</p>
+<p><a href="https://dn-cnode.qbox.me/FpA5jex9jPVAHpTIUqVbMQdXEvmd" title="ionic 2" class="fancybox" rel="article2"><img src="https://dn-cnode.qbox.me/FpA5jex9jPVAHpTIUqVbMQdXEvmd" width="180" alt="ionic 2"></a><span class="caption">Ionic 2</span><br><br><br>          </p>
+        
+          <p class="article-more-link">
+            <a href="/2016/04/06/开始使用Ionic2-0/#more">More...</a>
+          </p>
+        
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ajax与302" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/06/ajax与302/">ajax与302</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/04/06/ajax与302/" class="article-date">
+  <time datetime="2016-04-06T02:10:59.000Z" itemprop="datePublished">2016-04-06</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>You can’t handle redirects with XHR callbacks because the browser takes care of them automatically. You will only get back what at the redirected location.</p>
+</blockquote>
+<p>在ajax进行请求时，如果服务器返回302（重定向），ajax并不会马上收的，因为浏览器自动去访问了重定向的哪个连接，然后再返回结果。也就说，如果需要重定向的连接或者说是接口，是合法可以调用的，那ajax会返回重定向的那个连接的调用结果，反则就返回404。</p>
+<p>大概流程如下：</p>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">ajax</span> -&gt;</span> <span class="function"><span class="title">browser</span> -&gt;</span> <span class="function"><span class="title">server</span> -&gt;</span> <span class="number">302</span> -&gt; <span class="function"><span class="title">browser</span>(redirect) -&gt;</span> <span class="function"><span class="title">server</span> -&gt;</span> <span class="function"><span class="title">browser</span> -&gt;</span> ajax callback</div></pre></td></tr></table></figure>
+<p>如是需要利用重定向来跳转到某些页面，就不能直接返还302了。</p>
+<p>常见的情况，登录过期，需要跳转到登录页面，这种情况，建议在返回需要重定向的状态码，例如返回{status: 302}, 然后由前端进行页面跳转。</p>
+
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-获取字符串里最长单词的3种方法" class="article article-type-post" itemscope itemprop="blogPost">
   
   <div class="article-inner">
@@ -370,93 +452,6 @@
 
 
   
-    <article id="post-jane-test" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/07/jane-test/">jane-test</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/02/07/jane-test/" class="article-date">
-  <time datetime="2016-02-07T10:46:28.000Z" itemprop="datePublished">2016-02-07</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">test</span> = '<span class="keyword">test</span>';</div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">test</span>);</div><div class="line"></div><div class="line"><span class="comment">//message</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = 0, len = 10; i &lt; len; i+=) &#123;</div><div class="line">	console.<span class="built_in">log</span>(i + 1);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Blockquotes"><a href="#Blockquotes" class="headerlink" title="Blockquotes"></a>Blockquotes</h3><blockquote>
-<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,<br>consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.<br>Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
-<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse<br>id sem consectetuer libero luctus adipiscing.</p>
-</blockquote>
-<h3 id="link"><a href="#link" class="headerlink" title="link"></a>link</h3><p><a href="https://github.com/Alex-fun/hexo-theme-jane" target="_blank" rel="external">项目地址</a></p>
-<h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><p><img src="https://hexo.io/build/screenshots/jane-c5c7c338b3@2x.png" alt="image"></p>
-<h3 id="gist"><a href="#gist" class="headerlink" title="gist"></a>gist</h3><script src="https://gist.github.com/hejianxian/fb348e7624a18fd51ecc2c23cf4b0ff6.js"></script>
-
-
-
-
-      
-
-      
-        
-    </div>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hexo-theme-jane" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/07/hexo-theme-jane/">hexo-theme-jane</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/02/07/hexo-theme-jane/" class="article-date">
-  <time datetime="2016-02-07T09:59:50.000Z" itemprop="datePublished">2016-02-07</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h3><p>这是一个极其简单的hexo主题，甚至说，她是不及格的。这完全是按照我自己的需求和想法来设计的一个主题，没有太多的功能，例如，没有搜索功能，没有海贼王和火影忍者，没有分享，也没有脸书和推特。因为，我只希望这仅仅是一个给自己记录文字的地方，所以，没有太多花俏的功能！</p>
-<p>如果您也喜欢这样，欢迎您使用的我的主题！</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/</span>Alex-<span class="function"><span class="keyword">fun</span><span class="title">/</span></span>hexo-theme-jane.git themes/jane</div></pre></td></tr></table></figure>
-<p>然后配置根目录的_config.yml文件（并非theme里的那个）</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">theme:</span> jane</div></pre></td></tr></table></figure>
-<h3 id="tags"><a href="#tags" class="headerlink" title="tags"></a>tags</h3><p>因为tags是单独一个页面展示，所以需要手动添加，输入以下命令就可以了</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">new</span> page <span class="keyword">tags</span></div></pre></td></tr></table></figure>
-<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> themes/jane</div><div class="line">git pull</div></pre></td></tr></table></figure>
-
-      
-
-      
-        
-    </div>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -485,7 +480,7 @@
       <footer id="footer">
   
 	<div id="footer-info" class="inner">
-	  &copy; 2017 Hejx 
+	  &copy; 2018 Hejx 
 	  - Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
 	  - Theme <a href="https://github.com/hejianxian/hexo-theme-jane/" target="_blank">Jane</a>
 	</div>

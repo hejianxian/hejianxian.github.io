@@ -28,6 +28,96 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ssh-pem" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/12/ssh-pem/">MAC上SSH使用PEM文件登录的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2018/02/12/ssh-pem/" class="article-date">
+  <time datetime="2018-02-12T02:21:56.000Z" itemprop="datePublished">2018-02-12</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>假设你已经得到pem文件。</p>
+<h3 id="一、直接登录"><a href="#一、直接登录" class="headerlink" title="一、直接登录"></a>一、直接登录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -i key.pem root@IP</div></pre></td></tr></table></figure>
+<p>如果出现报错，说明这个问题是文件的权限太大，执行下面的设置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod 600 key.pem</div></pre></td></tr></table></figure>
+<p>然后再执行上面的连接操作就可以。</p>
+<h3 id="二、添加pem文件"><a href="#二、添加pem文件" class="headerlink" title="二、添加pem文件"></a>二、添加pem文件</h3><p>可以使用ssh-add添加pem文件，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-add -k key.pem</div></pre></td></tr></table></figure>
+<p>添加成功后，即可直接登录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh root@IP</div></pre></td></tr></table></figure>
+<p>但是在电脑重启后，需要重新添加pem文件。</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/02/12/ssh-pem/#more">More...</a>
+          </p>
+        
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css-grid" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/08/css-grid/">初识 CSS Grid</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2018/02/08/css-grid/" class="article-date">
+  <time datetime="2018-02-08T14:32:28.000Z" itemprop="datePublished">2018-02-08</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、关于页面布局"><a href="#一、关于页面布局" class="headerlink" title="一、关于页面布局"></a>一、关于页面布局</h3><p>在最开始，网页基本都是通过table或者float浮动进行布局，那是比较单调的年代。随着技术的发展，单调的布局方式已经满足不了需求。接着，Flexbox诞生了，一个专门为响应式页面而设计的布局模式。Flexbox可以很容易地对元素或内容进行排版，并且各大主流浏览器都支持，可以说是目前页面布局的首选。但是，Flexbox还不算是最好的响应式布局方式，某些布局还是需要依赖外围元素，下面的例子会说到。</p>
+<p>而这次说要讲的<code>CSS Grid</code>，将会是最好的响应式布局方式。<code>栅格系统</code>相信很多人都知道，但是它的实现方式，基本都是通过上面所提到的布局方式来生成，而 CSS Grid 作为原生功能，功能更加强大。有了CSS Grid，网页就像是一块带网格的木板，我们可以随意地在板上贴上模块，并且模块位置可以随意调整，不受元素结构影响。这么奔放的布局方式，实在是强大。</p>
+<h3 id="二、先来一个小例子"><a href="#二、先来一个小例子" class="headerlink" title="二、先来一个小例子"></a>二、先来一个小例子</h3><p>如下图：<br><img src='https://user-images.githubusercontent.com/6087438/36086132-65ec807e-1005-11e8-804d-f440ce8338b0.png' width=600></p>
+<p>假设我们要制造一个这样的响应式布局页面。熟悉flexbox的人，看到pc页面的时候，脑里也应该有个大概的元素结构了，可能如下面这样：<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/02/08/css-grid/#more">More...</a>
+          </p>
+        
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Axios-源码分析" class="article article-type-post" itemscope itemprop="blogPost">
   
   <div class="article-inner">
@@ -399,88 +489,6 @@
 
 
   
-    <article id="post-开始使用Ionic2-0" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/06/开始使用Ionic2-0/">开始使用Ionic2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/04/06/开始使用Ionic2-0/" class="article-date">
-  <time datetime="2016-04-06T02:46:53.000Z" itemprop="datePublished">2016-04-06</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="0、介绍"><a href="#0、介绍" class="headerlink" title="0、介绍"></a>0、介绍</h4><p>紧随angular的步伐，ionic也推出了2.0版本(beta)，把ng1换成了ng2，ui上也增加了material design和window phone的风格，组件上并没有太多的变化。因为ng2，代码风格完全不一样了，熟悉es6的童鞋应该很容易就能上手，而也因为ng2，让整个项目更组建化、模块化了。路由配置也更加简单。</p>
-<p><a href="https://dn-cnode.qbox.me/FpA5jex9jPVAHpTIUqVbMQdXEvmd" title="ionic 2" class="fancybox" rel="article2"><img src="https://dn-cnode.qbox.me/FpA5jex9jPVAHpTIUqVbMQdXEvmd" width="180" alt="ionic 2"></a><span class="caption">Ionic 2</span><br><br><br>          </p>
-        
-          <p class="article-more-link">
-            <a href="/2016/04/06/开始使用Ionic2-0/#more">More...</a>
-          </p>
-        
-      
-
-      
-        
-    </div>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ajax与302" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/06/ajax与302/">ajax与302</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/04/06/ajax与302/" class="article-date">
-  <time datetime="2016-04-06T02:10:59.000Z" itemprop="datePublished">2016-04-06</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>You can’t handle redirects with XHR callbacks because the browser takes care of them automatically. You will only get back what at the redirected location.</p>
-</blockquote>
-<p>在ajax进行请求时，如果服务器返回302（重定向），ajax并不会马上收的，因为浏览器自动去访问了重定向的哪个连接，然后再返回结果。也就说，如果需要重定向的连接或者说是接口，是合法可以调用的，那ajax会返回重定向的那个连接的调用结果，反则就返回404。</p>
-<p>大概流程如下：</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">ajax</span> -&gt;</span> <span class="function"><span class="title">browser</span> -&gt;</span> <span class="function"><span class="title">server</span> -&gt;</span> <span class="number">302</span> -&gt; <span class="function"><span class="title">browser</span>(redirect) -&gt;</span> <span class="function"><span class="title">server</span> -&gt;</span> <span class="function"><span class="title">browser</span> -&gt;</span> ajax callback</div></pre></td></tr></table></figure>
-<p>如是需要利用重定向来跳转到某些页面，就不能直接返还302了。</p>
-<p>常见的情况，登录过期，需要跳转到登录页面，这种情况，建议在返回需要重定向的状态码，例如返回{status: 302}, 然后由前端进行页面跳转。</p>
-
-      
-
-      
-        
-    </div>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -509,7 +517,7 @@
       <footer id="footer">
   
 	<div id="footer-info" class="inner">
-	  &copy; 2017 Hejx 
+	  &copy; 2018 Hejx 
 	  - Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
 	  - Theme <a href="https://github.com/hejianxian/hexo-theme-jane/" target="_blank">Jane</a>
 	</div>
