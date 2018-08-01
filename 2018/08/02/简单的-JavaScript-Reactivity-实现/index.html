@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>简单的 JavaScript Reactivity 实现 | Hejx&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="通过Object.defineProperty，简单地实现一个具备响应能力的Watcher方法。
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950const data = &amp;#123; price: 10, quantity: 2 &amp;#125;;let total">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单的 JavaScript Reactivity 实现">
+<meta property="og:url" content="http://yoursite.com/2018/08/02/简单的-JavaScript-Reactivity-实现/index.html">
+<meta property="og:site_name" content="Hejx's blog">
+<meta property="og:description" content="通过Object.defineProperty，简单地实现一个具备响应能力的Watcher方法。
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950const data = &amp;#123; price: 10, quantity: 2 &amp;#125;;let total">
+<meta property="og:updated_time" content="2018-08-01T16:24:07.231Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简单的 JavaScript Reactivity 实现">
+<meta name="twitter:description" content="通过Object.defineProperty，简单地实现一个具备响应能力的Watcher方法。
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950const data = &amp;#123; price: 10, quantity: 2 &amp;#125;;let total">
+  
+    <link rel="alternative" href="/atom.xml" title="Hejx&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <section id="main"><article id="post-简单的-JavaScript-Reactivity-实现" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      简单的 JavaScript Reactivity 实现
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2018/08/02/简单的-JavaScript-Reactivity-实现/" class="article-date">
+  <time datetime="2018-08-01T16:14:38.000Z" itemprop="datePublished">2018-08-02</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通过<code>Object.defineProperty</code>，简单地实现一个具备响应能力的<code>Watcher</code>方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> data = &#123; price: <span class="number">10</span>, quantity: <span class="number">2</span> &#125;;</div><div class="line"><span class="keyword">let</span> total = <span class="number">0</span>, target = <span class="literal">null</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dep</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>() &#123;</div><div class="line">    <span class="keyword">this</span>.listeners = [];</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  depen() &#123;</div><div class="line">    <span class="keyword">if</span> (target &amp;&amp; <span class="keyword">typeof</span> target === <span class="string">'function'</span>) &#123;</div><div class="line">      <span class="keyword">this</span>.listeners.push(target);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  notify() &#123;</div><div class="line">    <span class="keyword">this</span>.listeners.forEach(listener =&gt; listener());</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">Object</span>.keys(data).forEach(key =&gt; &#123;</div><div class="line">  <span class="keyword">const</span> dep = <span class="keyword">new</span> Dep();</div><div class="line">  <span class="keyword">let</span> originalValue = data[key];</div><div class="line">  </div><div class="line">  <span class="built_in">Object</span>.defineProperty(data, key, &#123;</div><div class="line">    get() &#123;</div><div class="line">      dep.depen();</div><div class="line">      <span class="keyword">return</span> originalValue;</div><div class="line">    &#125;,</div><div class="line">    set(newVal) &#123;</div><div class="line">      originalValue = newVal;</div><div class="line">      dep.notify();</div><div class="line">    &#125;,</div><div class="line">  &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Watcher</span>(<span class="params">func</span>) </span>&#123;</div><div class="line">  target = func;</div><div class="line">  target();</div><div class="line">  target = <span class="literal">null</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Watcher(() =&gt; &#123;</div><div class="line">  total = data.price * data.quantity;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// total =&gt; 20</span></div><div class="line"><span class="comment">// data.price = 50</span></div><div class="line"><span class="comment">// total =&gt; 100</span></div><div class="line"><span class="comment">// data.quantity = 10</span></div><div class="line"><span class="comment">// total =&gt; 500</span></div></pre></td></tr></table></figure>
+      
+
+      
+        
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/12/ssh-pem/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MAC上SSH使用PEM文件登录的方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <script src='https://imsun.github.io/gitment/dist/gitment.browser.js'></script>
+  <script>
+    var gitment = new Gitment({
+      owner: 'hejianxian',
+      repo: 'hejianxian.github.io',
+      oauth: {
+        client_id: 'fe74145b0785390a3969',
+        client_secret: '210ec066acc4f93b712e79939cc3e554776b2bd2',
+      },
+    })
+    gitment.render('comments')
+  </script>
+</section>
+</section>
+        <aside id="sidebar">
+  <nav class="menus">
+  	<ul>
+  		<li><a href="/"><i class="icon icon-home"></i></a></li>
+  		
+			<li><a href="/archives"><i class="icon icon-fenlei"></i></a></li>
+  		
+  		
+			<li><a href="/tags"><i class="icon icon-tag"></i></a></li>
+  		
+  		
+  			<li><a href="https://github.com/hejianxian" target="_blank"><i class="icon icon-github"></i></a></li>
+  		
+  	</ul>
+  </nav>
+  <a id="go-top" href="#"><i class="icon icon-up"></i></a>
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+	<div id="footer-info" class="inner">
+	  &copy; 2018 Hejx 
+	  - Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  - Theme <a href="https://github.com/hejianxian/hexo-theme-jane/" target="_blank">Jane</a>
+	</div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tag</a>
+  
+    <a href="https://github.com/hejianxian" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'hejx';
+  
+  var disqus_url = 'http://yoursite.com/2018/08/02/简单的-JavaScript-Reactivity-实现/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
