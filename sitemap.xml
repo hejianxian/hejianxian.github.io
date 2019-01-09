@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/08/02/JavaScript-Reactivity/</loc>
+    
+    <lastmod>2019-01-09T14:55:07.850Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/JSON-Web-Token-JWT-%E9%97%AE%E7%AD%94.html</loc>
     
     <lastmod>2018-11-24T02:53:24.720Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://yoursite.com/Linux%E4%B8%8A%E5%AE%89%E8%A3%85puppeteer%E7%9A%84%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95.html</loc>
     
     <lastmod>2018-09-18T12:18:25.068Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/08/02/%E7%AE%80%E5%8D%95%E7%9A%84-JavaScript-Reactivity-%E5%AE%9E%E7%8E%B0/</loc>
-    
-    <lastmod>2018-08-01T16:24:07.231Z</lastmod>
     
   </url>
   
