@@ -3533,7 +3533,7 @@ var Gitment = function () {
 
       return _utils.http.get('/repos/' + owner + '/' + repo + '/issues', {
         creator: owner,
-        labels: id
+        labels: md5(id)
       }).then(function (issues) {
         if (!issues.length) return Promise.reject(_constants.NOT_INITIALIZED_ERROR);
         _this7.state.meta = issues[0];
