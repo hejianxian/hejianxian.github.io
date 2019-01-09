@@ -28,6 +28,94 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python之禅" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/10/Python之禅/">Python之禅 by Tim Peters</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/09/10/Python之禅/" class="article-date">
+  <time datetime="2016-09-10T04:57:11.000Z" itemprop="datePublished">2016-09-10</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>优美胜于丑陋</p>
+<p>明了胜于隐晦</p>
+<p>简洁胜于复杂</p>
+<p>复杂胜于混乱</p>
+<p>扁平胜于嵌套</p>
+<p>宽松胜于紧凑</p>
+        
+          <p class="article-more-link">
+            <a href="/2016/09/10/Python之禅/#more">More...</a>
+          </p>
+        
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript面向对象精要" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/27/javascript面向对象精要/">javascript面向对象精要［摘］</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/08/27/javascript面向对象精要/" class="article-date">
+  <time datetime="2016-08-27T13:19:42.000Z" itemprop="datePublished">2016-08-27</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="0-数据类型"><a href="#0-数据类型" class="headerlink" title="0.数据类型"></a>0.数据类型</h3><p>javaScript 有两种数据类型： 原始类型和引用类型。原始类型保存为简单类型。引用类型则保存为对象，其本质是指向内存位置的引用。</p>
+<p>javaScript共有5种原始类型：boolean、number、string、null、undefined.</p>
+<blockquote>
+<p>typeof null 的值为 ‘obejct’， 逻辑上可以认为null是一个空的对象指针（设计错误），判断是否为空类型的最佳方法是直接和null比较，使用 ‘===’。</p>
+</blockquote>
+<p>javaScript提供3种原始封装类型：String、Number、Boolean。javaScript会在背后创建这些对象，使得能够像普通对象那样使用原始值，但这些临时对象在使用它们的语句结束时就会被立即销毁。<br>
+        
+          <p class="article-more-link">
+            <a href="/2016/08/27/javascript面向对象精要/#more">More...</a>
+          </p>
+        
+      
+
+      
+        
+    </div>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-关于移动hybrid开发中H5页面的字体应与系统保持一致的问题" class="article article-type-post" itemscope itemprop="blogPost">
   
   <div class="article-inner">
@@ -373,95 +461,6 @@
 
 
   
-    <article id="post-理解Object-assign" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/18/理解Object-assign/">理解Object.assign</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/02/18/理解Object-assign/" class="article-date">
-  <time datetime="2016-02-18T14:13:13.000Z" itemprop="datePublished">2016-02-18</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Object.assign()方法用于从一个或多个源对象（sources）中拷贝所有可枚举的自有属性到目标对象（target），并返回目标对象。拷贝过程中将调用源对象的getter方法，并在target对象上使用setter方法实现目标对象的拷贝。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Object</span><span class="selector-class">.assign</span>(<span class="selector-tag">target</span>, ..<span class="selector-class">.sources</span>)</div></pre></td></tr></table></figure>
-<p>不过，采用这种方法克隆，只能克隆原始对象自身的值，不能克隆它继承的值。如果想要保持继承链，可以采用下面的代码。</p>
-<blockquote>
-<p>原文：Both String and Symbol properties are copied.</p>
-</blockquote>
-<p>String和Symbol类型都可被直接分配。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">origin</span>) </span>&#123;</div><div class="line">	<span class="keyword">let</span> originProto = <span class="built_in">Object</span>.getPrototypeOf(origin);</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(<span class="built_in">Object</span>.create(originProto), origin);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>注意：如果属性是只读的，那将会抛出异常，目标对象将会停止改变（而之前的改变会保留）。但是对于null或者undefind会直接忽略。</p>
-        
-          <p class="article-more-link">
-            <a href="/2016/02/18/理解Object-assign/#more">More...</a>
-          </p>
-        
-      
-
-      
-        
-    </div>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-语录" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/18/语录/">语录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/02/18/语录/" class="article-date">
-  <time datetime="2016-02-18T01:42:46.000Z" itemprop="datePublished">2016-02-18</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#1</p>
-<blockquote>
-<p>把复杂拆分成简单，将简单组合成强大，再用强大去解决复杂。<br>&nbsp;<br>—— Unix设计思想之一</p>
-</blockquote>
-<p>#2</p>
-<blockquote>
-<p>Testing shows the presence, not the absence of bugs.<br>&nbsp;<br>—— Dijkstra, 1969</p>
-</blockquote>
-
-      
-
-      
-        
-    </div>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -490,7 +489,7 @@
       <footer id="footer">
   
 	<div id="footer-info" class="inner">
-	  &copy; 2018 Hejx 
+	  &copy; 2019 Hejx 
 	  - Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
 	  - Theme <a href="https://github.com/hejianxian/hexo-theme-jane/" target="_blank">Jane</a>
 	</div>
