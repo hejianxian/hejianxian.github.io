@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-24T02:53:24.720Z</updated>
+  <updated>2018-08-01T16:24:07.231Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,34 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>JSON Web Token(JWT)问答</title>
-    <link href="http://yoursite.com/2018/11/24/JSON-Web-Token-JWT-%E9%97%AE%E7%AD%94/"/>
-    <id>http://yoursite.com/2018/11/24/JSON-Web-Token-JWT-问答/</id>
-    <published>2018-11-24T02:53:24.000Z</published>
-    <updated>2018-11-24T02:53:24.720Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Linux上安装puppeteer的问题记录</title>
-    <link href="http://yoursite.com/2018/09/18/Linux%E4%B8%8A%E5%AE%89%E8%A3%85puppeteer%E7%9A%84%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
-    <id>http://yoursite.com/2018/09/18/Linux上安装puppeteer的问题记录/</id>
-    <published>2018-09-18T12:18:25.000Z</published>
-    <updated>2018-09-18T12:18:25.068Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>简单的 JavaScript Reactivity 实现</title>
@@ -845,6 +817,94 @@
     
     
       <category term="javascript-Object" scheme="http://yoursite.com/tags/javascript-Object/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>理解Object.assign</title>
+    <link href="http://yoursite.com/2016/02/18/%E7%90%86%E8%A7%A3Object-assign/"/>
+    <id>http://yoursite.com/2016/02/18/理解Object-assign/</id>
+    <published>2016-02-18T14:13:13.000Z</published>
+    <updated>2016-02-19T04:18:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Object.assign()方法用于从一个或多个源对象（sources）中拷贝所有可枚举的自有属性到目标对象（target），并返回目标对象。拷贝过程中将调用源对象的getter方法，并在target对象上使用setter方法实现目标对象的拷贝。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Object</span><span class="selector-class">.assign</span>(<span class="selector-tag">target</span>, ..<span class="selector-class">.sources</span>)</div></pre></td></tr></table></figure>
+<p>不过，采用这种方法克隆，只能克隆原始对象自身的值，不能克隆它继承的值。如果想要保持继承链，可以采用下面的代码。</p>
+<blockquote>
+<p>原文：Both String and Symbol properties are copied.</p>
+</blockquote>
+<p>String和Symbol类型都可被直接分配。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">origin</span>) </span>&#123;</div><div class="line">	<span class="keyword">let</span> originProto = <span class="built_in">Object</span>.getPrototypeOf(origin);</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(<span class="built_in">Object</span>.create(originProto), origin);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意：如果属性是只读的，那将会抛出异常，目标对象将会停止改变（而之前的改变会保留）。但是对于null或者undefind会直接忽略。</p>
+<a id="more"></a>
+<h3 id="简单克隆对象"><a href="#简单克隆对象" class="headerlink" title="简单克隆对象"></a>简单克隆对象</h3><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="comment">&#123;a: 1&#125;</span>;</div><div class="line"><span class="keyword">var</span> <span class="keyword">copy</span> = Object.assign(<span class="comment">&#123;&#125;</span>, obj);</div><div class="line"></div><div class="line">console.log(<span class="keyword">copy</span>); <span class="comment">//Object &#123;a: 1&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="合并对象"><a href="#合并对象" class="headerlink" title="合并对象"></a>合并对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;x: <span class="number">1</span>&#125;;</div><div class="line"><span class="keyword">var</span> b = &#123;y: <span class="number">2</span>&#125;;</div><div class="line"><span class="keyword">var</span> c = &#123;x: <span class="number">4</span>, z: <span class="number">3</span>&#125;;</div><div class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.assign(a, b, c);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(obj); <span class="comment">//Object &#123;x: 4, y: 2, z: 3&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="拷贝Symbol属性"><a href="#拷贝Symbol属性" class="headerlink" title="拷贝Symbol属性"></a>拷贝Symbol属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;x: <span class="number">1</span>&#125;;</div><div class="line"><span class="keyword">var</span> b = &#123;[<span class="built_in">Symbol</span>(<span class="string">'y'</span>)]: <span class="number">2</span>&#125;;</div><div class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.assign(a, b);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(obj); <span class="comment">//Object &#123;x: 1, Symbol(y): 2&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="继承的属性和不可枚举的属性不会被拷贝"><a href="#继承的属性和不可枚举的属性不会被拷贝" class="headerlink" title="继承的属性和不可枚举的属性不会被拷贝"></a>继承的属性和不可枚举的属性不会被拷贝</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(&#123;foo: <span class="number">1</span>&#125;, <span class="comment">//继承的对象, obj.__proto__ == &#123;foo: 1&#125;</span></div><div class="line">	&#123;</div><div class="line">		a: &#123; <span class="comment">//不可枚举的</span></div><div class="line">			value: <span class="number">2</span></div><div class="line">		&#125;,</div><div class="line">		b: &#123;</div><div class="line">			value: <span class="number">3</span>,</div><div class="line">			enumerable: <span class="literal">true</span> <span class="comment">//可枚举的</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">);</div><div class="line"><span class="keyword">var</span> copy = <span class="built_in">Object</span>.assign(&#123;&#125;, obj);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(copy); <span class="comment">//Object &#123;b: 3&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="字符串会被转成object"><a href="#字符串会被转成object" class="headerlink" title="字符串会被转成object"></a>字符串会被转成object</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'hejx'</span>;</div><div class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;, str);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(obj); <span class="comment">//Object &#123;0: "h", 1: "e", 2: "j", 3: "x"&#125;</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="string">"123"</span>;</div><div class="line"><span class="keyword">var</span> b = <span class="literal">false</span>;</div><div class="line"><span class="keyword">var</span> c = <span class="number">123</span>;</div><div class="line"><span class="keyword">var</span> d = <span class="built_in">Symbol</span>(<span class="string">'sy'</span>);</div><div class="line"><span class="keyword">var</span> e = <span class="built_in">Object</span>.assign(&#123;&#125;, a, b, c, d, <span class="literal">null</span>, <span class="literal">undefined</span>);</div><div class="line"><span class="comment">//null和undefined会被忽略，在这里只有a（字符串）可以被枚举并被转成对象，如果存在2个字符串，将会报错</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(e); <span class="comment">//Object &#123;0: "1", 1: "2", 2: "3"&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="只读属性不能被拷贝"><a href="#只读属性不能被拷贝" class="headerlink" title="只读属性不能被拷贝"></a>只读属性不能被拷贝</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> target = <span class="built_in">Object</span>.defineProperty(&#123;&#125;, <span class="string">'foo'</span>, &#123;</div><div class="line">	value: <span class="number">1</span>,</div><div class="line"> 	writable: <span class="literal">false</span></div><div class="line">&#125;); <span class="comment">// target.foo是只读属性</span></div><div class="line"></div><div class="line"><span class="built_in">Object</span>.assign(target, &#123; bar: <span class="number">2</span> &#125;, &#123; foo2: <span class="number">3</span>, foo: <span class="number">3</span>, foo3: <span class="number">3</span> &#125;, &#123; baz: <span class="number">4</span> &#125;);</div><div class="line"><span class="comment">// 这里会抛出异常，但是在错误之前，目标对象的部分属性已经被改变或者新增，而后续的将不会再进行拷贝</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(target.bar);  <span class="comment">// 2</span></div><div class="line"><span class="built_in">console</span>.log(target.foo2); <span class="comment">// 3</span></div><div class="line"><span class="built_in">console</span>.log(target.foo);  <span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log(target.foo3); <span class="comment">// undefined</span></div><div class="line"><span class="built_in">console</span>.log(target.baz);  <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<h3 id="拷贝属性的赋值器（setter）和取值器（getter）"><a href="#拷贝属性的赋值器（setter）和取值器（getter）" class="headerlink" title="拷贝属性的赋值器（setter）和取值器（getter）"></a>拷贝属性的赋值器（setter）和取值器（getter）</h3><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">	a: <span class="number">1</span>,</div><div class="line">	<span class="built_in">get</span> b()&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">	&#125;,</div><div class="line">	someMethod()&#123; <span class="comment">//同样会被拷贝，可以用于为对象添加方法</span></div><div class="line">		<span class="comment">//someMethod</span></div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var <span class="built_in">copy</span> = <span class="keyword">Object</span>.assign(&#123;&#125;, obj);</div><div class="line">console.<span class="built_in">log</span>(<span class="built_in">copy</span>); <span class="comment">// Object &#123;a: 1, b: 2, someMethod: function()&#123;&#125;&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="es5版本的Object-assign"><a href="#es5版本的Object-assign" class="headerlink" title="es5版本的Object.assign"></a>es5版本的Object.assign</h3><p>不支持Symbol属性，因为es5压根没有Symbol</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">Object</span>.assign != <span class="string">'function'</span>) &#123; <span class="comment">//判断是否支持</span></div><div class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">Object</span>.assign = <span class="function"><span class="keyword">function</span> (<span class="params">target</span>) </span>&#123;</div><div class="line"><span class="meta">      'use strict'</span>;</div><div class="line">      <span class="keyword">if</span> (target === <span class="literal">undefined</span> || target === <span class="literal">null</span>) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Cannot convert undefined or null to object'</span>);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">var</span> output = <span class="built_in">Object</span>(target);</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> index = <span class="number">1</span>; index &lt; <span class="built_in">arguments</span>.length; index++) &#123;</div><div class="line">        <span class="keyword">var</span> source = <span class="built_in">arguments</span>[index];</div><div class="line">        <span class="keyword">if</span> (source !== <span class="literal">undefined</span> &amp;&amp; source !== <span class="literal">null</span>) &#123;</div><div class="line">          <span class="keyword">for</span> (<span class="keyword">var</span> nextKey <span class="keyword">in</span> source) &#123;</div><div class="line">            <span class="keyword">if</span> (source.hasOwnProperty(nextKey)) &#123; <span class="comment">//判断一个属性是定义在对象本身而不是继承自原型链</span></div><div class="line">              output[nextKey] = source[nextKey];</div><div class="line">            &#125;</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> output; <span class="comment">//最终输出</span></div><div class="line">    &#125;;</div><div class="line">  &#125;)();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="不支持深度拷贝"><a href="#不支持深度拷贝" class="headerlink" title="不支持深度拷贝"></a>不支持深度拷贝</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">var</span> target = &#123; <span class="selector-tag">a</span>: &#123; <span class="selector-tag">b</span>: <span class="string">'c'</span>, d: <span class="string">'e'</span> &#125; &#125;</div><div class="line"><span class="selector-tag">var</span> source = &#123; <span class="selector-tag">a</span>: &#123; <span class="selector-tag">b</span>: <span class="string">'hello'</span> &#125; &#125;</div><div class="line">Object.assign(target, source)</div><div class="line"><span class="comment">// &#123; a: &#123; b: 'hello' &#125; &#125;</span></div></pre></td></tr></table></figure>
+<p><a href="https://github.com/sindresorhus/deep-assign" target="_blank" rel="external">深度拷贝</a></p>
+<h3 id="拷贝数组"><a href="#拷贝数组" class="headerlink" title="拷贝数组"></a>拷贝数组</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]; //会被当成对象</div><div class="line"><span class="built_in">var</span> str = <span class="string">"4567"</span>;</div><div class="line"><span class="built_in">var</span> <span class="built_in">copy</span> = Object.assign(&#123;&#125;, arr, str);</div><div class="line">console.<span class="built_in">log</span>(<span class="built_in">copy</span>); // Object &#123;<span class="number">0</span>: <span class="string">"4"</span>, <span class="number">1</span>: <span class="string">"5"</span>, <span class="number">2</span>: <span class="string">"6"</span>, <span class="number">3</span>: <span class="string">"7"</span>&#125;</div></pre></td></tr></table></figure>
+<h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>属于es6规范，然而兼容性并不好，pc端除了ie，其他都支持。移动端目前就Firefox Mobile 支持。</p>
+<h3 id="文献"><a href="#文献" class="headerlink" title="文献"></a>文献</h3><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank" rel="external">摘自developer.mozilla.org</a></p>
+<p><a href="http://es6.ruanyifeng.com/#docs/object#Object-assign" target="_blank" rel="external">es6.ruanyifeng.com</a></p>
+<p><a href="https://cnodejs.org/topic/56c49662db16d3343df34b13#56c5a0b18442f7e03c731719" target="_blank" rel="external">ES2015系列(二) 理解Object.assign</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Object.assign()方法用于从一个或多个源对象（sources）中拷贝所有可枚举的自有属性到目标对象（target），并返回目标对象。拷贝过程中将调用源对象的getter方法，并在target对象上使用setter方法实现目标对象的拷贝。&lt;/p&gt;
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.assign&lt;/span&gt;(&lt;span class=&quot;selector-tag&quot;&gt;target&lt;/span&gt;, ..&lt;span class=&quot;selector-class&quot;&gt;.sources&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;不过，采用这种方法克隆，只能克隆原始对象自身的值，不能克隆它继承的值。如果想要保持继承链，可以采用下面的代码。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：Both String and Symbol properties are copied.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;String和Symbol类型都可被直接分配。&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;clone&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;origin&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; originProto = &lt;span class=&quot;built_in&quot;&gt;Object&lt;/span&gt;.getPrototypeOf(origin);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Object&lt;/span&gt;.assign(&lt;span class=&quot;built_in&quot;&gt;Object&lt;/span&gt;.create(originProto), origin);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;注意：如果属性是只读的，那将会抛出异常，目标对象将会停止改变（而之前的改变会保留）。但是对于null或者undefind会直接忽略。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="javascript-Object" scheme="http://yoursite.com/tags/javascript-Object/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>语录</title>
+    <link href="http://yoursite.com/2016/02/18/%E8%AF%AD%E5%BD%95/"/>
+    <id>http://yoursite.com/2016/02/18/语录/</id>
+    <published>2016-02-18T01:42:46.000Z</published>
+    <updated>2017-04-27T09:33:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#1</p>
+<blockquote>
+<p>把复杂拆分成简单，将简单组合成强大，再用强大去解决复杂。<br>&nbsp;<br>—— Unix设计思想之一</p>
+</blockquote>
+<p>#2</p>
+<blockquote>
+<p>Testing shows the presence, not the absence of bugs.<br>&nbsp;<br>—— Dijkstra, 1969</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#1&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;把复杂拆分成简单，将简单组合成强大，再用强大去解决复杂。&lt;br&gt;&amp;nbsp;&lt;br&gt;—— Unix设计思想之一&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;#2&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Testing shows 
+    
+    </summary>
+    
+    
+      <category term="语录" scheme="http://yoursite.com/tags/%E8%AF%AD%E5%BD%95/"/>
     
   </entry>
   
